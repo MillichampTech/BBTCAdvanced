@@ -1,0 +1,79 @@
+/* =========================================
+   Global "Hub" system (used site-wide)
+   One source of truth for: hero depth, icon tiles, hub cards
+========================================= */
+
+:root{
+  --hub-accent:#0f2f4f;
+  --hub-muted: rgba(17,24,39,0.78);
+  --hub-shadow: 0 12px 34px rgba(0,0,0,.08);
+  --hub-shadow-strong: 0 18px 44px rgba(0,0,0,.12);
+}
+
+[data-theme="dark"]{
+  --hub-accent:#1e3a8a;
+  --hub-muted: rgba(229,231,235,0.78);
+}
+
+/* text helper you already use everywhere */
+.org-muted{ opacity:1; color: var(--hub-muted); }
+
+/* hero depth (used in hub pages, activities, accommodation, amenities, etc.) */
+.hub-hero{ position:relative; overflow:hidden; }
+.hub-hero::after{
+  content:"";
+  position:absolute;
+  inset:-40px;
+  background:
+    radial-gradient(900px 260px at 12% 15%, rgba(93,153,210,.18), transparent 60%),
+    radial-gradient(700px 240px at 88% 0%, rgba(15,47,79,.16), transparent 55%),
+    radial-gradient(500px 220px at 45% 110%, rgba(34,75,142,.10), transparent 60%);
+  pointer-events:none;
+  z-index:0;
+}
+.hub-hero > *{ position:relative; z-index:1; }
+
+/* icon tile (used in hub + support + local amenities groups) */
+.hub-icon{
+  width:44px;height:44px;flex:0 0 44px;
+  display:grid;place-items:center;
+  border-radius:12px;
+  background: rgba(15,47,79,0.10);
+  border: 1px solid rgba(15,47,79,0.16);
+  color: var(--hub-accent);
+  user-select:none;
+}
+.hub-icon i{font-size:1.05rem;line-height:1;}
+
+[data-theme="dark"] .hub-icon,
+[data-theme="autumn"] .hub-icon{
+  background: rgba(30,58,138,0.18);
+  border-color: rgba(255,255,255,.12);
+  color: rgba(255,255,255,.88);
+}
+
+/* hub cards (Support hub + any future “card hub” pages) */
+.hub-card{
+  border-radius: 16px;
+  box-shadow: var(--hub-shadow);
+  background:#fff;
+  border-top: 6px solid var(--hub-accent);
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+.hub-card:hover{
+  transform: translateY(-2px);
+  box-shadow: var(--hub-shadow-strong);
+}
+[data-theme="dark"] .hub-card,
+[data-theme="autumn"] .hub-card{
+  background: rgba(0,0,0,.22);
+  border-top-color: var(--hub-accent);
+}
+
+.hub-card--primary{
+  background: linear-gradient(135deg, rgba(15,47,79,.07), rgba(93,153,210,.07));
+}
+[data-theme="dark"] .hub-card--primary,
+[data-theme="autumn"] .hub-card--primary{
+  background: rgba(0,0,0,.26);
+}

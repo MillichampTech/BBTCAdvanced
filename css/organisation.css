@@ -1,0 +1,238 @@
+/* ==========================================================================
+   Organisation page styling (FINAL FIX)
+   - Primary per section uses .org-primary on the org-item (intentional, not positional)
+   - Secondary cards are white with section accent bar
+   - Warden section: primary maroon; secondary white with maroon accent + readable text
+   - Load AFTER ../css/main.css
+   ========================================================================== */
+
+/* ==============================
+   SECTION COLOUR VARIABLES
+   ============================== */
+:root{
+  --org-trustees: #0f2f4f;  /* Navy */
+  --org-mancom:   #0f5c52;  /* Teal */
+  --org-warden:   #6b1e2b;  /* Maroon */
+
+  --org-card-radius: 16px;
+  --org-shadow: 0 8px 24px rgba(0,0,0,0.08);
+  --org-shadow-strong: 0 12px 32px rgba(0,0,0,0.18);
+
+  --org-text: #111827;
+  --org-muted: rgba(17,24,39,0.78);
+}
+
+[data-theme="dark"]{
+  --org-trustees: #1e3a8a;
+  --org-mancom:   #0d9488;
+  --org-warden:   #9f1239;
+
+  --org-text: #e5e7eb;
+  --org-muted: rgba(229,231,235,0.78);
+}
+
+/* ==============================
+   BASE CARD + TEXT
+   ============================== */
+.org-card{
+  border-radius: var(--org-card-radius);
+  box-shadow: var(--org-shadow);
+  background: #ffffff;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  color: var(--org-text);
+}
+
+.org-card:hover{
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.12);
+}
+
+/* keep your existing site “small-muted” feel but ensure visibility */
+.small-muted{
+  opacity: 1; /* don’t let it wash out */
+  color: var(--org-muted);
+}
+
+.org-muted{
+  opacity: 1;
+  color: var(--org-muted);
+}
+
+/* ==============================
+   AVATAR (INITIALS BADGE)
+   ============================== */
+.org-avatar{
+  width: 44px;
+  height: 44px;
+  flex: 0 0 44px;
+  display: grid;
+  place-items: center;
+  border-radius: 12px;
+  font-weight: 700;
+  letter-spacing: .5px;
+  user-select: none;
+  background: rgba(0,0,0,0.08);
+  color: var(--org-text);
+}
+
+/* ==============================
+   PRIMARY CARD (INTENTIONAL)
+   ============================== */
+.org-item.org-primary .org-card{
+  color: #ffffff;
+  box-shadow: var(--org-shadow-strong);
+}
+
+/* Primary background per section */
+.section-organisation .org-item.org-primary .org-card{ background: var(--org-trustees); }
+.section-mancom       .org-item.org-primary .org-card{ background: var(--org-mancom); }
+.section-warden       .org-item.org-primary .org-card{ background: var(--org-warden); }
+
+/* Primary muted text */
+.org-item.org-primary .org-card .small-muted,
+.org-item.org-primary .org-card .org-muted{
+  color: rgba(255,255,255,0.85) !important;
+}
+
+/* Primary avatar */
+.org-item.org-primary .org-card .org-avatar{
+  background: rgba(255,255,255,0.15);
+  color: #ffffff;
+}
+
+/* Primary buttons */
+.org-item.org-primary .org-card .btn{
+  border-color: rgba(255,255,255,0.6) !important;
+  color: #ffffff !important;
+  background: transparent !important;
+}
+
+/* ==============================
+   SECONDARY CARDS
+   ============================== */
+.org-item:not(.org-primary) .org-card{
+  background: #ffffff;
+  color: var(--org-text);
+}
+
+/* Accent bar */
+.section-organisation .org-item:not(.org-primary) .org-card{ border-top: 6px solid var(--org-trustees); }
+.section-mancom       .org-item:not(.org-primary) .org-card{ border-top: 6px solid var(--org-mancom); }
+.section-warden       .org-item:not(.org-primary) .org-card{ border-top: 6px solid var(--org-warden); }
+
+/* Secondary muted text (force readable) */
+.org-item:not(.org-primary) .org-card .small-muted,
+.org-item:not(.org-primary) .org-card .org-muted{
+  color: var(--org-muted) !important;
+}
+
+/* Secondary avatars */
+.section-organisation .org-item:not(.org-primary) .org-card .org-avatar{
+  background: rgba(15,47,79,0.10);
+  color: var(--org-trustees);
+}
+
+.section-mancom .org-item:not(.org-primary) .org-card .org-avatar{
+  background: rgba(15,92,82,0.10);
+  color: var(--org-mancom);
+}
+
+.section-warden .org-item:not(.org-primary) .org-card .org-avatar{
+  background: rgba(107,30,43,0.10);
+  color: var(--org-warden);
+}
+
+/* ==============================
+   FILTER BUTTON COLOURS (YOUR CLASSES)
+   ============================== */
+.btn.trusteesBtn{
+  background: #0F2F4F !important;
+  color: whitesmoke !important;
+}
+.btn.managementBtn{
+  background: #0F5C52 !important;
+  color: whitesmoke !important;
+}
+.btn.wardenBtn{
+  background: #6B1E2B !important;
+  color: whitesmoke !important;
+}
+
+
+/* ==============================
+   POLISH PASS (v2) — finish job
+   - reduces "stack of panels" feel on ManCom/Warden sections
+   - makes Filter panel feel intentional
+   - improves spacing/typography rhythm
+   ============================== */
+
+/* Filter panel */
+.org-filter-panel{
+  border-radius: 18px;
+  background: rgba(255,255,255,0.62);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,0.45);
+}
+
+/* Filter buttons */
+.filterbar{ gap: .75rem !important; }
+.filterbar .btn{
+  padding: .45rem .9rem;
+  border-radius: 999px;
+}
+.filterbar .btn.active{
+  transform: scale(1.04);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.14);
+}
+
+/* Card typography + rhythm */
+.org-card{
+  line-height: 1.35;
+}
+.org-card h3{ line-height: 1.25; }
+.org-card .small-muted{ line-height: 1.5; }
+
+/* Reduce heavy outer panels on these sections */
+.org-section-plain{
+  background: transparent !important;
+  box-shadow: none !important;
+  border: 0 !important;
+}
+
+/* Give sections a touch more breathing space */
+.section-organisation .row.g-3,
+.section-mancom .row.g-3,
+.section-warden .row.g-3{
+  --bs-gutter-y: 1.25rem;
+}
+
+/* Warden featured card: slightly lighter + less overpowering */
+.section-warden .org-item.org-primary .org-card{
+  background: #7a2534;
+  box-shadow: 0 10px 26px rgba(0,0,0,0.16);
+}
+
+
+/* Subtle dividers to separate flat sections (avoid "stack of pillows") */
+.section-mancom,
+.section-warden{
+  margin-top: 3rem;
+  padding-top: 2.5rem;
+  border-top: 1px solid rgba(17,24,39,0.08);
+}
+
+[data-theme="dark"] .section-mancom,
+[data-theme="dark"] .section-warden{
+  border-top-color: rgba(229,231,235,0.14);
+}
+
+/* CTA polish: less "checkout", more "next step" */
+.org-cta .btn{
+  padding: .55rem 1.15rem;
+  box-shadow: none !important;
+}
+
+/* CTA button: full width on mobile only */
+@media (min-width: 992px){
+  .org-cta .btn{ width: auto !important; }
+}

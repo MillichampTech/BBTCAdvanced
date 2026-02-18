@@ -1,0 +1,30 @@
+[
+  {
+    "name": "Booths Supermarket",
+    "lat": 53.783,
+    "lng": -2.874,
+    "address": "Station Rd, Kirkham PR4 2AS",
+    "image": "../assets/images/food/booths.jpg"
+  },
+  {
+    "name": "Domino\u2019s Pizza",
+    "lat": 53.784,
+    "lng": -2.872,
+    "address": "Kirkham PR4 2AJ",
+    "image": "../assets/images/food/dominos.jpg"
+  },
+  {
+    "name": "Queens Arms Pub",
+    "lat": 53.784,
+    "lng": -2.874,
+    "address": "Station Rd, Kirkham PR4 2AS",
+    "image": "../assets/images/food/queens-arms.jpg"
+  },
+  {
+    "name": "Fish & Chips Takeaway",
+    "lat": 53.785,
+    "lng": -2.873,
+    "address": "Kirkham PR4 2AS",
+    "image": "../assets/images/food/fish-chips.jpg"
+  }
+]

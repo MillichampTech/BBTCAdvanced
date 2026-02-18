@@ -1,0 +1,30 @@
+[
+  {
+    "name": "Science and Industry Museum",
+    "lat": 53.4774,
+    "lng": -2.2526,
+    "address": "Liverpool Rd, Manchester M3 4FP",
+    "image": "../assets/images/cities/manchester-science-museum.jpg"
+  },
+  {
+    "name": "Old Trafford Stadium",
+    "lat": 53.4631,
+    "lng": -2.2913,
+    "address": "Sir Matt Busby Way, Manchester M16 0RA",
+    "image": "../assets/images/cities/old-trafford.jpg"
+  },
+  {
+    "name": "Liverpool Waterfront",
+    "lat": 53.4042,
+    "lng": -2.9946,
+    "address": "Albert Dock, Liverpool L3 4AA",
+    "image": "../assets/images/cities/liverpool-waterfront.jpg"
+  },
+  {
+    "name": "Liverpool Cathedral",
+    "lat": 53.3972,
+    "lng": -2.9739,
+    "address": "St James Mt, Liverpool L1 7AZ",
+    "image": "../assets/images/cities/liverpool-cathedral.jpg"
+  }
+]

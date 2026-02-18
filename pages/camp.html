@@ -1,0 +1,888 @@
+<!DOCTYPE html>
+<html lang="en" id="html-root">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Centenary Hall | BBNW</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Poppins:wght@400;600&family=IBM+Plex+Sans:wght@400;600&family=Merriweather:wght@700&family=Nunito:wght@400;700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="../css/main.css">
+</head>
+
+<body>
+  <div class="theme-overlay" aria-hidden="true"></div>
+
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <header>
+    <div id="site-nav"></div>
+  </header>
+
+  <main id="main-content" role="main" class="py-4">
+
+  <!-- HERO -->
+  <section class="reveal mb-4" aria-label="Camp Field introduction">
+    <div class="glass-panel soft-card p-3 p-lg-4 campfield-hero">
+      <div class="row g-4 align-items-stretch">
+
+        <div class="col-12 col-lg-6 d-flex">
+          <div class="w-100 d-flex flex-column">
+            <p class="kicker mb-2">Camp Field • Outdoor Space</p>
+
+            <h1 class="display-6 mb-2">
+              Outdoor space that stays
+              <span class="centenary-rotator" aria-label="rotating highlights">
+                <span class="rotator-word is-on">flexible</span>
+                <span class="rotator-word">simple</span>
+                <span class="rotator-word">fun</span>
+              </span>.
+            </h1>
+
+            <p class="lead mb-3" id="heroLead">
+              A large open field for camps, activity days, games and outdoor events — designed to adapt to your
+              programme and your group.
+            </p>
+
+            <!-- MODE SWITCHER -->
+            <div class="centenary-switcher mb-3" role="tablist" aria-label="Choose your outdoor plan">
+              <button class="btn btn-outline-secondary centenary-tab is-active" type="button" data-mode="camps"
+                role="tab" aria-selected="true">Camps</button>
+              <button class="btn btn-outline-secondary centenary-tab" type="button" data-mode="activity" role="tab"
+                aria-selected="false">Activity days</button>
+              <button class="btn btn-outline-secondary centenary-tab" type="button" data-mode="events" role="tab"
+                aria-selected="false">Events & gatherings</button>
+              <button class="btn btn-outline-secondary centenary-tab" type="button" data-mode="seasonal" role="tab"
+                aria-selected="false">Seasonal hire</button>
+            </div>
+
+            <!-- HIGHLIGHTS -->
+            <div class="centenary-highlights mb-3" id="heroHighlights" aria-live="polite">
+              <!-- injected by JS -->
+            </div>
+
+            <div class="d-flex flex-wrap gap-2 mt-auto">
+              <a class="btn btn-glass" id="heroCta" href="#" role="button" data-bs-toggle="modal" data-bs-target="#enquiryModal" data-subject="Camp Field Camps Enquiry" data-source="camp">
+                Enquire about camps
+              </a>
+              <a class="btn btn-outline-secondary" href="/files/public/webbooklet.pdf" target="_blank" rel="noopener">
+                Download brochure
+              </a>
+              <a class="btn btn-outline-secondary" href="#gallery">View photos</a>
+            </div>
+          </div>
+        </div>
+<div class="mt-2">
+  <div class="row g-2">
+    <div class="col-12">
+      <div class="quick-card">
+        <div class="small-muted">
+          Pro tip: Pair the field with a hall as a weather backup — you keep the programme moving even if the forecast flips.
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+        <!-- COLLAGE -->
+        <div class="col-12 col-lg-6">
+          <div class="centenary-collage">
+            <div class="gallery-grid" aria-label="Camp Field image collage">
+              <a class="g g1" id="heroImgMainLink" href="../images/camp-field/field.jpg">
+                <img id="heroImgMain" src="../images/camp-field/field.jpg" alt="Camp Field overview" loading="lazy">
+              </a>
+              <a class="g g2" href="../images/camp-field/tents.jpg">
+                <img src="../images/camp-field/tents.jpg" alt="Tents and camping setup" loading="lazy">
+              </a>
+              <a class="g g3" href="../images/camp-field/activity.jpg">
+                <img src="../images/camp-field/activity.jpg" alt="Outdoor activity session" loading="lazy">
+              </a>
+              <a class="g g4" href="../images/camp-field/groups.jpg">
+                <img src="../images/camp-field/groups.jpg" alt="Group games on the field" loading="lazy">
+              </a>
+            </div>
+
+            <p class="small-muted mt-3 mb-0">
+              This page sells best with: one wide “space” shot, one tents/camp shot, one activity moment, one people-scale shot.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- PREMIUM: “How it runs” + Featured photo -->
+  <section class="row g-4 mb-4 align-items-stretch reveal">
+    <div class="col-12 col-lg-6">
+      <div class="glass-panel soft-card h-100 p-3 p-lg-4">
+        <div class="d-flex align-items-start justify-content-between gap-2 flex-wrap">
+          <div>
+            <h2 class="h4 mb-1">How your day runs here</h2>
+            <p class="small-muted mb-0">A quick feel for the flow — changes with your selection above.</p>
+          </div>
+          <span class="badge-soft">Mode-aware</span>
+        </div>
+
+        <div class="runline mt-3" id="runlineBox" aria-live="polite">
+          <!-- injected by JS -->
+        </div>
+
+        <div class="d-flex flex-wrap gap-2 mt-3">
+          <a class="btn btn-outline-secondary" id="planCta" href="#" role="button" data-bs-toggle="modal" data-bs-target="#enquiryModal" data-subject="Camp Field Question" data-source="camp">
+            Ask a quick question
+          </a>
+          <a class="btn btn-outline-secondary" href="/files/public/webbooklet.pdf" target="_blank" rel="noopener">
+            Brochure
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-12 col-lg-6" id="gallery">
+      <div class="featured-photo h-100">
+        <img id="featuredImg" src="../images/camp-field/field.jpg" alt="Featured view of Camp Field" loading="lazy">
+        <div class="featured-photo__cap">
+          <div>
+            <strong id="galleryFeaturedTitle">Room to run a full programme</strong>
+            <div class="small-muted" id="galleryFeaturedText">
+              A clean, open space that adapts to camps, games and outdoor sessions.
+            </div>
+          </div>
+          <a class="btn btn-outline-secondary btn-sm" id="featuredImgLink" href="../images/camp-field/field.jpg">Open</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALLERY + MODE SELL -->
+  <section class="row g-4 mb-4 align-items-stretch reveal">
+    <div class="col-12 col-lg-7">
+      <div class="glass-panel soft-card h-100 p-3">
+        <div class="d-flex align-items-center justify-content-between flex-wrap gap-2 mb-2">
+          <h2 class="h4 mb-0">More photos</h2>
+          <span class="badge-soft">Folder: <code>../images/camp-field/</code></span>
+        </div>
+<p class="small-muted mb-2">
+  Best set: one wide field shot, one tents shot, one activity moment, one close “detail” (kit, ropes, flags, fire circle).
+</p>
+
+        <div class="gallery-grid" aria-label="Camp Field photo gallery">
+          <a class="g g1" href="../images/camp-field/01.jpg"><img src="../images/camp-field/01.jpg" alt="Camp field"></a>
+          <a class="g g2" href="../images/camp-field/02.jpg"><img src="../images/camp-field/02.jpg" alt="Camping"></a>
+          <a class="g g3" href="../images/camp-field/03.jpg"><img src="../images/camp-field/03.jpg" alt="Activity setup"></a>
+          <a class="g g4" href="../images/camp-field/04.jpg"><img src="../images/camp-field/04.jpg" alt="Group on the field"></a>
+        </div>
+
+        <p class="mt-3 mb-0 small-muted" id="galleryNote">
+          Premium feel tip: one photo with tents/kit/chairs visible gives a “real camp” vibe instantly.
+        </p>
+      </div>
+    </div>
+
+    <div class="col-12 col-lg-5">
+      <div class="glass-panel soft-card h-100 p-3">
+        <h2 class="h4" id="modeSellTitle">Camps that feel organised</h2>
+        <p class="mb-3" id="modeSellLead">
+          A flexible outdoor base that supports schedules, activities and group flow.
+        </p>
+
+        <ul class="feature-list" id="modeSellList"></ul>
+
+        <div class="cta-bar mt-3">
+          <a class="btn btn-glass w-100 mb-2" id="modeSellCta" href="#" role="button" data-bs-toggle="modal" data-bs-target="#enquiryModal" data-subject="Camp Field Camps Enquiry" data-source="camp">
+            Check availability
+          </a>
+          <div class="d-flex gap-2">
+            <a class="btn btn-outline-secondary flex-fill" href="#" role="button" data-bs-toggle="modal" data-bs-target="#enquiryModal" data-subject="Site Visit Request" data-source="camp">Request a site visit</a>
+            <a class="btn btn-outline-secondary flex-fill" href="/files/public/webbooklet.pdf" target="_blank" rel="noopener">Brochure</a>
+          </div>
+          <div class="small-muted mt-2" id="modeSellNote">
+            Include dates + approximate group size for a fast reply.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STRIP -->
+  <section class="glass-panel soft-card p-3 mb-4 reveal">
+    <div class="row g-3 align-items-center">
+      <div class="col-12 col-lg-8">
+        <h2 class="h4 mb-1" id="modeStripTitle">Best for camps & outdoor programmes</h2>
+        <p class="mb-0 small-muted" id="modeStripText">
+          Camps • activity days • team games • outdoor learning • seasonal events.
+        </p>
+      </div>
+      <div class="col-12 col-lg-4">
+        <div class="d-flex gap-2 justify-content-lg-end flex-wrap">
+          <a class="btn btn-glass" id="stripCta" href="#" role="button" data-bs-toggle="modal" data-bs-target="#enquiryModal" data-subject="Camp Field Enquiry" data-source="camp">Enquire</a>
+          <a class="btn btn-outline-secondary" href="/files/public/webbooklet.pdf" target="_blank" rel="noopener">Brochure</a>
+        </div>
+      </div>
+    </div>
+  </section>
+<section class="reveal mb-4">
+  <div class="glass-panel soft-card p-3 p-lg-4">
+    <div class="d-flex align-items-center justify-content-between flex-wrap gap-2 mb-2">
+      <h2 class="h4 mb-0">Build a simple programme</h2>
+      <span class="badge-soft">Fast planning</span>
+    </div>
+
+    <div class="row g-3">
+      <div class="col-12 col-lg-4">
+        <div class="quick-card h-100">
+          <div class="quick-label fw-bold">Morning</div>
+          <div class="small-muted">Arrival • briefing • first activity block</div>
+        </div>
+      </div>
+      <div class="col-12 col-lg-4">
+        <div class="quick-card h-100">
+          <div class="quick-label fw-bold">Afternoon</div>
+          <div class="small-muted">Rotations • team games • skills challenges</div>
+        </div>
+      </div>
+      <div class="col-12 col-lg-4">
+        <div class="quick-card h-100">
+          <div class="quick-label fw-bold">Evening</div>
+          <div class="small-muted">Gathering • reflections • wind-down</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="d-flex flex-wrap gap-2 mt-3">
+      <a class="btn btn-glass" href="#" role="button" data-bs-toggle="modal" data-bs-target="#enquiryModal" data-subject="Camp Field Programme Help" data-source="camp">Ask us to shape your programme</a>
+      <a class="btn btn-outline-secondary" href="/files/public/webbooklet.pdf" target="_blank" rel="noopener">Brochure</a>
+    </div>
+  </div>
+</section>
+
+  <!-- SOCIAL PROOF -->
+  <section class="reveal mb-4">
+    <div class="glass-panel soft-card p-3 p-lg-4">
+      <div class="d-flex align-items-center justify-content-between flex-wrap gap-2 mb-2">
+        <h2 class="h4 mb-0">What groups like about the Camp Field</h2>
+        <span class="badge-soft">Social proof</span>
+      </div>
+      <p class="small-muted mb-3">
+        Replace these with real quotes once you’ve got them — even two genuine testimonials boosts enquiries.
+      </p>
+
+      <div id="testimonials" class="carousel slide" data-bs-ride="carousel" data-bs-interval="7000">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <div class="p-3">
+              <p class="mb-2">“Loads of space — we could run activities without constantly resetting everything.”</p>
+              <div class="small-muted">— Group leader</div>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div class="p-3">
+              <p class="mb-2">“Great for camps — the field gave us a clean base for the whole weekend.”</p>
+              <div class="small-muted">— Camp organiser</div>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div class="p-3">
+              <p class="mb-2">“Perfect for an activity day — easy to plan zones and keep the schedule moving.”</p>
+              <div class="small-muted">— Activity day coordinator</div>
+            </div>
+          </div>
+        </div>
+
+        <button class="carousel-control-prev" type="button" data-bs-target="#testimonials" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#testimonials" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ + ENQUIRY HELPER -->
+  <section class="row g-4 mb-2 reveal">
+    <div class="col-12 col-lg-6">
+      <div class="glass-panel soft-card p-3 h-100">
+        <h2 class="h4 mb-3">Frequently asked</h2>
+
+        <details class="mb-2" open>
+          <summary class="fw-bold">Is the field suitable for tents and camps?</summary>
+          <div class="pt-2 small-muted">
+            Yes — camps are one of the main use cases. Share your dates and rough numbers and we’ll advise what works best.
+          </div>
+        </details>
+
+        <details class="mb-2">
+          <summary class="fw-bold">Can we book it for a day only?</summary>
+          <div class="pt-2 small-muted">
+            Yes — activity days and outdoor sessions work well. Include your programme type and times.
+          </div>
+        </details>
+
+        <details>
+          <summary class="fw-bold">Can we combine it with halls and accommodation?</summary>
+          <div class="pt-2 small-muted">
+            Absolutely — pairing outdoor space with a hall and sleeping makes a full weekend programme much easier to run.
+          </div>
+        </details>
+      </div>
+    </div>
+
+    <div class="col-12 col-lg-6">
+      <div class="glass-panel soft-card p-3 h-100">
+        <h2 class="h4 mb-2">A quick enquiry that gets a quick answer</h2>
+        <p class="small-muted mb-2">Copy/paste into your enquiry:</p>
+
+        <div class="enquiry-box p-3 rounded">
+          <p class="mb-1"><strong>Dates:</strong> [start] – [end]</p>
+          <p class="mb-1"><strong>Group size:</strong> [number]</p>
+          <p class="mb-1"><strong>Purpose:</strong> <span id="modeEnquiryPurpose">Camp booking</span></p>
+          <p class="mb-0"><strong>Add-ons:</strong> [hall / accommodation / catering / activities]</p>
+        </div>
+
+        <div class="d-flex gap-2 mt-3 flex-wrap">
+          <a class="btn btn-glass" href="#" role="button" data-bs-toggle="modal" data-bs-target="#enquiryModal" data-subject="Camp Field Enquiry" data-source="camp">Open enquiry form</a>
+          <a class="btn btn-outline-secondary" href="/files/public/webbooklet.pdf" target="_blank" rel="noopener">Brochure</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+  <footer>
+    <div id="site-footer"></div>
+  </footer>
+
+  <!-- Sticky mini-CTA -->
+  <div class="sticky-cta" id="stickyCta" aria-hidden="true">
+    <div class="sticky-cta__inner glass-panel">
+      <div class="sticky-cta__text">
+        <p class="sticky-cta__title">Centenary Hall</p>
+        <p class="sticky-cta__sub" id="stickySub">Self-catering • Sleeps 48 • Enquire now</p>
+      </div>
+      <div class="sticky-cta__actions">
+        <a class="btn btn-glass" id="stickyCtaPrimary" href="#" role="button" data-bs-toggle="modal" data-bs-target="#enquiryModal" data-subject="Camp Enquiry" data-source="camp">Enquire</a>
+        <a class="btn btn-outline-secondary" href="/files/public/webbooklet.pdf" target="_blank" rel="noopener">Brochure</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Accessibility Modal (unchanged) -->
+  
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- Google Translate -->
+<script>
+  function googleTranslateElementInit() {
+    new google.translate.TranslateElement({ pageLanguage: 'en' }, 'google_translate_element_modal');
+  }
+</script>
+<script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+<!-- EmailJS -->
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
+<!-- Theme (kept consistent with other pages) -->
+<script defer src="../components/components.js"></script>
+<script defer src="../theme.js"></script>
+
+<!-- PREMIUM MODE ENGINE -->
+<script>
+(() => {
+  const reduceMotion =
+    (window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches) ||
+    document.documentElement.classList.contains("reduce-motion") ||
+    document.documentElement.classList.contains("reduced-motion");
+
+  // rotator
+  if (!reduceMotion) {
+    const words = Array.from(document.querySelectorAll(".rotator-word"));
+    if (words.length) {
+      let i = 0;
+      setInterval(() => {
+        words[i].classList.remove("is-on");
+        i = (i + 1) % words.length;
+        words[i].classList.add("is-on");
+      }, 2200);
+    }
+  }
+
+  const tabs = Array.from(document.querySelectorAll(".centenary-tab"));
+
+  const lead = document.getElementById("heroLead");
+  const cta = document.getElementById("heroCta");
+  const img = document.getElementById("heroImgMain");
+  const imgLink = document.getElementById("heroImgMainLink");
+  const highlights = document.getElementById("heroHighlights");
+
+  const modeSellTitle = document.getElementById("modeSellTitle");
+  const modeSellLead = document.getElementById("modeSellLead");
+  const modeSellList = document.getElementById("modeSellList");
+  const modeSellCta = document.getElementById("modeSellCta");
+
+  const modeStripTitle = document.getElementById("modeStripTitle");
+  const modeStripText = document.getElementById("modeStripText");
+  const stripCta = document.getElementById("stripCta");
+
+  const modeEnquiryPurpose = document.getElementById("modeEnquiryPurpose");
+  const runlineBox = document.getElementById("runlineBox");
+  const planCta = document.getElementById("planCta");
+
+  const featuredImg = document.getElementById("featuredImg");
+  const featuredImgLink = document.getElementById("featuredImgLink");
+  const galleryFeaturedTitle = document.getElementById("galleryFeaturedTitle");
+  const galleryFeaturedText = document.getElementById("galleryFeaturedText");
+
+  const stickyTitle = document.querySelector(".sticky-cta__title");
+  const stickySub = document.getElementById("stickySub");
+  const stickyPrimary = document.getElementById("stickyCtaPrimary");
+
+  function swapFx(...els) {
+    if (reduceMotion) return;
+    els.forEach(el => el && el.classList.add("is-swapping"));
+    requestAnimationFrame(() => setTimeout(() => els.forEach(el => el && el.classList.remove("is-swapping")), 140));
+  }
+
+  function renderRunline(steps) {
+    return steps.map(s => `
+      <div class="runline-step">
+        <div class="top">
+          <strong>${s.title}</strong>
+          <span class="tag">${s.tag}</span>
+        </div>
+        <p>${s.text}</p>
+      </div>
+    `).join("");
+  }
+
+  const modes = {
+    camps: {
+      lead: "A large open field for camps and residential weekends — flexible space that supports a full outdoor programme.",
+      cta: "Enquire about camps",
+      subject: "Camp%20Field%20Camps%20Enquiry",
+      heroImg: "../images/camp-field/tents.jpg",
+      heroAlt: "Tents and camping setup",
+      highlightsHtml: `
+        <div class="row g-2">
+          <div class="col-6"><div class="quick-card h-100"><div class="quick-num">Camps</div><div class="quick-label">ready</div><div class="small-muted">Weekend formats</div></div></div>
+          <div class="col-6"><div class="quick-card h-100"><div class="quick-num">Flexible</div><div class="quick-label">layouts</div><div class="small-muted">Zones & bases</div></div></div>
+          <div class="col-6"><div class="quick-card h-100"><div class="quick-num">Outdoor</div><div class="quick-label">programme</div><div class="small-muted">Games & skills</div></div></div>
+          <div class="col-6"><div class="quick-card h-100"><div class="quick-num">Pair</div><div class="quick-label">with halls</div><div class="small-muted">Full weekend</div></div></div>
+        </div>`,
+      sellTitle: "Camps that feel organised",
+      sellLead: "Set up a base, run sessions, and keep the day moving without constant resets.",
+      sellListHtml: `
+        <li><strong>Space for zones:</strong> split activities without crowding.</li>
+        <li><strong>Camp-friendly:</strong> tents + kit + schedules.</li>
+        <li><strong>Programme flow:</strong> run blocks smoothly.</li>
+        <li><strong>Easy add-ons:</strong> halls & accommodation if needed.</li>
+      `,
+      stripTitle: "Best for camps & outdoor programmes",
+      stripText: "Camps • tented weekends • outdoor learning • team challenges.",
+      enquiryPurpose: "Camp booking",
+      sticky: "Camps • Activity days • Enquire",
+      featured: {
+        img: "../images/camp-field/field.jpg",
+        title: "Room to build your base",
+        text: "Plan zones for activities, tents, and gathering points."
+      },
+      runline: [
+        { tag: "Arrival", title: "Arrive & set your base", text: "Mark out zones: tents, briefing point, activities." },
+        { tag: "Day", title: "Run activity blocks", text: "Rotate groups with minimal downtime." },
+        { tag: "Evening", title: "Gather & reset", text: "Briefings, games, and wind-down time." },
+        { tag: "Departure", title: "Pack down cleanly", text: "Quick clear-up and an easy exit." }
+      ]
+    },
+
+    activity: {
+      lead: "Perfect for activity days — games, challenges, sports and outdoor sessions with space to keep groups moving.",
+      cta: "Enquire about activity days",
+      subject: "Camp%20Field%20Activity%20Day%20Enquiry",
+      heroImg: "../images/camp-field/activity.jpg",
+      heroAlt: "Outdoor activity session",
+      highlightsHtml: `
+        <div class="row g-2">
+          <div class="col-6"><div class="quick-card h-100"><div class="quick-num">Activity</div><div class="quick-label">days</div><div class="small-muted">Games & challenges</div></div></div>
+          <div class="col-6"><div class="quick-card h-100"><div class="quick-num">Safe</div><div class="quick-label">spacing</div><div class="small-muted">Multiple zones</div></div></div>
+          <div class="col-6"><div class="quick-card h-100"><div class="quick-num">Fast</div><div class="quick-label">changeovers</div><div class="small-muted">Keep momentum</div></div></div>
+          <div class="col-6"><div class="quick-card h-100"><div class="quick-num">Optional</div><div class="quick-label">indoors</div><div class="small-muted">Weather backup</div></div></div>
+        </div>`,
+      sellTitle: "Activity days with proper momentum",
+      sellLead: "Space to rotate groups and keep energy up without bottlenecks.",
+      sellListHtml: `
+        <li><strong>Multiple stations:</strong> run 3–6 activity zones at once.</li>
+        <li><strong>Clear flow:</strong> brief → rotate → regroup.</li>
+        <li><strong>People-scale friendly:</strong> feels organised, not chaotic.</li>
+        <li><strong>Backup options:</strong> pair with a hall if needed.</li>
+      `,
+      stripTitle: "Best for activity days",
+      stripText: "Games • challenges • youth sessions • outdoor training.",
+      enquiryPurpose: "Activity day booking",
+      sticky: "Activity days • Outdoor sessions • Enquire",
+      featured: {
+        img: "../images/camp-field/activity.jpg",
+        title: "Built for activity stations",
+        text: "Run rotations without crowding or constant resetting."
+      },
+      runline: [
+        { tag: "Setup", title: "Set stations", text: "Mark out zones and brief leaders." },
+        { tag: "Run", title: "Rotate groups", text: "Timed blocks keep the pace up." },
+        { tag: "Regroup", title: "Gather & debrief", text: "Bring everyone back for a clean reset." },
+        { tag: "Finish", title: "Pack down", text: "Quick clear-up and departure." }
+      ]
+    },
+
+    events: {
+      lead: "Ideal for larger gatherings and outdoor events — overflow space, big games, and group-wide activities.",
+      cta: "Enquire about events",
+      subject: "Camp%20Field%20Events%20Enquiry",
+      heroImg: "../images/camp-field/groups.jpg",
+      heroAlt: "Group games on the field",
+      highlightsHtml: `
+        <div class="row g-2">
+          <div class="col-6"><div class="quick-card h-100"><div class="quick-num">Events</div><div class="quick-label">space</div><div class="small-muted">Bigger groups</div></div></div>
+          <div class="col-6"><div class="quick-card h-100"><div class="quick-num">Wide</div><div class="quick-label">layouts</div><div class="small-muted">Games & zones</div></div></div>
+          <div class="col-6"><div class="quick-card h-100"><div class="quick-num">Flexible</div><div class="quick-label">programmes</div><div class="small-muted">Adapt quickly</div></div></div>
+          <div class="col-6"><div class="quick-card h-100"><div class="quick-num">Pair</div><div class="quick-label">with halls</div><div class="small-muted">Full site use</div></div></div>
+        </div>`,
+      sellTitle: "Outdoor events that feel controlled",
+      sellLead: "Space for crowd flow, zones, and bigger group activities.",
+      sellListHtml: `
+        <li><strong>Room for big games:</strong> wide layouts that scale.</li>
+        <li><strong>Zone planning:</strong> keep groups organised.</li>
+        <li><strong>Site pairing:</strong> halls for briefing/meals if needed.</li>
+        <li><strong>Flexible setup:</strong> adjust the plan fast.</li>
+      `,
+      stripTitle: "Best for events & gatherings",
+      stripText: "Large group days • community events • outdoor activities.",
+      enquiryPurpose: "Event / gathering booking",
+      sticky: "Events • Large groups • Enquire",
+      featured: {
+        img: "../images/camp-field/groups.jpg",
+        title: "Space that scales",
+        text: "Run group-wide activities without crowding."
+      },
+      runline: [
+        { tag: "Plan", title: "Agree layout", text: "Zones, timings, and flow." },
+        { tag: "Arrive", title: "Welcome & brief", text: "Start clean with a clear schedule." },
+        { tag: "Run", title: "Deliver programme", text: "Rotate or run group-wide sessions." },
+        { tag: "Close", title: "Wrap & depart", text: "Finish cleanly and clear the site." }
+      ]
+    },
+
+    seasonal: {
+      lead: "Seasonal outdoor hire — best in spring and summer for programmes that need space, light and fresh air.",
+      cta: "Enquire about seasonal hire",
+      subject: "Camp%20Field%20Seasonal%20Hire%20Enquiry",
+      heroImg: "../images/camp-field/field.jpg",
+      heroAlt: "Camp Field overview",
+      highlightsHtml: `
+        <div class="row g-2">
+          <div class="col-6"><div class="quick-card h-100"><div class="quick-num">Spring</div><div class="quick-label">to summer</div><div class="small-muted">Best season</div></div></div>
+          <div class="col-6"><div class="quick-card h-100"><div class="quick-num">Fresh</div><div class="quick-label">air</div><div class="small-muted">Outdoor sessions</div></div></div>
+          <div class="col-6"><div class="quick-card h-100"><div class="quick-num">Flexible</div><div class="quick-label">days</div><div class="small-muted">Programme-led</div></div></div>
+          <div class="col-6"><div class="quick-card h-100"><div class="quick-num">Easy</div><div class="quick-label">add-ons</div><div class="small-muted">Halls & catering</div></div></div>
+        </div>`,
+      sellTitle: "Seasonal hire that feels fresh",
+      sellLead: "Perfect for outdoor learning and programmes that suit longer days.",
+      sellListHtml: `
+        <li><strong>Best season:</strong> spring–summer programmes.</li>
+        <li><strong>Outdoor learning:</strong> run sessions outside.</li>
+        <li><strong>Flexible structure:</strong> programme-led days.</li>
+        <li><strong>Add-ons available:</strong> halls/catering if needed.</li>
+      `,
+      stripTitle: "Best for spring–summer programmes",
+      stripText: "Outdoor sessions • seasonal camps • day events.",
+      enquiryPurpose: "Seasonal hire",
+      sticky: "Seasonal hire • Spring–Summer • Enquire",
+      featured: {
+        img: "../images/camp-field/field.jpg",
+        title: "A clean, open base",
+        text: "Outdoor programmes feel better with space and light."
+      },
+      runline: [
+        { tag: "Choose", title: "Pick dates", text: "Tell us your programme style and timing." },
+        { tag: "Setup", title: "Set zones", text: "Briefings, stations, and flow." },
+        { tag: "Run", title: "Deliver sessions", text: "Use the space for activities and learning." },
+        { tag: "Finish", title: "Wrap cleanly", text: "Pack down and depart." }
+      ]
+    }
+  };
+
+  function setMode(mode) {
+    const m = modes[mode] || modes.camps;
+
+    // animated swap
+    swapFx(
+      lead, highlights,
+      modeSellTitle, modeSellLead, modeSellList,
+      modeStripTitle, modeStripText,
+      modeEnquiryPurpose,
+      featuredImg, galleryFeaturedTitle, galleryFeaturedText,
+      runlineBox, stickySub
+    );
+
+    if (lead) lead.textContent = m.lead;
+
+    if (cta) { cta.textContent = m.cta; cta.href = "/contact/?subject=" + m.subject; }
+    if (stickyPrimary) stickyPrimary.href = "/contact/?subject=" + m.subject;
+
+    if (img) { img.src = m.heroImg; img.alt = m.heroAlt; }
+    if (imgLink) imgLink.href = m.heroImg;
+
+    if (highlights) highlights.innerHTML = m.highlightsHtml;
+
+    if (modeSellTitle) modeSellTitle.textContent = m.sellTitle;
+    if (modeSellLead) modeSellLead.textContent = m.sellLead;
+    if (modeSellList) modeSellList.innerHTML = m.sellListHtml;
+
+    if (modeSellCta) modeSellCta.href = "/contact/?subject=" + m.subject;
+
+    if (modeStripTitle) modeStripTitle.textContent = m.stripTitle;
+    if (modeStripText) modeStripText.textContent = m.stripText;
+    if (stripCta) stripCta.href = "/contact/?subject=" + m.subject;
+
+    if (modeEnquiryPurpose) modeEnquiryPurpose.textContent = m.enquiryPurpose;
+
+    if (runlineBox) runlineBox.innerHTML = renderRunline(m.runline || []);
+    if (planCta) planCta.href = "/contact/?subject=" + m.subject;
+
+    if (featuredImg) { featuredImg.src = m.featured.img; featuredImg.alt = m.featured.title; }
+    if (featuredImgLink) featuredImgLink.href = m.featured.img;
+    if (galleryFeaturedTitle) galleryFeaturedTitle.textContent = m.featured.title;
+    if (galleryFeaturedText) galleryFeaturedText.textContent = m.featured.text;
+
+    if (stickyTitle) stickyTitle.textContent = "Camp Field";
+    if (stickySub) stickySub.textContent = m.sticky;
+
+    tabs.forEach(t => {
+      const on = t.dataset.mode === mode;
+      t.classList.toggle("is-active", on);
+      t.setAttribute("aria-selected", on ? "true" : "false");
+    });
+  }
+
+  tabs.forEach(t => t.addEventListener("click", () => setMode(t.dataset.mode)));
+  setMode("camps");
+})();
+</script>
+
+
+<!-- Scroll reveal + Sticky CTA -->
+<script>
+  (() => {
+    const prefersReduced =
+      window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    const html = document.documentElement;
+    const reducedByClass =
+      html.classList.contains("reduce-motion") || html.classList.contains("reduced-motion");
+
+    const reduceMotion = prefersReduced || reducedByClass;
+
+    const revealEls = Array.from(document.querySelectorAll(".reveal"));
+    if (!reduceMotion && "IntersectionObserver" in window && revealEls.length) {
+      const io = new IntersectionObserver((entries) => {
+        for (const e of entries) {
+          if (e.isIntersecting) {
+            e.target.classList.add("is-in");
+            io.unobserve(e.target);
+          }
+        }
+      }, { threshold: 0.16 });
+
+      revealEls.forEach((el) => io.observe(el));
+    } else {
+      revealEls.forEach((el) => el.classList.add("is-in"));
+    }
+
+    const sticky = document.getElementById("stickyCta");
+    if (!sticky) return;
+
+    const hero = document.querySelector(".centenary-hero2");
+    const footer = document.querySelector("footer") || document.getElementById("site-footer");
+
+    const setOn = (on) => {
+      sticky.classList.toggle("is-on", on);
+      sticky.setAttribute("aria-hidden", on ? "false" : "true");
+    };
+
+    let heroPassed = false;
+    let nearFooter = false;
+
+    if ("IntersectionObserver" in window && hero) {
+      const heroObserver = new IntersectionObserver((entries) => {
+        const entry = entries[0];
+        heroPassed = entry.intersectionRatio < 0.6;
+        setOn(heroPassed && !nearFooter);
+      }, { threshold: [0, .2, .4, .6, .8, 1] });
+      heroObserver.observe(hero);
+    } else {
+      const onScroll = () => {
+        const y = window.scrollY || document.documentElement.scrollTop;
+        const heroH = hero ? hero.getBoundingClientRect().height : 520;
+        heroPassed = y > heroH * 0.6;
+        setOn(heroPassed && !nearFooter);
+      };
+      window.addEventListener("scroll", onScroll, { passive: true });
+      onScroll();
+    }
+
+    if ("IntersectionObserver" in window && footer) {
+      const footerObserver = new IntersectionObserver((entries) => {
+        nearFooter = entries[0].isIntersecting;
+        setOn(heroPassed && !nearFooter);
+      }, { threshold: 0.05 });
+      footerObserver.observe(footer);
+    }
+  })();
+</script>
+
+
+
+  <!-- Enquiry modal (consistent across site) -->
+  <div class="modal fade" id="enquiryModal" tabindex="-1" aria-labelledby="enquiryModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content glass-panel soft-card">
+        <div class="modal-header border-0">
+          <h5 class="modal-title" id="enquiryModalLabel">Quick enquiry</h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+
+        <div class="modal-body">
+          <p class="small-muted mb-3">Fill this in and we’ll prefill the Contact page for you to send.</p>
+
+          <form id="bbnwEnquiryForm" class="row g-3 needs-validation" novalidate
+                data-subject="Camp Enquiry" data-source="camp">
+
+            <div class="col-12 col-md-6">
+              <label class="form-label fw-bold" for="qeName">Your name</label>
+              <input id="qeName" name="qeName" class="form-control" type="text" autocomplete="name" required maxlength="80">
+              <div class="invalid-feedback">Please enter your name.</div>
+            </div>
+
+            <div class="col-12 col-md-6">
+              <label class="form-label fw-bold" for="qeEmail">Your email</label>
+              <input id="qeEmail" name="qeEmail" class="form-control" type="email" autocomplete="email" required maxlength="254">
+              <div class="invalid-feedback">Please enter a valid email address.</div>
+            </div>
+
+            <div class="col-12 col-md-6">
+              <label class="form-label fw-bold" for="qePhone">Phone (optional)</label>
+              <input id="qePhone" name="qePhone" class="form-control" type="tel" inputmode="tel" autocomplete="tel" maxlength="20">
+            </div>
+
+            <div class="col-12 col-md-6">
+              <label class="form-label fw-bold" for="qeGroup">Group / organisation (optional)</label>
+              <input id="qeGroup" name="qeGroup" class="form-control" type="text" autocomplete="organization" maxlength="80">
+            </div>
+
+            <div class="col-12 col-md-6">
+              <label class="form-label fw-bold" for="qeDates">Preferred date(s) (optional)</label>
+              <input id="qeDates" name="qeDates" class="form-control" type="text" placeholder="e.g. 12–14 June" maxlength="80">
+            </div>
+
+            <div class="col-12 col-md-6">
+              <label class="form-label fw-bold" for="qeNumbers">Numbers / age range (optional)</label>
+              <input id="qeNumbers" name="qeNumbers" class="form-control" type="text" placeholder="e.g. 18 young people, 4 leaders" maxlength="120">
+            </div>
+
+            <div class="col-12">
+              <label class="form-label fw-bold" for="qeNotes">Notes (optional)</label>
+              <textarea id="qeNotes" name="qeNotes" class="form-control" rows="4" maxlength="800"
+                        placeholder="Anything you want us to know?"></textarea>
+            </div>
+
+            <div class="col-12 d-grid d-md-flex gap-2 justify-content-md-end">
+              <button type="submit" class="btn btn-glass">Continue to contact form</button>
+              <a class="btn btn-outline-secondary" href="contact.html?subject=Camp%20Enquiry&from=camp">Open contact without prefill</a>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Store prefill then redirect to contact.html (same folder as this page)
+    function bbnwGoToContact(payload) {
+      try {
+        sessionStorage.setItem("bbnw_contact_prefill", JSON.stringify({
+          subject: payload.subject || "Enquiry",
+          body: payload.body || "",
+          name: payload.name || "",
+          email: payload.email || "",
+          source: payload.source || "",
+          ts: Date.now()
+        }));
+      } catch (e) {}
+
+      const url = "contact.html?subject=" + encodeURIComponent(payload.subject || "Enquiry")
+                + "&from=" + encodeURIComponent(payload.source || "");
+      window.location.assign(url);
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+      // Allow any trigger to override subject/source (e.g., different CTA buttons on same page)
+      document.querySelectorAll('[data-bs-target="#enquiryModal"][data-subject]').forEach((btn) => {
+        btn.addEventListener("click", () => {
+          const form = document.getElementById("bbnwEnquiryForm");
+          if (!form) return;
+          form.dataset.subject = btn.getAttribute("data-subject") || form.dataset.subject;
+          form.dataset.source  = btn.getAttribute("data-source")  || form.dataset.source;
+        });
+      });
+
+      const form = document.getElementById("bbnwEnquiryForm");
+      if (!form) return;
+
+      const phone = document.getElementById("qePhone");
+      if (phone) {
+        phone.addEventListener("input", () => {
+          phone.value = phone.value.replace(/[^\d+\s\-()]/g, "").slice(0, 20);
+        });
+      }
+
+      form.addEventListener("submit", (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        form.classList.add("was-validated");
+        if (!form.checkValidity()) return;
+
+        const subject = form.dataset.subject || "Enquiry";
+        const source  = form.dataset.source  || "";
+
+        const name = (document.getElementById("qeName")?.value || "").trim();
+        const email = (document.getElementById("qeEmail")?.value || "").trim();
+        const qePhone = (document.getElementById("qePhone")?.value || "").trim();
+        const qeGroup = (document.getElementById("qeGroup")?.value || "").trim();
+        const qeDates = (document.getElementById("qeDates")?.value || "").trim();
+        const qeNumbers = (document.getElementById("qeNumbers")?.value || "").trim();
+        const qeNotes = (document.getElementById("qeNotes")?.value || "").trim();
+
+        const body = [
+          subject,
+          "",
+          "Page: " + source,
+          "",
+          "Name: " + name,
+          "Email: " + email,
+          "Phone: " + (qePhone || "—"),
+          "Group / organisation: " + (qeGroup || "—"),
+          "Preferred date(s): " + (qeDates || "—"),
+          "Numbers / age range: " + (qeNumbers || "—"),
+          "",
+          "Notes: " + (qeNotes || "—")
+        ].join("\n");
+
+        bbnwGoToContact({ subject, body, name, email, source });
+      });
+    });
+  </script>
+

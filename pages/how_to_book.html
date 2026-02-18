@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html id="html-root" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width,initial-scale=1" name="viewport" />
+    <title>How to Book | BBNW</title>
+
+    <!-- Match your existing pages -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Poppins:wght@400;600&family=IBM+Plex+Sans:wght@400;600&family=Merriweather:wght@700&family=Nunito:wght@400;700&family=Lato:wght@400;700&display=swap"
+        rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="../css/main.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <!-- Page-only helpers (minimal, safe) -->
+    <style>
+        .reveal {
+            opacity: 1 !important;
+            transform: none !important;
+        }
+    </style>
+</head>
+<script>
+    const steps = document.querySelectorAll('.step-card');
+
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('is-active');
+            }
+        });
+    }, { threshold: 0.4 });
+
+    steps.forEach(step => observer.observe(step));
+</script>
+
+<body>
+    <div aria-hidden="true" class="theme-overlay"></div>
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+
+    <!-- Injected nav -->
+    <header>
+        <div id="site-nav"></div>
+    </header>
+
+    <main class="container py-4" id="main-content" role="main">
+
+        <!-- HERO -->
+        <section class="reveal mb-4">
+            <div class="glass-panel soft-card p-3 p-lg-4">
+                <div class="d-flex align-items-start justify-content-between flex-wrap gap-3">
+                    <div>
+                        <div class="small-muted mb-1">Bookings</div>
+                        <h1 class="mb-2">How to book</h1>
+                        <p class="lead mb-0">
+                            Bookings are managed through the secure BBNW District booking portal. Register an account,
+                            check availability,
+                            and submit booking requests online.
+                        </p>
+                    </div>
+
+                    <div class="d-flex gap-2 flex-wrap">
+                        <a class="btn btn-glass btn-glass--primary" href="https://www.bb-northwest.org.uk/centre"
+                            target="_blank" rel="noopener">
+                            Check availability &amp; register
+                        </a>
+                        <a class="btn btn-glass" href="contact.html?subject=Booking%20Enquiry&amp;from=how_to_book">
+                            Prefer to speak to the Warden first?
+                        </a>
+                    </div>
+                </div>
+
+                <div class="small-muted mt-3">
+                    The booking portal opens in a new tab.
+                </div>
+            </div>
+        </section>
+
+        <!-- STEPS -->
+        <!-- STEPS -->
+       <!-- STEPS -->
+<section class="reveal mb-4">
+  <div class="mx-auto content-narrow">
+
+    <div class="steps-progress-wrap">
+      <div class="steps-progress-line" aria-hidden="true"></div>
+
+      <div class="steps-stack">
+
+        <!-- STEP 1 -->
+        <div class="hub-card hub-card--primary p-3 p-lg-4 step-card" id="step-1">
+          <div class="step-head">
+            <span class="step-badge">1</span>
+            <span class="small-muted">Step 1</span>
+          </div>
+          <h2 class="h4 mb-2">Check our availability</h2>
+          <p class="mb-0">
+            Visit the booking portal and check availability using the calendar. The next twelve months are shown initially.
+            Select “later” to view additional dates.
+          </p>
+        </div>
+
+        <div class="step-connector" aria-hidden="true">
+          <i class="fa-solid fa-arrow-down-long"></i>
+        </div>
+
+        <!-- STEP 2 -->
+        <div class="hub-card p-3 p-lg-4 step-card" id="step-2">
+          <div class="step-head">
+            <span class="step-badge">2</span>
+            <span class="small-muted">Step 2</span>
+          </div>
+          <h2 class="h4 mb-2">Create an account</h2>
+          <p class="mb-0">
+            When you are ready, register your organisation / group leader account.
+          </p>
+        </div>
+
+        <div class="step-connector" aria-hidden="true">
+          <i class="fa-solid fa-arrow-down-long"></i>
+        </div>
+
+        <!-- STEP 3 -->
+        <div class="hub-card p-3 p-lg-4 step-card" id="step-3">
+          <div class="step-head">
+            <span class="step-badge">3</span>
+            <span class="small-muted">Step 3</span>
+          </div>
+          <h2 class="h4 mb-2">Account approval</h2>
+          <p class="mb-2">
+            New accounts are reviewed and approved by the Centre Warden. Once approved, you can check availability and submit booking requests.
+          </p>
+          <p class="small-muted mb-0">
+            If you prefer, the Warden can also place a booking on your behalf once your account is approved.
+          </p>
+        </div>
+
+        <div class="step-connector" aria-hidden="true">
+          <i class="fa-solid fa-arrow-down-long"></i>
+        </div>
+
+        <!-- STEP 4 -->
+        <div class="hub-card p-3 p-lg-4 step-card" id="step-4">
+          <div class="step-head">
+            <span class="step-badge">4</span>
+            <span class="small-muted">Step 4</span>
+          </div>
+          <h2 class="h4 mb-2">Submit your booking request</h2>
+          <p class="mb-0">
+            Choose your dates from the first night to the last night of your stay. You will receive email updates as the booking progresses.
+          </p>
+        </div>
+
+        <div class="step-connector" aria-hidden="true">
+          <i class="fa-solid fa-arrow-down-long"></i>
+        </div>
+
+        <!-- STEP 5 -->
+        <div class="hub-card hub-card--primary p-3 p-lg-4 step-card step-card--final" id="step-5">
+          <div class="step-head">
+            <span class="step-badge step-badge--final">5</span>
+            <span class="small-muted">Step 5</span>
+          </div>
+          <h2 class="h4 mb-2">Confirm with deposit</h2>
+          <p class="mb-2">
+            When a booking is provisionally accepted, we will email next steps including any required deposit, payment details, and a link to our Terms &amp; Conditions.
+          </p>
+          <p class="small-muted mb-3">
+            Payment of the deposit confirms your booking and indicates acceptance of our Terms &amp; Conditions.
+          </p>
+
+          <div class="d-flex gap-2 flex-wrap">
+            <a class="btn btn-glass" href="terms.html">View Terms &amp; Conditions</a>
+            <a class="btn btn-glass btn-glass--primary"
+               href="https://www.bb-northwest.org.uk/centre" target="_blank" rel="noopener">
+              Go to booking portal
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+        <!-- CTA -->
+        <section class="glass-panel soft-card p-3 p-lg-4 mb-4 reveal">
+            <div class="row g-3 align-items-center">
+                <div class="col-12 col-lg-8">
+                    <h2 class="h4 mb-1">Need help?</h2>
+                    <p class="mb-0 small-muted">
+                        If you’re unsure what to choose, contact the Warden and we’ll guide you through the options.
+                    </p>
+                </div>
+                <div class="col-12 col-lg-4 d-grid d-lg-flex justify-content-lg-end">
+                    <a class="btn btn-glass btn-glass--primary"
+                        href="contact.html?subject=Help%20with%20Booking&amp;from=how_to_book">
+                        Contact the Warden
+                    </a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Injected footer -->
+    <footer>
+        <div id="site-footer"></div>
+    </footer>
+
+    <!-- Bootstrap + your existing component loaders (match your site) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script defer src="../components/components.js"></script>
+    <script defer src="../theme.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en" id="html-root">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Transport & Travel | BBNW</title>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Poppins:wght@400;600&family=IBM+Plex+Sans:wght@400;600&family=Merriweather:wght@700&family=Nunito:wght@400;700&family=Lato:wght@400;700&display=swap"
+    rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet-routing-machine/dist/leaflet-routing-machine.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <link rel="stylesheet" href="../css/main.css">
+  <link rel="stylesheet" href="../css/transport.css">
+</head>
+
+<body>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <header>
+    <div id="site-nav"></div>
+  </header>
+
+  <main id="main-content" role="main" class="container py-4">
+
+    <!-- Hero -->
+    <section class="mb-4">
+      <div class="glass-panel soft-card p-3 p-lg-4 page-hero">
+        <div class="page-hero__content">
+          <p class="eyebrow mb-2">Travel planning</p>
+          <h1 class="mb-0">Transport &amp; Travel</h1>
+        </div>
+      </div>
+    </section>
+
+    <!-- Mode picker -->
+    <section class="mb-3">
+      <div class="glass-panel soft-card p-1">
+        <p class="lead mb-3 text-center">Choose your method of travel</p>
+        <div class="mode-grid" role="tablist" aria-label="Transport modes">
+          <button class="mode-card" type="button" data-mode="motorway" role="tab" aria-selected="false">
+            <div class="mode-ico" aria-hidden="true">
+              <i class="fa-solid fa-car"></i>
+              <i class="fa-solid fa-bus"></i>
+            </div>
+            <div class="mode-title">Car/Coach</div>
+          </button>
+
+          <button class="mode-card" type="button" data-mode="train" role="tab" aria-selected="false">
+            <div class="mode-ico" aria-hidden="true">
+              <i class="fa-solid fa-train"></i>
+            </div>
+            <div class="mode-title">Train</div>
+          </button>
+
+          <button class="mode-card" type="button" data-mode="plane" role="tab" aria-selected="false">
+            <div class="mode-ico" aria-hidden="true">
+              <i class="fa-solid fa-plane"></i>
+            </div>
+            <div class="mode-title">Plane</div>
+          </button>
+
+          <button class="mode-card" type="button" data-mode="boat" role="tab" aria-selected="false">
+            <div class="mode-ico" aria-hidden="true">
+              <i class="fa-solid fa-ferry"></i>
+            </div>
+            <div class="mode-title">Ferry</div>
+          </button>
+
+          <button class="mode-card" type="button" data-mode="taxi" role="tab" aria-selected="false">
+            <div class="mode-ico" aria-hidden="true">
+              <i class="fa-solid fa-taxi"></i>
+            </div>
+            <div class="mode-title">Taxi</div>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Link to full location page (minimal, not a duplicate address block) -->
+    <section class="mb-4">
+      <div class="glass-panel soft-card p-3 d-flex align-items-center justify-content-between flex-wrap gap-2">
+        <div class="small-muted">Need full address details or access guidance?</div>
+        <a class="btn btn-glass btn-glass--primary btn-sm" href="../pages/location.html">View Centre Location page</a>
+      </div>
+    </section>
+
+    <!-- Route area -->
+    <section class="mb-4">
+      <div class="row g-3">
+        <div class="col-12 col-lg-3" id="leftCol">
+         <aside class="glass-panel soft-card p-3 h-100" id="leftPanel">
+
+            <div class="d-flex align-items-center justify-content-between gap-2 mb-2">
+              <div class="h6 mb-0" id="leftTitle">Travel</div>
+              <span class="badge rounded-pill bg-light text-dark" id="modeBadge">—</span>
+            </div>
+            <div class="small-muted mb-3" id="leftIntro"></div>
+
+            <div class="mb-2" id="arrivalBlock">
+              <div class="small-muted mb-2">Arriving at</div>
+              <div class="route-options" id="originButtons" aria-label="Arrival points"></div>
+              <div class="small-muted mt-2" id="originHint">Routes update automatically when you choose an arrival point.</div>
+            </div>
+          </aside>
+        </div>
+
+        <div class="col-12 col-lg-6">
+          <!-- Map card (hidden in Taxi mode) -->
+          <section class="glass-panel soft-card p-3 h-100" id="mapCard">
+            <div class="map-head">
+              <div class="h6 mb-1">Map</div>
+              <div id="routeSummary" class="route-summary">Loading…</div>
+            </div>
+            <div id="transportMap" class="map-canvas" aria-label="Route map"></div>
+            <div class="small-muted mt-3">Note:<br>Routes are a planning guide only.<br>Always confirm access restrictions and traffic before travel.</div>
+          </section>
+
+          <!-- Taxi dock (Taxi mode moves the taxi block here) -->
+          <div id="taxiDock"></div>
+        </div>
+
+        <div class="col-12 col-lg-3" id="routeCol">
+          <section class="glass-panel soft-card p-3 h-100">
+            <div class="d-flex align-items-start justify-content-between gap-2">
+              <div>
+                <div class="h5 mb-1 fw-bold">Route details</div>
+                <div id="routeMeta" class="small-muted">—</div>
+              </div>
+
+              <div class="route-tools">
+                <button class="btn btn-glass btn-sm" id="btnCopyRoute" type="button">Copy</button>
+                <a class="btn btn-glass btn-glass--primary btn-sm" id="btnOpenRouteMaps" href="#" target="_blank" rel="noopener"
+                  aria-disabled="true">Open in Maps</a>
+                <button class="btn btn-glass btn-sm" id="btnClear" type="button">Clear</button>
+              </div>
+            </div>
+
+            <div class="route-panel mt-3" id="routePanel" aria-label="Turn-by-turn directions">
+              <div class="small-muted">—</div>
+            </div>
+          </section>
+        </div>
+      </div>
+    </section>
+
+    <!-- Travel helpers -->
+    <section class="mb-4">
+      <div class="row g-3">
+        <div class="col-12 col-lg-6">
+          <section class="glass-panel soft-card p-3 h-100" id="plannerLinks">
+            <div class="h6 mb-2">Live planners</div>
+            <div class="link-list">
+              <a href="https://www.nationalrail.co.uk/journey-planner/" target="_blank" rel="noopener">
+                <span>National Rail Journey Planner</span><span aria-hidden="true">↗</span>
+              </a>
+              <a href="https://www.thetrainline.com/" target="_blank" rel="noopener">
+                <span>Trainline</span><span aria-hidden="true">↗</span>
+              </a>
+            </div>
+          </section>
+        </div>
+
+        <div class="col-12 col-lg-6" id="taxiHomeCol">
+          <section class="glass-panel soft-card p-3 h-100" id="taxiBlock">
+            <div class="h6 mb-2">Local taxi firms</div>
+            <div class="small-muted mb-2">Choose a firm to view contact details.</div>
+            <div class="taxi-list" id="taxiList" role="listbox" aria-label="Taxi firms"></div>
+
+            <div class="taxi-card mt-3" id="taxiDetails" hidden>
+              <div class="taxi-name" id="taxiName">—</div>
+              <div class="small-muted" id="taxiArea">—</div>
+              <div class="taxi-actions mt-2">
+                <a class="btn btn-glass btn-glass--primary" id="taxiCall" href="#" rel="nofollow">Call</a>
+                <a class="btn btn-glass" id="taxiSite" href="#" target="_blank" rel="noopener">Website</a>
+              </div>
+              <div class="small-muted mt-2" id="taxiNote"></div>
+            </div>
+          </section>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <div id="site-footer"></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script>
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement({ pageLanguage: 'en' }, 'google_translate_element_modal');
+    }
+  </script>
+  <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="https://unpkg.com/leaflet-routing-machine/dist/leaflet-routing-machine.js"></script>
+
+  <script src="../components/components.js"></script>
+  <script src="../theme.js"></script>
+  <script src="../transport.js"></script>
+</body>
+
+</html>

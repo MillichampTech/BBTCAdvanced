@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en" id="html-root">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>The Boys' Brigade North West District 2025</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Poppins:wght@400;600&family=IBM+Plex+Sans:wght@400;600&family=Merriweather:wght@700&family=Nunito:wght@400;700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+  <!-- OpenDyslexic -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/antijingoist/open-dyslexic/fonts/OpenDyslexic.css"/>
+
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Leaflet -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+
+  <!-- Your styles -->
+  <link rel="stylesheet" href="../css/main.css">
+
+  <style>
+    :root {
+      --bb-panel-h: 88vh;
+      --bb-map-min-h: 780px;
+    }
+
+    #bb-layout { gap: 1rem; align-items: stretch; }
+
+    #map {
+      height: var(--bb-panel-h);
+      min-height: var(--bb-map-min-h);
+      width: 100%;
+      border-radius: 1rem;
+      overflow: hidden;
+    }
+
+    .bb-panel {
+      height: var(--bb-panel-h);
+      min-height: var(--bb-map-min-h);
+      overflow: auto;
+    }
+
+    #regionLeft a, #regionRight a { color: inherit; text-decoration: none; }
+    #regionLeft a:hover, #regionRight a:hover { text-decoration: underline; }
+
+    /* Battalion headings: bold + centered */
+    .region-heading {
+      font-size: 0.95rem;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+      opacity: .95;
+      margin-top: 1rem;
+      margin-bottom: .6rem;
+      border-bottom: 1px solid rgba(255,255,255,.18);
+      padding-bottom: .35rem;
+      font-weight: 700;
+      text-align: center;
+    }
+
+    @media (min-width: 992px) {
+      .bb-col { flex: 1 1 0; }
+      .bb-col.left, .bb-col.right { max-width: 340px; }
+      .bb-col.map { flex: 2.2 1 0; min-width: 520px; }
+    }
+
+    @media (max-width: 991.98px) {
+      .bb-col.left, .bb-col.right { width: 100%; }
+      #map { min-height: 520px; }
+      .bb-panel { min-height: 360px; }
+    }
+  </style>
+</head>
+
+<body>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  
+
+  <header>
+  <div id="site-nav"></div>
+</header>
+
+  <main id="main-content" role="main" class="container">
+    <section id="map-section" class="container py-5">
+      <!-- 1) Title change -->
+      <h2 class="text-center mb-5">The Boys' Brigade North West District 2025</h2>
+      <h4></h3>
+
+      <!-- 2) Removed the “click a company name…” text -->
+
+      <div id="bb-layout" class="d-flex flex-wrap justify-content-center mt-3">
+
+        <!-- LEFT LIST -->
+        <aside class="bb-col left glass-panel p-3 bb-panel">
+          <!-- 5) Heading change -->
+          <h3 class="mb-2 text-center">Battalions and Companies</h3>
+          <div id="regionLeft" aria-label="Battalion and company list left"></div>
+        </aside>
+
+        <!-- MAP -->
+        <div class="bb-col map">
+          <div id="map" aria-label="Map showing Boys’ Brigade companies"></div>
+        </div>
+
+        <!-- RIGHT LIST -->
+        <aside class="bb-col right glass-panel p-3 bb-panel">
+          <!-- 5) Heading change -->
+          <h3 class="mb-2 text-center">Battalions and Companies</h3>
+          <div id="regionRight" aria-label="Battalion and company list right"></div>
+        </aside>
+
+      </div>
+
+      <div class="text-center mt-4">
+        <button id="backToTopBtn" class="btn btn-glass d-none">⬆ Back to Top</button>
+      </div>
+    </section>
+  </main>
+
+  <div id="site-footer"></div>
+
+  <!-- Accessibility Modal (unchanged) -->
+  
+
+
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement({ pageLanguage: 'en' }, 'google_translate_element_modal');
+    }
+  </script>
+  <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
+  <!-- Leaflet JS -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+  <!-- Theme -->
+  <script src="../components/components.js"></script>
+  <script src="../theme.js"></script>
+
+  <!-- Map + Lists -->
+  <script>
+    const dataUrl = "../json/companies.json";
+
+    const defaultCenter = [53.8, -2.9];
+    const defaultZoom = 7;
+
+    const markersByName = new Map();
+    const markerGroup = L.featureGroup();
+
+    // 4) Start Manchester Battalion at the top of the second box
+    const RIGHT_PANEL_START_REGION = "Manchester";
+
+    function escapeHtml(str) {
+      return String(str ?? "")
+        .replaceAll("&", "&amp;")
+        .replaceAll("<", "&lt;")
+        .replaceAll(">", "&gt;")
+        .replaceAll('"', "&quot;")
+        .replaceAll("'", "&#039;");
+    }
+
+    function renderColumn(container, items, map) {
+      container.innerHTML = "";
+      let ul = document.createElement("ul");
+      ul.className = "list-unstyled ms-1 mb-0";
+
+      for (const item of items) {
+        if (item.type === "heading") {
+          if (ul.children.length) container.appendChild(ul);
+
+          const h = document.createElement("div");
+          h.className = "region-heading";
+          h.textContent = item.text;
+          container.appendChild(h);
+
+          ul = document.createElement("ul");
+          ul.className = "list-unstyled ms-1 mb-0";
+        } else {
+          const c = item.company;
+
+          const li = document.createElement("li");
+          const a = document.createElement("a");
+          a.href = "#";
+          a.textContent = c.name || "Unnamed company";
+          a.className = "d-block py-1";
+
+          a.addEventListener("click", (e) => {
+            e.preventDefault();
+            const marker = markersByName.get(c.name);
+            if (!marker) return;
+            map.setView(marker.getLatLng(), 14, { animate: true });
+            marker.openPopup();
+          });
+
+          li.appendChild(a);
+          ul.appendChild(li);
+        }
+      }
+
+      if (ul.children.length) container.appendChild(ul);
+    }
+
+    function buildBattalionLists(companies, map) {
+      const left = document.getElementById("regionLeft");
+      const right = document.getElementById("regionRight");
+
+      // Group by region (treated here as Battalion)
+      const byRegion = {};
+      for (const c of companies) {
+        const region = c.region || "Other";
+        (byRegion[region] ||= []).push(c);
+      }
+
+      // Sort companies inside each battalion
+      for (const r of Object.keys(byRegion)) {
+        byRegion[r].sort((a,b) => (a.name || "").localeCompare(b.name || ""));
+      }
+
+      // Order battalions so RIGHT starts with Manchester at the top
+      const allBattalions = Object.keys(byRegion).sort((a,b) => a.localeCompare(b));
+      const idx = allBattalions.indexOf(RIGHT_PANEL_START_REGION);
+
+      let leftBattalions = [];
+      let rightBattalions = [];
+
+      if (idx === -1) {
+        // fallback: split in half
+        const mid = Math.ceil(allBattalions.length / 2);
+        leftBattalions = allBattalions.slice(0, mid);
+        rightBattalions = allBattalions.slice(mid);
+      } else {
+        // everything before Manchester goes left, Manchester and after goes right
+        leftBattalions = allBattalions.slice(0, idx);
+        rightBattalions = allBattalions.slice(idx);
+      }
+
+      // Build flat lists with headings + companies
+      const makeFlat = (battalions) => {
+        const flat = [];
+        for (const b of battalions) {
+          flat.push({ type: "heading", text: b });
+          for (const c of byRegion[b]) flat.push({ type: "company", company: c });
+        }
+        return flat;
+      };
+
+      renderColumn(left, makeFlat(leftBattalions), map);
+      renderColumn(right, makeFlat(rightBattalions), map);
+    }
+
+    async function initBbMap() {
+      const map = L.map("map").setView(defaultCenter, defaultZoom);
+
+      L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+        maxZoom: 19,
+        attribution: "&copy; OpenStreetMap contributors"
+      }).addTo(map);
+
+      markerGroup.addTo(map);
+
+      let companies = [];
+      try {
+        const res = await fetch(dataUrl, { cache: "no-store" });
+        if (!res.ok) throw new Error("HTTP " + res.status);
+        companies = await res.json();
+      } catch (err) {
+        console.error("Failed to load JSON:", err);
+        document.getElementById("regionLeft").innerHTML =
+          '<p class="text-muted small mb-0">Could not load companies JSON. Check the file path.</p>';
+        document.getElementById("regionRight").innerHTML = "";
+        return;
+      }
+
+      // markers
+      for (const c of companies) {
+        const lat = Number(c.lat);
+        const lng = Number(c.lng);
+        if (!Number.isFinite(lat) || !Number.isFinite(lng)) continue;
+
+        const popupHtml = `
+          <strong>${escapeHtml(c.name)}</strong><br>
+          ${escapeHtml(c.address)}<br>
+          <small>${escapeHtml(c.region || "")}</small>
+        `;
+
+        const m = L.marker([lat, lng]).bindPopup(popupHtml);
+        m.addTo(markerGroup);
+        markersByName.set(c.name, m);
+      }
+
+      // Lists: battalion headings centered + Manchester starts right box
+      buildBattalionLists(companies, map);
+
+      const bounds = markerGroup.getBounds();
+      if (bounds.isValid()) map.fitBounds(bounds.pad(0.12));
+
+      const backBtn = document.getElementById("backToTopBtn");
+      window.addEventListener("scroll", () => {
+        if (window.scrollY > 400) backBtn.classList.remove("d-none");
+        else backBtn.classList.add("d-none");
+      });
+      backBtn.addEventListener("click", () => window.scrollTo({ top: 0, behavior: "smooth" }));
+    }
+
+    document.addEventListener("DOMContentLoaded", initBbMap);
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

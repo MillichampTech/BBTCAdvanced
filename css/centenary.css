@@ -1,0 +1,324 @@
+/* ===== Scroll reveal (respects reduce motion) ===== */
+.reveal { opacity: 0; transform: translateY(14px); transition: opacity 520ms ease, transform 520ms ease; }
+.reveal.is-in { opacity: 1; transform: translateY(0); }
+.reveal:not(.is-in) { will-change: opacity, transform; }
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal { opacity: 1 !important; transform: none !important; transition: none !important; }
+}
+html.reduce-motion .reveal { opacity: 1 !important; transform: none !important; transition: none !important; }
+
+/* ===== Sticky mini-CTA bar ===== */
+.sticky-cta {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 12px;
+  z-index: 1100;
+  display: flex;
+  justify-content: center;
+  pointer-events: none;
+}
+.sticky-cta__inner {
+  width: min(980px, calc(100% - 24px));
+  pointer-events: auto;
+  border-radius: 1.25rem;
+  border: 1px solid rgba(255,255,255,.14);
+
+  /* premium depth (still the same glass system) */
+  background: linear-gradient(135deg, rgba(255,255,255,.12), rgba(255,255,255,.06));
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+
+  padding: .7rem .8rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: .75rem;
+  box-shadow: 0 12px 28px rgba(0,0,0,.22);
+  transform: translateY(16px);
+  opacity: 0;
+  transition: transform 240ms ease, opacity 240ms ease;
+}
+.sticky-cta.is-on .sticky-cta__inner { transform: translateY(0); opacity: 1; }
+.sticky-cta__title { font-weight: 800; margin: 0; line-height: 1.1; }
+.sticky-cta__sub { margin: .1rem 0 0 0; opacity: .88; font-size: .95rem; }
+.sticky-cta__text { min-width: 0; }
+.sticky-cta__actions { display: flex; gap: .5rem; flex-wrap: wrap; justify-content: flex-end; }
+
+@media (max-width: 560px) {
+  .sticky-cta__sub { display: none; }
+  .sticky-cta__inner { padding: .65rem .7rem; }
+}
+/* ==============================
+   Centenary accent (matches Organisation Warden maroon)
+   Only applies where you add .centenary-theme wrapper
+   ============================== */
+
+.centenary-theme{
+  --hub-accent: #6b1e2b; /* Warden maroon */
+}
+
+/* If you use hub icons in the hub-card rows, tint their tile too */
+.centenary-theme .hub-icon{
+  background: rgba(107,30,43,0.10);
+  border-color: rgba(107,30,43,0.18);
+  color: var(--hub-accent);
+}
+
+/* Dark theme match (same as org warden dark variant) */
+[data-theme="dark"] .centenary-theme{
+  --hub-accent: #9f1239;
+}
+[data-theme="dark"] .centenary-theme .hub-icon{
+  background: rgba(159,18,57,0.18);
+  border-color: rgba(255,255,255,.12);
+  color: rgba(255,255,255,.88);
+}
+
+
+/* =========================================================
+   Centenary Hall: Premium interactive page polish (no new system)
+   ========================================================= */
+
+.centenary-hero2 { overflow: hidden; }
+
+/* Premium hero hierarchy without changing global typography system */
+.centenary-hero2 h1{
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1.08;
+}
+.hero-capacity-badge{
+  font-size: .95rem;
+  font-weight: 600;
+  opacity: .88;
+}
+
+/* Rotator */
+.centenary-rotator{ display:inline-block; position:relative; min-width: 9.5ch; }
+.rotator-word{ display:none; padding: 0 .1rem; }
+.rotator-word.is-on{ display:inline; }
+
+/* Tabs as a premium switcher */
+.centenary-switcher{
+  display:flex;
+  flex-wrap:wrap;
+  gap:.5rem;
+}
+.centenary-tab{
+  border-radius:999px;
+  border:1px solid rgba(255,255,255,.16);
+  background: rgba(255,255,255,.06);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  transition: transform 160ms ease, background 160ms ease, border-color 160ms ease, box-shadow 160ms ease;
+}
+.centenary-tab:hover{
+  transform: translateY(-1px);
+  border-color: rgba(255,255,255,.26);
+  background: rgba(255,255,255,.10);
+}
+.centenary-tab.is-active,
+.centenary-tab[aria-selected="true"]{
+  border-color: rgba(255,255,255,.42);
+  background: rgba(255,255,255,.16);
+  box-shadow: 0 10px 26px rgba(0,0,0,.18);
+}
+
+/* Mobile: make tab row swipeable */
+@media (max-width: 520px){
+  .centenary-switcher{
+    overflow:auto;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: .25rem;
+    flex-wrap:nowrap;
+  }
+  .centenary-switcher .centenary-tab{
+    white-space:nowrap;
+    flex: 0 0 auto;
+  }
+}
+
+/* Highlight tiles */
+.centenary-highlights .quick-card{
+  border-radius: 1rem;
+  border: 1px solid rgba(255,255,255,.14);
+  background: rgba(255,255,255,.06);
+  box-shadow: 0 10px 24px rgba(0,0,0,.12);
+  padding: .75rem .8rem;
+  transition: transform 160ms ease, border-color 160ms ease, background 160ms ease;
+}
+.centenary-highlights .quick-card:hover{
+  transform: translateY(-1px);
+  border-color: rgba(255,255,255,.24);
+  background: rgba(255,255,255,.10);
+}
+.quick-num{
+  font-weight: 900;
+  letter-spacing: -.02em;
+  line-height: 1.0;
+  font-size: 1.35rem;
+}
+.quick-label{ font-weight: 700; opacity: .95; }
+
+/* Slightly stronger readability on this page only (don’t touch global .small-muted) */
+.centenary-hero2 .small-muted,
+.featured-photo__cap .small-muted,
+.testimonial-card .small-muted{
+  opacity: .88;
+}
+
+/* Collage / gallery polish */
+.centenary-collage .gallery-grid a,
+#gallery .gallery-grid a{
+  border-radius: 1rem;
+  overflow:hidden;
+  display:block;
+  transform: translateZ(0);
+  border: 1px solid rgba(255,255,255,.10);
+  transition: transform 180ms ease, border-color 180ms ease, box-shadow 180ms ease;
+}
+.centenary-collage .gallery-grid a:hover,
+#gallery .gallery-grid a:hover{
+  transform: translateY(-2px);
+  border-color: rgba(255,255,255,.22);
+  box-shadow: 0 16px 36px rgba(0,0,0,.20);
+}
+.centenary-collage img,
+#gallery img{
+  width:100%;
+  height:100%;
+  object-fit: cover;
+  display:block;
+}
+
+/* Featured gallery panel */
+.featured-photo{
+  border-radius: 1.25rem;
+  overflow:hidden;
+  border: 1px solid rgba(255,255,255,.14);
+  background: rgba(255,255,255,.05);
+  box-shadow: 0 16px 42px rgba(0,0,0,.18);
+}
+.featured-photo img{
+  width:100%;
+  max-height: 420px;
+  object-fit: cover;
+  display:block;
+}
+.featured-photo__cap{
+  padding: .75rem .9rem;
+  border-top: 1px solid rgba(255,255,255,.12);
+  display:flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap:.75rem;
+}
+.featured-photo__cap strong{ font-weight: 800; }
+.featured-photo__cap span{ opacity: .86; }
+
+/* “How it runs” timeline */
+.runline{
+  display:grid;
+  gap:.5rem;
+}
+.runline-step{
+  border-radius: 1rem;
+  border: 1px solid rgba(255,255,255,.14);
+  background: rgba(255,255,255,.06);
+  padding: .7rem .8rem;
+}
+.runline-step .top{
+  display:flex; align-items:center; justify-content:space-between; gap:.5rem;
+}
+.runline-step .tag{
+  font-size:.85rem;
+  opacity:.9;
+  border:1px solid rgba(255,255,255,.14);
+  background: rgba(255,255,255,.06);
+  border-radius:999px;
+  padding:.15rem .5rem;
+}
+.runline-step p{ margin:.35rem 0 0 0; opacity:.86; }
+
+/* Testimonials: premium quote-card feel using existing layout */
+.testimonial-card{
+  border-radius: 1rem;
+  border: 1px solid rgba(255,255,255,.12);
+  background: rgba(255,255,255,.05);
+}
+
+/* Swap animation when mode changes */
+#heroLead,
+#heroHighlights,
+#modeSellTitle,
+#modeSellLead,
+#modeSellList,
+#modeStripTitle,
+#modeStripText,
+#modeEnquiryPurpose,
+#galleryFeaturedTitle,
+#galleryFeaturedText,
+#featuredImg,
+#runlineBox,
+#stickySub {
+  transition: opacity 220ms ease, transform 220ms ease;
+  transform: translateY(0);
+}
+.is-swapping{
+  opacity: 0;
+  transform: translateY(6px);
+}
+
+/* Reduce motion: no hover lifts or swap animation */
+@media (prefers-reduced-motion: reduce) {
+  .centenary-tab,
+  .centenary-highlights .quick-card,
+  .centenary-collage .gallery-grid a,
+  #gallery .gallery-grid a{
+    transition:none !important;
+    transform:none !important;
+  }
+  #heroLead,
+  #heroHighlights,
+  #modeSellTitle,
+  #modeSellLead,
+  #modeSellList,
+  #modeStripTitle,
+  #modeStripText,
+  #modeEnquiryPurpose,
+  #galleryFeaturedTitle,
+  #galleryFeaturedText,
+  #featuredImg,
+  #runlineBox,
+  #stickySub{
+    transition:none !important;
+    transform:none !important;
+  }
+}
+html.reduce-motion .centenary-tab,
+html.reduce-motion .centenary-highlights .quick-card,
+html.reduce-motion .centenary-collage .gallery-grid a,
+html.reduce-motion #gallery .gallery-grid a{
+  transition:none !important;
+  transform:none !important;
+}
+html.reduce-motion #heroLead,
+html.reduce-motion #heroHighlights,
+html.reduce-motion #modeSellTitle,
+html.reduce-motion #modeSellLead,
+html.reduce-motion #modeSellList,
+html.reduce-motion #modeStripTitle,
+html.reduce-motion #modeStripText,
+html.reduce-motion #modeEnquiryPurpose,
+html.reduce-motion #galleryFeaturedTitle,
+html.reduce-motion #galleryFeaturedText,
+html.reduce-motion #featuredImg,
+html.reduce-motion #runlineBox,
+html.reduce-motion #stickySub{
+  transition:none !important;
+  transform:none !important;
+}
+
+

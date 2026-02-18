@@ -1,0 +1,32 @@
+[
+  {
+    "name": "Stagecoach Bus Depot",
+    "lat": 53.789,
+    "lng": -2.881,
+    "address": "Kirkham",
+    "website": "https://www.stagecoachbus.com/",
+    "image": "../assets/images/transport/stagecoach.jpg"
+  },
+  {
+    "name": "Kirkham & Wesham Station",
+    "lat": 53.786,
+    "lng": -2.885,
+    "address": "Station Rd, Kirkham PR4 2HD",
+    "image": "../assets/images/transport/kirkham-station.jpg"
+  },
+  {
+    "name": "Wesham Taxis",
+    "lat": 53.787,
+    "lng": -2.885,
+    "address": "Kirkham PR4",
+    "phone": "01772 123456",
+    "image": "../assets/images/transport/wesham-taxis.jpg"
+  },
+  {
+    "name": "Preston Bus Services",
+    "lat": 53.757,
+    "lng": -2.703,
+    "address": "Preston Bus Station PR1 1YT",
+    "image": "../assets/images/transport/preston-bus.jpg"
+  }
+]

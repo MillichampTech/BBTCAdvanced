@@ -1,0 +1,519 @@
+/* =====================================
+   Location page (How to Find Us)
+   Premium map section aligned to Transport
+====================================== */
+
+.loc-muted{ opacity:.88; }
+
+.loc-hero{
+  position: relative;
+  overflow: hidden;
+}
+.loc-hero::after{
+  content:"";
+  position:absolute;
+  inset:-20px;
+  background:
+    radial-gradient(900px 280px at 10% 0%, rgba(93,153,210,.25), transparent 60%),
+    radial-gradient(700px 280px at 90% 10%, rgba(34,75,142,.22), transparent 55%),
+    url('../assets/media/location/header.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center right;
+  
+  pointer-events:none;
+}
+.loc-hero > *{ position:relative; }
+
+.loc-quick-actions .btn{ white-space: nowrap; }
+
+/* Key/value blocks */
+.loc-kv{
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  gap: .75rem;
+}
+.loc-kv-item{
+  padding: .75rem;
+  border-radius: 1rem;
+  background: rgba(255,255,255,0.14);
+  border: 1px solid rgba(255,255,255,0.20);
+  backdrop-filter: blur(10px);
+}
+[data-theme="dark"] .loc-kv-item,
+[data-theme="autumn"] .loc-kv-item{
+  background: rgba(0,0,0,0.22);
+  border-color: rgba(255,255,255,0.12);
+}
+.loc-kv-label{ font-size: .85rem; opacity: .8; }
+.loc-kv-value{ font-weight: 700; letter-spacing: .2px; }
+
+/* Stat cards */
+.loc-stat{
+  padding: .75rem;
+  border-radius: 1rem;
+  background: rgba(255,255,255,0.12);
+  border: 1px solid rgba(255,255,255,0.20);
+  backdrop-filter: blur(10px);
+  height: 100%;
+}
+[data-theme="dark"] .loc-stat,
+[data-theme="autumn"] .loc-stat{
+  background: rgba(0,0,0,0.20);
+  border-color: rgba(255,255,255,0.12);
+}
+.loc-stat-label{ font-size:.85rem; opacity:.8; }
+.loc-stat-value{ font-weight:700; font-size:1.05rem; }
+
+.loc-card-actions{
+  margin-top: 1rem;
+  display:flex;
+  gap:.5rem;
+  align-items:center;
+}
+
+/* ==========================
+   Route planner header
+========================== */
+
+.loc-planner-head{
+  display:flex;
+  align-items:flex-start;
+  justify-content:space-between;
+  gap:1rem;
+  padding-bottom: .9rem;
+  margin-bottom: 1.1rem;
+  border-bottom: 1px solid rgba(0,0,0,.06);
+}
+[data-theme="dark"] .loc-planner-head,
+[data-theme="autumn"] .loc-planner-head{
+  border-bottom-color: rgba(255,255,255,.10);
+}
+
+.loc-planner-title{
+  font-weight:900;
+  letter-spacing:-.3px;
+  margin:0 0 .25rem 0;
+}
+
+.loc-planner-head-actions{
+  display:flex;
+  gap:.5rem;
+  align-items:center;
+  justify-content:flex-end;
+  flex-wrap:wrap;
+}
+
+/* ==========================
+   Premium “stage” shell
+========================== */
+
+.loc-planner-shell{
+  position: relative;
+  overflow: hidden;
+  border-radius: 22px;
+  box-shadow:
+    0 40px 90px rgba(0,0,0,.12),
+    0 14px 35px rgba(0,0,0,.08);
+}
+.loc-planner-shell::before{
+  content:"";
+  position:absolute;
+  inset:-60px;
+  background:
+    radial-gradient(900px 380px at 12% 12%, rgba(93,153,210,.26), transparent 60%),
+    radial-gradient(700px 360px at 88% 18%, rgba(34,75,142,.22), transparent 58%),
+    radial-gradient(900px 420px at 50% 110%, rgba(93,153,210,.16), transparent 60%);
+  filter: blur(.2px);
+  pointer-events:none;
+  z-index:0;
+}
+.loc-planner-shell > *{ position:relative; z-index:1; }
+
+/* ==========================
+   Controls toolbar
+========================== */
+
+.loc-controls{
+  padding: .9rem;
+  border-radius: 18px;
+  background: rgba(255,255,255,.50);
+  border: 1px solid rgba(0,0,0,.06);
+  box-shadow:
+    0 18px 45px rgba(0,0,0,.08),
+    0 6px 16px rgba(0,0,0,.05);
+}
+.loc-controls .form-control{ border-radius: 1rem; }
+
+[data-theme="dark"] .loc-controls,
+[data-theme="autumn"] .loc-controls{
+  background: rgba(0,0,0,.24);
+  border-color: rgba(255,255,255,.12);
+}
+
+/* ==========================
+   3-panel grid
+========================== */
+
+.loc-map-grid{
+  display:grid;
+  grid-template-columns: 340px 1.6fr 340px;
+  gap: 1.5rem;
+  align-items: stretch;
+}
+
+/* Unified panel styling (left + right) */
+#routeInfoBox,
+.loc-notes{
+  background: rgba(255,255,255,.50);
+  border: 1px solid rgba(0,0,0,.06);
+  border-radius: 18px;
+  padding: 1rem;
+  box-shadow:
+    0 18px 40px rgba(0,0,0,.07),
+    0 4px 12px rgba(0,0,0,.05);
+}
+
+[data-theme="dark"] #routeInfoBox,
+[data-theme="autumn"] #routeInfoBox,
+[data-theme="dark"] .loc-notes,
+[data-theme="autumn"] .loc-notes{
+  background: rgba(0,0,0,.22);
+  border-color: rgba(255,255,255,.12);
+  box-shadow:
+    0 18px 40px rgba(0,0,0,.22),
+    0 4px 12px rgba(0,0,0,.18);
+}
+
+#routeInfoBox{ min-height: 420px; }
+
+.loc-route-head{
+  display:flex;
+  align-items:flex-start;
+  justify-content:space-between;
+  gap:.75rem;
+}
+
+.loc-route-tools{
+  display:flex;
+  gap:.5rem;
+  align-items:center;
+  flex-wrap:wrap;
+  justify-content:flex-end;
+}
+
+/* Route summary pills */
+.loc-route-pill{
+  display:inline-flex;
+  align-items:center;
+  gap:.35rem;
+  padding:.45rem .9rem;
+  margin:.25rem .4rem .25rem 0;
+  border-radius: 999px;
+  font-weight: 700;
+  background: linear-gradient(135deg, rgba(93,153,210,.18), rgba(34,75,142,.18));
+  border: 1px solid rgba(93,153,210,.35);
+}
+
+[data-theme="dark"] .loc-route-pill,
+[data-theme="autumn"] .loc-route-pill{
+  background: rgba(0,0,0,0.22);
+  border-color: rgba(255,255,255,0.14);
+}
+
+/* Steps */
+.loc-steps-wrap{
+  max-height: 320px;
+  overflow-y: auto;
+  padding-right: .25rem;
+}
+.loc-route-steps{
+  padding-left: 1.1rem;
+  margin: 0;
+}
+.loc-route-steps li{
+  margin-bottom: .55rem;
+  line-height: 1.35;
+}
+
+/* Optional scrollbar polish */
+.loc-steps-wrap::-webkit-scrollbar{ width: 10px; }
+.loc-steps-wrap::-webkit-scrollbar-thumb{
+  background: rgba(0,0,0,.18);
+  border-radius: 999px;
+}
+.loc-steps-wrap::-webkit-scrollbar-track{
+  background: rgba(0,0,0,.06);
+  border-radius: 999px;
+}
+
+/* Disabled link styling */
+#openRouteMapsBtn[aria-disabled="true"]{
+  pointer-events:none;
+  opacity:.6;
+}
+
+/* ==========================
+   Empty state (left panel)
+========================== */
+
+.loc-empty{
+  padding: 1rem;
+  border-radius: 16px;
+  background: rgba(255,255,255,.40);
+  border: 1px solid rgba(0,0,0,.06);
+  box-shadow: 0 10px 22px rgba(0,0,0,.06);
+}
+[data-theme="dark"] .loc-empty,
+[data-theme="autumn"] .loc-empty{
+  background: rgba(0,0,0,.18);
+  border-color: rgba(255,255,255,.10);
+}
+
+.loc-empty-icon{
+  width: 48px;
+  height: 48px;
+  border-radius: 14px;
+  margin-bottom: .75rem;
+  background:
+    radial-gradient(18px 18px at 30% 30%, rgba(93,153,210,.35), transparent 60%),
+    radial-gradient(18px 18px at 70% 70%, rgba(34,75,142,.28), transparent 60%),
+    rgba(255,255,255,.35);
+  border: 1px solid rgba(93,153,210,.25);
+  box-shadow: 0 12px 25px rgba(0,0,0,.08);
+  position: relative;
+}
+.loc-empty-icon::after{
+  content:"";
+  position:absolute;
+  inset: 12px;
+  border-radius: 999px;
+  border: 2px solid rgba(34,75,142,.35);
+  box-shadow: inset 0 0 0 2px rgba(93,153,210,.18);
+}
+
+.loc-empty-title{
+  font-weight: 900;
+  letter-spacing: -.2px;
+  margin-bottom: .25rem;
+}
+.loc-empty-text{
+  opacity: .9;
+  margin-bottom: .75rem;
+}
+
+.loc-empty-chips{
+  display:flex;
+  flex-wrap:wrap;
+  gap:.5rem;
+}
+.loc-chip{
+  display:inline-flex;
+  align-items:center;
+  padding:.35rem .65rem;
+  border-radius: 999px;
+  background: rgba(255,255,255,.35);
+  border: 1px solid rgba(0,0,0,.06);
+  font-weight: 700;
+  font-size: .85rem;
+}
+[data-theme="dark"] .loc-chip,
+[data-theme="autumn"] .loc-chip{
+  background: rgba(0,0,0,.18);
+  border-color: rgba(255,255,255,.10);
+}
+
+/* ==========================
+   Map
+========================== */
+
+.loc-map{
+  height: 520px;
+  width: 100%;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow:
+    0 30px 70px rgba(0,0,0,.12),
+    0 10px 22px rgba(0,0,0,.07);
+  border: 1px solid rgba(255,255,255,.35);
+  background: rgba(255,255,255,.35);
+  backdrop-filter: blur(10px);
+}
+
+/* Richer tiles (more “Transport” presence) */
+.loc-map .leaflet-tile{
+  filter: saturate(1.15) contrast(1.05) brightness(1.02);
+}
+[data-theme="dark"] .loc-map .leaflet-tile{
+  filter: saturate(1.05) contrast(1.05) brightness(.95);
+}
+
+/* Keep leaflet controls on-theme */
+.leaflet-control-container .leaflet-routing-container,
+.leaflet-control-container .leaflet-control{
+  border-radius: 1rem !important;
+  background: rgba(255,255,255,0.18) !important;
+  border: 1px solid rgba(255,255,255,0.22) !important;
+  backdrop-filter: blur(12px) saturate(150%);
+}
+[data-theme="dark"] .leaflet-control-container .leaflet-routing-container,
+[data-theme="autumn"] .leaflet-control-container .leaflet-routing-container,
+[data-theme="dark"] .leaflet-control-container .leaflet-control,
+[data-theme="autumn"] .leaflet-control-container .leaflet-control{
+  background: rgba(0,0,0,0.28) !important;
+  border-color: rgba(255,255,255,0.14) !important;
+}
+
+/* Notes */
+.loc-list{ padding-left: 1.1rem; }
+.loc-notes h3{
+  font-size:1rem;
+  font-weight:800;
+  margin-bottom:.6rem;
+}
+
+/* Copy feedback */
+.btn-success-flash{
+  background: linear-gradient(135deg, #1c7c54, #2aa876) !important;
+  color: #fff !important;
+  box-shadow: 0 0 0 3px rgba(42,168,118,.22);
+  transition: all .25s ease;
+}
+
+/* Hover lift */
+.loc-map-grid > *{
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+.loc-map-grid > *:hover{
+  transform: translateY(-4px);
+}
+
+/* Responsive */
+@media (max-width: 991px){
+  .loc-kv{ grid-template-columns: 1fr; }
+  .loc-map-grid{ grid-template-columns: 1fr; gap: 1rem; }
+  .loc-map{ height: 380px; }
+  .loc-controls{ padding: .8rem; }
+}
+/* --- FIX: left panel buttons not clickable (overlay stealing clicks) --- */
+#routeInfoBox{
+  position: relative;
+  z-index: 5;              /* ensure above any background overlays */
+  pointer-events: auto;
+}
+
+#routeInfoBox .loc-route-head,
+#routeInfoBox .loc-route-tools{
+  position: relative;
+  z-index: 6;
+  pointer-events: auto;
+}
+
+/* If fade-box uses a pseudo overlay, stop it eating clicks */
+#routeInfoBox.fade-box::before,
+#routeInfoBox.fade-box::after{
+  pointer-events: none !important;
+}
+
+/* Also ensure the empty-state block never blocks header buttons */
+#routeEmptyState{
+  position: relative;
+  z-index: 1;
+  pointer-events: auto;
+}
+/* Ensure side panels sit above Leaflet/map stacking context */
+.loc-map-grid{ position: relative; }
+
+#routeInfoBox,
+.loc-notes{
+  position: relative;
+  z-index: 50;
+}
+
+.map-container,
+.loc-map{
+  position: relative;
+  z-index: 1;
+}
+
+/* If any fade overlay exists anywhere, never let it steal clicks */
+#routeInfoBox::before,
+#routeInfoBox::after{
+  pointer-events: none !important;
+}
+/* ==============================
+   Disabled state – Route tools
+   (Copy + Open in Maps)
+================================ */
+
+.loc-route-tools .btn:disabled,
+.loc-route-tools .btn[aria-disabled="true"]{
+  opacity: .45;
+  cursor: not-allowed;
+  box-shadow: none !important;
+  transform: none !important;
+  pointer-events: none;
+  filter: grayscale(.4);
+  background: rgba(200,200,200,.15) !important;
+  border-color: rgba(0,0,0,.08) !important;
+}
+
+/* Remove hover lift when disabled */
+.loc-route-tools .btn:disabled:hover,
+.loc-route-tools .btn[aria-disabled="true"]:hover{
+  transform: none !important;
+  box-shadow: none !important;
+}
+/* ===== Route tool buttons: clear disabled state (visible, not “gone”) ===== */
+
+#copyRouteBtn{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 34px;
+}
+
+#copyRouteBtn:disabled{
+  opacity: .55 !important;                 /* dim, but not invisible */
+  pointer-events: none !important;
+  cursor: not-allowed !important;
+  box-shadow: none !important;
+  transform: none !important;
+
+  /* force a readable “disabled” look */
+  background: rgba(255,255,255,.10) !important;
+  border: 1px solid rgba(0,0,0,.10) !important;
+  color: rgba(0,0,0,.55) !important;
+  filter: none !important;                 /* <- remove grayscale that can “erase” it */
+}
+
+#openRouteMapsBtn{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 34px;
+}
+
+#openRouteMapsBtn[aria-disabled="true"]{
+  opacity: .55 !important;
+  pointer-events: none !important;
+  cursor: not-allowed !important;
+  box-shadow: none !important;
+  transform: none !important;
+
+  background: rgba(255,255,255,.10) !important;
+  border: 1px solid rgba(0,0,0,.10) !important;
+  color: rgba(0,0,0,.55) !important;
+  filter: none !important;
+}
+
+/* Dark/autumn */
+[data-theme="dark"] #copyRouteBtn:disabled,
+[data-theme="autumn"] #copyRouteBtn:disabled,
+[data-theme="dark"] #openRouteMapsBtn[aria-disabled="true"],
+[data-theme="autumn"] #openRouteMapsBtn[aria-disabled="true"]{
+  background: rgba(0,0,0,.20) !important;
+  border-color: rgba(255,255,255,.14) !important;
+  color: rgba(255,255,255,.60) !important;
+}
+

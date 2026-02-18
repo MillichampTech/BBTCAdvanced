@@ -1,0 +1,536 @@
+<!-- /pages/who-we-are.html -->
+<!DOCTYPE html>
+<html lang="en" id="html-root">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Who We Are | Boys' Brigade North West Training & Activity Centre</title>
+
+  <!-- Fonts / Bootstrap -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Poppins:wght@400;600&family=IBM+Plex+Sans:wght@400;600&family=Merriweather:wght@700&family=Nunito:wght@400;700&family=Lato:wght@400;700&display=swap"
+    rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="../css/main.css">
+
+  <style>
+    /* Page-scoped polish */
+    .hero-wrap {
+      position: relative;
+      border-radius: 1.25rem;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, .18);
+      background:
+        radial-gradient(900px 420px at 18% 15%, rgba(255, 255, 255, .16), transparent 55%),
+        radial-gradient(760px 380px at 85% 10%, rgba(255, 255, 255, .12), transparent 58%),
+        color-mix(in srgb, var(--panel-bg), transparent 14%);
+    }
+
+    .hero-grid {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(to right, rgba(255, 255, 255, .06) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 255, 255, .06) 1px, transparent 1px);
+      background-size: 56px 56px;
+      mask-image: radial-gradient(60% 60% at 25% 30%, #000 55%, transparent 100%);
+      pointer-events: none;
+      opacity: .7;
+    }
+
+    .chip-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .5rem;
+    }
+
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      gap: .45rem;
+      padding: .35rem .65rem;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, .18);
+      background: color-mix(in srgb, var(--panel-bg), transparent 35%);
+      font-size: .92rem;
+    }
+
+    .pill-link {
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+      padding: .55rem .85rem;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, .18);
+      background: color-mix(in srgb, var(--panel-bg), transparent 22%);
+      text-decoration: none;
+    }
+
+    .pill-link:hover {
+      filter: brightness(1.05);
+    }
+
+    .stat-card {
+      padding: 1rem;
+      border-radius: 1rem;
+      border: 1px solid rgba(255, 255, 255, .18);
+      background: color-mix(in srgb, var(--panel-bg), transparent 20%);
+      height: 100%;
+    }
+
+    .icon-badge {
+      width: 40px;
+      height: 40px;
+      border-radius: 14px;
+      display: grid;
+      place-items: center;
+      border: 1px solid rgba(255, 255, 255, .18);
+      background: rgba(255, 255, 255, .08);
+      flex: 0 0 auto;
+    }
+
+    .step-card {
+      padding: 1rem;
+      border-radius: 1rem;
+      border: 1px solid rgba(255, 255, 255, .18);
+      background: color-mix(in srgb, var(--panel-bg), transparent 20%);
+      height: 100%;
+    }
+
+    .video-shell {
+      border-radius: 1.25rem;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, .18);
+      background: color-mix(in srgb, var(--panel-bg), transparent 10%);
+      position: relative;
+    }
+
+    .video-placeholder {
+      width: 100%;
+      height: 100%;
+      display: grid;
+      place-items: center;
+      padding: 1rem;
+      text-align: center;
+      background:
+        radial-gradient(900px 420px at 20% 30%, rgba(255, 255, 255, .12), transparent 60%),
+        linear-gradient(135deg, rgba(255, 255, 255, .08), rgba(255, 255, 255, 0));
+    }
+
+    .play-ring {
+      width: 72px;
+      height: 72px;
+      border-radius: 999px;
+      display: grid;
+      place-items: center;
+      border: 1px solid rgba(255, 255, 255, .22);
+      background: rgba(255, 255, 255, .08);
+      margin: .25rem auto .85rem;
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: 1.3fr .9fr;
+      gap: .75rem;
+    }
+
+    .shot {
+      border-radius: 1rem;
+      border: 1px solid rgba(255, 255, 255, .18);
+      background: color-mix(in srgb, var(--panel-bg), transparent 18%);
+      overflow: hidden;
+      position: relative;
+      min-height: 160px;
+    }
+
+    .shot .ph {
+      height: 100%;
+      display: grid;
+      place-items: center;
+      background:
+        radial-gradient(900px 420px at 18% 15%, rgba(255, 255, 255, .12), transparent 60%),
+        linear-gradient(135deg, rgba(255, 255, 255, .06), rgba(255, 255, 255, 0));
+      color: var(--muted);
+      text-align: center;
+      padding: 1rem;
+    }
+
+    .shot.small {
+      min-height: 120px;
+    }
+
+    .shot .tag {
+      position: absolute;
+      left: .75rem;
+      bottom: .75rem;
+      padding: .25rem .55rem;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, .22);
+      background: rgba(0, 0, 0, .18);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      font-size: .85rem;
+    }
+
+    @media (max-width: 991px) {
+      .gallery-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="theme-overlay" aria-hidden="true"></div>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <header>
+    <div id="site-nav"></div>
+  </header>
+
+  <main id="main-content" role="main" class="container py-4">
+
+    <!-- HERO -->
+    <section class="reveal mb-4" aria-label="Who we are introduction">
+      <div class="glass-panel soft-card p-3 p-lg-4 hero-wrap">
+        <div class="hero-grid" aria-hidden="true"></div>
+
+        <div class="row g-4 align-items-stretch">
+          <div class="col-12 col-lg-7 d-flex">
+            <div class="w-100 d-flex flex-column">
+              <p class="kicker mb-2">Boy's Brigade North West Training & Activity Centre</p>
+              <h1 class="display-6 mb-2">The Aventure Begins Here</h1>
+              <p class="lead mb-3">
+                A North West base for <strong>residentials</strong>, <strong>training</strong> and <strong>activity
+                  days</strong> —
+                built to help groups run brilliant programmes with less stress and more impact.
+              </p>
+
+              <div class="chip-row mb-3" aria-label="Quick highlights">
+                <span class="chip"><span aria-hidden="true">🏕️</span> Residential stays</span>
+                <span class="chip"><span aria-hidden="true">🎯</span> Activities & skills</span>
+                <span class="chip"><span aria-hidden="true">🧑‍🏫</span> Leader training</span>
+                <span class="chip"><span aria-hidden="true">🛡️</span> Safety-first</span>
+              </div>
+
+              <div class="d-flex gap-2 flex-wrap mt-auto">
+                <a class="btn btn-glass btn-glass--primary"
+                  href="contact.html?subject=Enquiry">Contact Us</a>
+                <div class="col-12 col-lg-4 d-grid">
+                  <a id="accessBtn"class="btn btn-glass" href="../pages/values-and-mission.html">Go to Mission & Values</a>
+                </div>
+                <div class="col-12 col-lg-4 d-grid">
+                  <a class="btn btn-glass" href="../pages/how-to-book.html">How to Book <span
+                      aria-hidden="true">🗓️</span>  <span aria-hidden="true">→</span></a>
+                </div>
+
+              </div>
+            </div>
+          </div>
+
+          <!-- Video window -->
+          <div class="col-12 col-lg-5">
+            <div class="video-shell h-100">
+              <div class="ratio ratio-16x9">
+                <video class="w-100 h-100 object-fit-cover" autoplay muted loop playsinline aria-hidden="true"
+                  tabindex="-1">
+                  <source src="../assets/media/bbcentre.mp4" type="video/mp4">
+                  Your browser does not support the video tag.
+                </video>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- 3 IMPACT CARDS -->
+    <section class="reveal mb-4" aria-label="What makes us different">
+      <div class="glass-panel soft-card p-3 p-lg-4">
+        <div class="row g-3">
+          <div class="col-12 col-md-4">
+            <div class="stat-card">
+              <div class="d-flex gap-3">
+                <div class="icon-badge" aria-hidden="true">🏗️</div>
+                <div>
+                  <h2 class="h6 mb-1"><strong>Built for group weekends:</strong></h2>
+                  <p class="small-muted mb-0">Smooth, safe, and memorable big experiences</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-md-4">
+            <div class="stat-card">
+              <div class="d-flex gap-3">
+                <div class="icon-badge" aria-hidden="true">🤝</div>
+                <div>
+                  <h2 class="h6 mb-1"><strong>Run by people who get it:</strong></h2>
+                  <p class="small-muted mb-0">Friendly, practical support — from first enquiry to the final goodbye.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-md-4">
+            <div class="stat-card">
+              <div class="d-flex gap-3">
+                <div class="icon-badge" aria-hidden="true">🧭</div>
+                <div>
+                  <h2 class="h6 mb-1"><strong>Where Adventure Begins:</strong></h2>
+                  <p class="small-muted mb-0">Purposeful activities that develop teamwork and lasting confidence.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- VISUAL GALLERY + QUICK TEXT -->
+    <section class="reveal mb-4" aria-label="Gallery and overview">
+      <div class="glass-panel soft-card p-3 p-lg-4">
+        <div class="row g-4 align-items-center">
+
+          <div class="col-12 col-lg-7">
+            <h2 class="h4 mb-2"><strong>A place where forever memories and lasting bonds are built</strong></h2>
+            <p class="mb-3">
+              From high energy activity sessions to quieter moments of reflection, the Centre provides the structure and
+              space for a weekend that feels calm, organised and rewarding.
+            </p>
+
+            <div class="row g-3">
+              <div class="col-12 col-md-6">
+                <div class="step-card">
+                  <p class="eyebrow mb-2"><strong>Who it’s for</strong></p>
+                  <p class="mb-0 small-muted">
+                    Boys' Brigade Companies, Youth Groups, Churches, Schools and Community Organisations.
+                  </p>
+                </div>
+              </div>
+
+              <div class="col-12 col-md-6">
+                <div class="step-card">
+                  <p class="eyebrow mb-2"><strong>What you can do here</strong></p>
+                  <p class="mb-0 small-muted">
+                    Residentials • Training • Activity days • Team building • Skills sessions • & More
+                  </p>
+                </div>
+              </div>
+
+              <div class="col-12 col-md-6">
+                <div class="step-card">
+                  <p class="eyebrow mb-2"><strong>What you will feel</strong></p>
+                  <p class="mb-0 small-muted">Calm, well organised and properly supported.</p>
+                </div>
+              </div>
+
+              <div class="col-12 col-md-6">
+                <div class="step-card">
+                  <p class="eyebrow mb-2"><strong>What we focus on</strong></p>
+                  <p class="mb-0 small-muted">Strong Standards • Christian Values • Support you can rely on.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Photos -->
+          <div class="col-12 col-lg-5">
+            <div class="gallery-grid">
+              <div class="shot">
+                <img src="../assets/media/who we are/DSC_4621.JPG" alt="Front of the Boys' Brigade North West Centre"
+                  class="img-fluid w-100 h-100 object-fit-cover">
+
+              </div>
+
+              <div class="d-grid gap-3">
+                <div class="shot small">
+                  <img src="../assets/media/who we are/archery.jpeg" alt="Archery activity at the centre"
+                    class="img-fluid w-100 h-100 object-fit-cover">
+
+                </div>
+
+                <div class="shot small">
+                  <img src="../assets/media/who we are/community.jpeg" alt="Group gathered together in the dining area"
+                    class="img-fluid w-100 h-100 object-fit-cover">
+
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- PARTNERS -->
+    <section class="reveal mb-4" aria-label="Partners">
+      <div class="glass-panel soft-card p-3 p-lg-4">
+        <div class="d-flex align-items-end justify-content-between flex-wrap gap-2 mb-3">
+          <div>
+            <h2 class="h4 mb-1"><strong>Working with trusted partners</strong></h2>
+            <p class="small-muted mb-0">We work with trusted partners to offer a wider range of safe, well run
+              activities</p>
+          </div>
+          <a class="btn-glass btn-sm"
+            href="contact.html?prefill=1&subject=Activity%20Partner%20Enquiry&from=activity-partners">
+            Join our Activity Partners
+          </a>
+          <p class="small-muted mt-2 mb-0">
+            For organisations wishing to deliver activities at the centre.
+          </p>
+
+        </div>
+
+        <!-- Partners carousel (auto-scroll, no arrows) -->
+        <!-- Partners carousel (auto-scroll, no arrows) -->
+        <div class="partners-carousel" aria-label="Activity Partners and Affiliations">
+          <div class="partners-track" id="partnersTrack">
+
+            <article class="partner-card step-card">
+              <div class="partner-media" aria-hidden="true">
+                <img src="../assets/media/who we are/bb_canoe_club_transparent.png" alt="Boys Brigade Canoe Club">
+              </div>
+              <h3 class="h6 mb-1">BB Canoe Club</h3>
+              <p class="small-muted mb-0">Paddlesport courses and trips for Youth groups and leaders.</p>
+            </article>
+
+            <article class="partner-card step-card">
+              <div class="partner-media " aria-hidden="true">
+                <img src="../assets/media/who we are/bbmc_transparent.png" alt="Boys' Brigade Mountaineering Club Logo">
+              </div>
+              <h3 class="h6 mb-1">BB Mountaineering Club</h3>
+              <p class="small-muted mb-0">Mountain days, treks and skills for Boys' Brigade members who love the
+                outdoors.</p>
+            </article>
+
+            <article class="partner-card step-card">
+              <div class="partner-media" aria-hidden="true">
+                <img src="../assets/media/who we are/archery-gb-logo-white-chopped.svg" alt="Archery GB Logo">
+              </div>
+              <h3 class="h6 mb-1">Archery GB</h3>
+              <p class="small-muted mb-0">All our instructors carry qualifcations from the national governing body for
+                archery in Great Britain.</p>
+            </article>
+
+            <article class="partner-card step-card">
+              <div class="partner-media" aria-hidden="true">
+                <img src="../assets/media/who we are/action_tag_transparent.png" alt="Action Tag Logo">
+              </div>
+              <h3 class="h6 mb-1">Action Tag Warfare</h3>
+              <p class="small-muted mb-0">Indoor and outdoor Laser Tag or VR sessions for groups and team challenges.
+              </p>
+            </article>
+
+            <article class="partner-card step-card">
+              <div class="partner-media" aria-hidden="true">
+                <img src="../assets/media/who we are/bb_logo.svg" alt="The Boys Brigade Logo">
+              </div>
+              <h3 class="h6 mb-1">The Boys’ Brigade (UK)</h3>
+              <p class="small-muted mb-0">A Christian youth organisation helping young people reach their full
+                potential.</p>
+            </article>
+
+          </div>
+        </div>
+
+
+
+
+    </section>
+
+    <!-- CTA -->
+    <section class="glass-panel soft-card p-3 p-lg-4 reveal">
+      <div class="row g-3 align-items-center">
+        <div class="col-12 col-lg-8">
+          <h2 class="h4 mb-1">Want the “why” behind what we do?</h2>
+          <p class="mb-0 small-muted">Read our Mission & Values — the standards we hold ourselves to every day.</p>
+        </div>
+        <div class="col-12 col-lg-4 d-grid">
+          <a class="btn btn-glass" href="../pages/values-and-mission.html">Go to Mission & Values</a>
+        </div>
+      </div>
+    </section>
+    <section class="who-closing">
+  <div class="container">
+    <p>
+      Rooted in Christian values and committed to safe, well-run experiences,
+      we exist to support young people and the leaders who guide them.
+    </p>
+  </div>
+</section>
+
+
+  </main>
+
+  <footer>
+    <div id="site-footer"></div>
+  </footer>
+
+  <!-- Bootstrap + your loaders -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Your injected components + theme -->
+  <script defer src="../components/components.js"></script>
+  <script defer src="../theme.js"></script>
+
+  <!-- Reveal script (required in your project for .reveal sections) -->
+  <script>
+    (() => {
+      const prefersReduced =
+        window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+      const html = document.documentElement;
+      const reducedByClass =
+        html.classList.contains("reduce-motion") || html.classList.contains("reduced-motion");
+
+      const reduceMotion = prefersReduced || reducedByClass;
+
+      const revealEls = Array.from(document.querySelectorAll(".reveal"));
+      if (!revealEls.length) return;
+
+      if (!reduceMotion && "IntersectionObserver" in window) {
+        const io = new IntersectionObserver((entries) => {
+          for (const e of entries) {
+            if (e.isIntersecting) {
+              e.target.classList.add("is-in");
+              io.unobserve(e.target);
+            }
+          }
+        }, { threshold: 0.16 });
+
+        revealEls.forEach((el) => io.observe(el));
+      } else {
+        revealEls.forEach((el) => el.classList.add("is-in"));
+      }
+    })();
+  </script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const track = document.getElementById("partnersTrack");
+      if (!track) return;
+
+      // Duplicate items once for a seamless loop
+      const items = Array.from(track.children);
+      items.forEach(node => track.appendChild(node.cloneNode(true)));
+
+      // After layout, measure half the track (original set width)
+      requestAnimationFrame(() => {
+        const total = track.scrollWidth;
+        const distance = Math.round(total / 2);
+
+        // Set how far to translate for a perfect loop
+        track.style.setProperty("--scroll-distance", `${distance}px`);
+
+        // Control speed (px per second)
+        const pxPerSecond = 60; // tweak: 45 slower, 75 faster
+        const duration = Math.max(14, Math.round(distance / pxPerSecond));
+        track.style.setProperty("--partners-duration", `${duration}s`);
+      });
+    });
+  </script>
+
+</body>
+
+</html>

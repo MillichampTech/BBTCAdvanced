@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html id="html-root" lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width,initial-scale=1" name="viewport" />
+  <title>Terms &amp; Conditions | BBNW</title>
+
+  <!-- Fonts + Bootstrap -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Poppins:wght@400;600&family=IBM+Plex+Sans:wght@400;600&family=Merriweather:wght@700&family=Nunito:wght@400;700&family=Lato:wght@400;700&display=swap" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+  <!-- Global CSS -->
+  <link href="../css/main.css" rel="stylesheet" />
+  <!-- Page CSS (hooks into existing system) -->
+  <link href="../css/terms.css" rel="stylesheet" />
+</head>
+
+<body>
+  <div aria-hidden="true" class="theme-overlay"></div>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <header>
+    <div id="site-nav"></div>
+  </header>
+
+  <main class="container py-4" id="main-content" role="main">
+
+    <!-- HERO -->
+    <section class="mb-4">
+      <div class="glass-panel soft-card p-3 p-lg-4">
+        <div class="d-flex align-items-start justify-content-between flex-wrap gap-3">
+          <div>
+            <div class="small-muted mb-1">Policies</div>
+            <h1 class="mb-2">Terms &amp; Conditions</h1>
+
+            <!-- Warmer framing (still authoritative) -->
+            <p class="lead mb-2">
+              We aim to make bookings straightforward and fair for every group. These terms set out what to expect so your stay runs smoothly.
+            </p>
+            <div class="small-muted mb-0">
+              If anything is unclear, contact us and we’ll help you before you confirm.
+            </div>
+            <div class="small-muted mt-2">
+  Last updated: February <span id="year"></span> 
+</div>
+
+          </div>
+
+          <div class="d-flex gap-2 flex-wrap">
+            <a class="btn btn-glass btn-glass--primary" href="./how_to_book.html">How to book</a>
+            <a class="btn btn-glass" href="./contact.html?subject=Terms%20Query&amp;from=terms">Contact</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTENT -->
+    <section class="mb-0">
+      <!-- Jump bar -->
+      <div class="terms-jump glass-panel soft-card p-2 p-lg-3 mb-3" id="termsJump">
+        <div class="d-flex align-items-center justify-content-between flex-wrap gap-2">
+          <div class="small-muted">Jump to:</div>
+
+          <div class="terms-chips" id="termsChips" aria-label="Jump to section">
+            <a class="terms-chip is-active" href="#term-1" data-term="term-1"><span class="step-badge">1</span><span>Provisional</span></a>
+            <a class="terms-chip" href="#term-2" data-term="term-2"><span class="step-badge">2</span><span>Cancellation</span></a>
+            <a class="terms-chip" href="#term-3" data-term="term-3"><span class="step-badge">3</span><span>Arrival times</span></a>
+            <a class="terms-chip" href="#term-4" data-term="term-4"><span class="step-badge">4</span><span>Insurance</span></a>
+            <a class="terms-chip" href="#term-5" data-term="term-5"><span class="step-badge">5</span><span>Responsibility</span></a>
+            <a class="terms-chip" href="#term-6" data-term="term-6"><span class="step-badge">6</span><span>Fire</span></a>
+            <a class="terms-chip" href="#term-7" data-term="term-7"><span class="step-badge">7</span><span>Alcohol/First aid</span></a>
+            <a class="terms-chip" href="#term-8" data-term="term-8"><span class="step-badge">8</span><span>Trespass</span></a>
+            <a class="terms-chip" href="#term-9" data-term="term-9"><span class="step-badge">9</span><span>Safeguarding</span></a>
+            <a class="terms-chip" href="#term-10" data-term="term-10"><span class="step-badge">10</span><span>Noise</span></a>
+            <a class="terms-chip" href="#term-11" data-term="term-11"><span class="step-badge">11</span><span>Cleaning</span></a>
+            <a class="terms-chip" href="#term-12" data-term="term-12"><span class="step-badge">12</span><span>Supervision</span></a>
+          </div>
+
+          <div class="d-flex gap-2 flex-wrap">
+            <button type="button" class="btn btn-glass btn-glass--primary" id="termsPrintBtn">Print / Save as PDF</button>
+
+            <button id="backToTopBtn" class="back-to-top btn btn-glass btn-glass--primary" aria-label="Back to top">
+              Back To The Top
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div id="termsJumpSpacer" aria-hidden="true"></div>
+
+      <!-- Terms accordion -->
+      <div class="glass-panel soft-card p-3 p-lg-4 terms-accordion" id="termsAccordion">
+        <div class="d-flex align-items-start justify-content-between flex-wrap gap-2 mb-2">
+          <h2 class="h4 mb-0" id="terms-of-hire">Terms of Hire</h2>
+          <div class="small-muted">
+            Tip: use “Print / Save as PDF” for leaders’ packs.
+          </div>
+        </div>
+
+        <!-- 1 (open by default) -->
+        <details class="terms-item" id="term-1" open>
+          <summary class="terms-summary">
+            <span class="step-badge">1</span>
+            <span class="terms-title">Provisional bookings</span>
+          </summary>
+          <div class="terms-content">
+            <p class="mb-3">i) Provisional bookings that the centre has accepted by telephone, email or in person will be held for 3 weeks of the initial enquiry date.</p>
+            <p class="mb-3">Bookings are only deemed to be confirmed upon receipt of the fully completed and signed booking form with the deposit. The signed booking form is proof of contractual agreement by the group of the centre’s terms and conditions. Dates will be released if non receipt of booking form or deposit. All deposit instalments are non-refundable.</p>
+            <p class="mb-0">Groups or Individuals that make any payments by BACS, Cheque or cash must allow the centre time to confirm payment before receipt is issued. For final payments, proof of payment must be presented no later than the booking commencement date. The centre does not accept card payments.</p>
+          </div>
+        </details>
+
+        <!-- 2 -->
+        <details class="terms-item" id="term-2">
+          <summary class="terms-summary">
+            <span class="step-badge">2</span>
+            <span class="terms-title">Cancellations</span>
+          </summary>
+          <div class="terms-content">
+            <p class="fw-bold mt-0 mb-2">ii)</p>
+            <p class="mb-3">Any Cancellation of a confirmed booking will involve the loss of any non refundable deposits made in relation to said booking.</p>
+            <p class="mb-3">If a cancellation occurs unless by Government regulations and restrictions then the following charges are applicable with relationship to the expected final payment.</p>
+            <ul class="mb-0">
+              <li>within two months of the booking commencement date a fee of 50%</li>
+              <li>within two weeks of the booking commencement date a fee of 100%</li>
+            </ul>
+          </div>
+        </details>
+
+        <!-- 3 -->
+        <details class="terms-item" id="term-3">
+          <summary class="terms-summary">
+            <span class="step-badge">3</span>
+            <span class="terms-title">Arrival &amp; departure times</span>
+          </summary>
+          <div class="terms-content">
+            <p class="fw-bold mt-0 mb-2">iii)</p>
+            <p class="mb-3">Residential buildings will only be available to groups for arrival and must be vacated by as per the following table depending on the type of booking.</p>
+
+            <div class="table-responsive mb-3">
+              <table class="table table-sm align-middle mb-0">
+                <thead>
+                  <tr>
+                    <th scope="col">Type of Booking</th>
+                    <th scope="col">Arrival Time</th>
+                    <th scope="col">Departure Time</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr><td>Saturday to Saturday</td><td>3pm</td><td>10am</td></tr>
+                  <tr><td>Monday to Friday</td><td>10am</td><td>1pm</td></tr>
+                  <tr><td>Friday to Sunday</td><td>5pm</td><td>5pm</td></tr>
+                </tbody>
+              </table>
+            </div>
+
+            <p class="mb-0">Campers must only pitch in areas designated by the warden on site. Camp Kitchen and Grounds will not be available until 1pm and must be vacated by 12pm on the day of departure. Any adjustment to these timings must be agreed prior to arriving with the onsite warden.</p>
+          </div>
+        </details>
+
+        <!-- 4 -->
+        <details class="terms-item" id="term-4">
+          <summary class="terms-summary">
+            <span class="step-badge">4</span>
+            <span class="terms-title">Insurance &amp; qualifications</span>
+          </summary>
+          <div class="terms-content">
+            <p class="fw-bold mt-0 mb-2">iv)</p>
+            <p class="mb-3">The Centre is covered for Public Liability and Employer's Liability.</p>
+            <p class="mb-3">All Boys’ Brigade and Girls’ Association groups must notify Boys’ Brigade headquarters that you are holding a camp or/and residential and any hazardous activities being included in your program. A Officer/ Leader leading a camp or residential for any duration involving at least one overnight stay and for any age group must hold a valid and UpToDate camp and holiday leadership qualification.</p>
+            <p class="mb-0">Non-Boys’ Brigade Groups are recommended to have an appropriate insurance for all personnel, property, personal belongings, and cancellations. As well as for any activities including hazardous sports. A valid and UpToDate equivalent to a Boys’ Brigade and Girls’ Association camp and holiday leadership qualification must exist.</p>
+          </div>
+        </details>
+
+        <!-- 5 -->
+        <details class="terms-item" id="term-5">
+          <summary class="terms-summary">
+            <span class="step-badge">5</span>
+            <span class="terms-title">Responsibility &amp; damage</span>
+          </summary>
+          <div class="terms-content">
+            <p class="fw-bold mt-0 mb-2">v)</p>
+            <p class="mb-3">The person in charge of the group will be held responsible for the safety, wellbeing, behaviour and property of the group.</p>
+            <p class="mb-3">The centre cannot accept liability for any damage incurred to any property or personal belongings a group brings to the site whether accidental or deliberate. Groups are advised not to bring personal items of large value. Any lost property left behind requiring postage can be returned providing cost of postage is paid for by the group.</p>
+            <p class="mb-0">All buildings and grounds to be always kept clean and tidy. Any damages or breakages must be reported to the warden on site. The group or individuals may be called upon to reimburse the centre the cost of repair or replacement.</p>
+          </div>
+        </details>
+
+        <!-- 6 -->
+        <details class="terms-item" id="term-6">
+          <summary class="terms-summary">
+            <span class="step-badge">6</span>
+            <span class="terms-title">Fire &amp; emergencies</span>
+          </summary>
+          <div class="terms-content">
+            <p class="fw-bold mt-0 mb-2">vi)</p>
+            <p class="mb-3">All leaders must be aware of all Fire Exits, Fire Fighting Equipment and Fire Warning Points. They must ensure their group is aware of the correct procedure in the case of a fire and where the assembly point for their group is. Any fire exits and exit routes to be always clear of any obstructions.</p>
+            <p class="mb-0">In the event of any emergency incident once appropriate action has been taken to ensure the groups safety the warden on site must be informed of the occurrence once it is safe to do so.</p>
+          </div>
+        </details>
+
+        <!-- 7 -->
+        <details class="terms-item" id="term-7">
+          <summary class="terms-summary">
+            <span class="step-badge">7</span>
+            <span class="terms-title">Alcohol, drugs, first aid</span>
+          </summary>
+          <div class="terms-content">
+            <p class="fw-bold mt-0 mb-2">vii)</p>
+            <p class="mb-3">No Alcohol or Drugs are allowed on Site unless prescribed. Smoking and Vaping is only permitted in the smoking area designated on site.</p>
+            <p class="mb-3">All prescribed medications brought on site are the responsibility of the group leader or designated first aider to ensure appropriate storage and administration.</p>
+            <p class="mb-0">It is the responsibility of the group leader to ensure that adequate first aid facilities are provided for their group. Information for local GP Surgeries, Hospitals, Dentists can be found in the Information Brochure.</p>
+          </div>
+        </details>
+
+        <!-- 8 -->
+        <details class="terms-item" id="term-8">
+          <summary class="terms-summary">
+            <span class="step-badge">8</span>
+            <span class="terms-title">Trespassing</span>
+          </summary>
+          <div class="terms-content">
+            <p class="fw-bold mt-0 mb-2">Viii)</p>
+            <p class="mb-0">Any persons found trespassing on the adjacent railway property will be sent off the site immediately.</p>
+          </div>
+        </details>
+
+        <!-- 9 -->
+        <details class="terms-item" id="term-9">
+          <summary class="terms-summary">
+            <span class="step-badge">9</span>
+            <span class="terms-title">Safeguarding</span>
+          </summary>
+          <div class="terms-content">
+            <p class="mb-0">ix) Our safeguarding policy is clear that all adults staying overnight or who may have contact or unsupervised access to young persons and vulnerable adults must have a valid and UpToDate enhanced disclosure. It is the responsibility of the person making booking to ensure this requirement is adhered to.</p>
+          </div>
+        </details>
+
+        <!-- 10 -->
+        <details class="terms-item" id="term-10">
+          <summary class="terms-summary">
+            <span class="step-badge">10</span>
+            <span class="terms-title">Noise</span>
+          </summary>
+          <div class="terms-content">
+            <p class="fw-bold mt-0 mb-2">x)</p>
+            <p class="mb-0">When campers are on site, residential groups must not disturb them between 11.00pm and 8.00 am. There is to be no outdoor activities or music after 11.30pm.</p>
+          </div>
+        </details>
+
+        <!-- 11 -->
+        <details class="terms-item" id="term-11">
+          <summary class="terms-summary">
+            <span class="step-badge">11</span>
+            <span class="terms-title">Cleaning &amp; conduct</span>
+          </summary>
+          <div class="terms-content">
+            <p class="fw-bold mt-0 mb-2">xi)</p>
+            <p class="mb-3">Prior to departure Leaders and groups are responsible for ensuring all accommodation, public areas and or camping grounds used are cleaned and returned to the state found upon arrival.</p>
+            <p class="mb-0">All groups must respect the authority of the Site Warden and allow them in a manner concurrent with the wishes of the Centres’ Trustees and Management Committee to resolve any disorderly conduct or breaches of the Terms of Hire that arise on the site.</p>
+          </div>
+        </details>
+
+        <!-- 12 -->
+        <details class="terms-item" id="term-12">
+          <summary class="terms-summary">
+            <span class="step-badge">12</span>
+            <span class="terms-title">Supervision &amp; games</span>
+          </summary>
+          <div class="terms-content">
+            <p class="fw-bold mt-0 mb-2">xii)</p>
+            <p class="mb-3">The group must be supervised by leaders when using the Sports Hall, the Adventure Playground and the Tunnel System. 16 year olds and younger must Not be left unattended whilst on the site.</p>
+            <p class="mb-0">All ball games to be played on the sports field and in the sports hall only. Not in proximity to the residential accommodation buildings.</p>
+          </div>
+        </details>
+
+      </div>
+
+      <!-- Conversion CTA block (in-system, glass panel, no new layout system) -->
+      <section class="mt-4">
+        <div class="glass-panel soft-card p-3 p-lg-4 terms-cta">
+          <div class="d-flex align-items-start justify-content-between flex-wrap gap-3">
+            <div>
+              <div class="small-muted mb-1">Next step</div>
+              <h2 class="h5 mb-2">Ready to confirm your booking?</h2>
+              <p class="mb-0">
+                If you’d like us to talk through dates, pricing, or anything in these terms, get in touch — we’ll help you plan a smooth stay.
+              </p>
+            </div>
+            <div class="d-flex gap-2 flex-wrap align-items-center">
+              <a class="btn btn-glass btn-glass--primary" href="./how_to_book.html">How to book</a>
+              <a class="btn btn-glass" href="./contact.html?subject=Booking%20Enquiry&amp;from=terms-cta">Contact</a>
+              <button type="button" class="btn btn-glass" id="termsPrintBtn2">Save as PDF</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </section>
+  </main>
+
+  <footer>
+    <div id="site-footer"></div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script defer src="../components/components.js"></script>
+  <script defer src="../theme.js"></script>
+  <script defer src="../js/terms.js"></script>
+</body>
+</html>

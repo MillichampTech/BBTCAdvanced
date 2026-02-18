@@ -1,0 +1,27 @@
+/* Accessibility helpers */
+
+:focus-visible{
+  outline: 3px solid var(--focus-color);
+  outline-offset: 4px;
+  border-radius: 0.5rem;
+}
+
+html[data-large-text="true"]{ --base-font-size: 18px; }
+html[data-readable-font="true"]{ font-family: 'Inter', Arial, sans-serif; }
+
+.visually-hidden{
+  position:absolute !important;
+  height:1px; width:1px;
+  overflow:hidden;
+  clip:rect(1px,1px,1px,1px);
+  white-space:nowrap;
+}
+
+@media (prefers-reduced-motion: reduce){
+  .btn-glass::before,
+  .nav-glass .nav-link::before,
+  .theme-overlay{
+    animation:none !important;
+    transition:none !important;
+  }
+}

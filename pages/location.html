@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en" id="html-root">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>How to Find Us | BBNW</title>
+
+  <!-- Google Fonts -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Poppins:wght@400;600&family=IBM+Plex+Sans:wght@400;600&family=Merriweather:wght@700&family=Nunito:wght@400;700&family=Lato:wght@400;700&display=swap"
+    rel="stylesheet">
+  <!-- OpenDyslexic (applied only for Dyslexia theme) -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/antijingoist/open-dyslexic/fonts/OpenDyslexic.css" />
+
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Leaflet + Routing (map pages use Leaflet) -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.css" />
+
+  <!-- Site styles -->
+  <link rel="stylesheet" href="../css/main.css">
+  <link rel="stylesheet" href="../css/location.css">
+</head>
+
+<body>
+  <div class="theme-overlay" aria-hidden="true"></div>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <header>
+    <div id="site-nav"></div>
+  </header>
+
+  <main id="main-content" role="main" class="container py-4">
+    <!-- Intro -->
+    <section class="mb-4">
+      <div class="glass-panel soft-card p-3 p-lg-4 loc-hero">
+        <p class="eyebrow mb-2">Plan your arrival</p>
+        <h1 class="mb-2">How to Find Us</h1>
+        <p class="lead mb-0">Clear directions, shareable links, and a quick route planner to the Centre.</p>
+
+        <div class="loc-quick-actions mt-3 d-flex flex-wrap gap-2">
+          <a class="btn btn-glass btn-glass--primary" href="https://www.google.com/maps?q=53.7866,-2.8591"
+            target="_blank" rel="noopener">Open in Google Maps</a>
+          <a class="btn btn-glass" href="https://www.what3words.com/branch.observers.devoured" target="_blank"
+            rel="noopener">What3words</a>
+          <a class="btn btn-glass" href="#route-planner">Route planner</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Key details -->
+    <section class="mb-4">
+      <div class="row g-3">
+        <div class="col-12 col-lg-6">
+          <article class="glass-panel soft-card h-100 p-3 p-lg-4">
+            <div class="loc-card-head">
+              <h2 class="loc-card-title">Address</h2>
+              <span class="loc-card-chip"><strong>PR4 3SS</strong></span>
+            </div>
+
+            <p class="mb-3 loc-muted">
+              The Boys’ Brigade Training &amp; Activity Centre<br>
+              Carr Lane, Kirkham<br>
+              Preston, PR4 3SS
+            </p>
+
+            <div class="loc-kv">
+              <div class="loc-kv-item">
+                <div class="loc-kv-label text-center"><img
+                    src="../assets/media/location/what3words-logo-stacked-RGB-styleguide-PNG-1.png"
+                    alt="What Three Words Logo" style="height: 50px;" />
+                  <p>
+                    What3words</p>
+                </div>
+                <div class="loc-kv-value text-center">branch.observers.devoured</div>
+              </div>
+              <div class="loc-kv-item">
+                <div class="loc-kv-label text-center">UK Grid Ref</div>
+                <div class="loc-kv-value text-center">SD 434325</div>
+              
+              <div class="loc-kv-label text-center"><img src="../assets/media/location/qr code location.png"
+                  alt="What Three Words Logo" style="height: 80px;" />
+              </div>
+              </div>
+              <div class="loc-card-actions">
+                <button class="btn btn-glass btn-glass--primary btn-sm" id="copyAddressBtn" type="button">Copy
+                  address</button>
+              </div>
+          </article>
+        </div>
+
+        <div class="col-12 col-lg-6">
+          <article class="soft-card h-100 p-3 p-lg-4">
+            <div class="loc-card-head">
+              <h2 class="loc-card-title">Coordinates</h2>
+              <span class="loc-card-chip mb-3">Lat/Lng</span>
+            </div>
+
+            <div class="row g-2 mt-3">
+              <div class="col-6">
+                <div class="loc-stat glass-panel">
+                  <div class="loc-stat-label">Latitude</div>
+                  <div class="loc-stat-value">53.7866</div>
+                </div>
+              </div>
+              <div class="col-6">
+                <div class="loc-stat glass-panel">
+                  <div class="loc-stat-label">Longitude</div>
+                  <div class="loc-stat-value">-2.8591</div>
+                </div>
+              </div>
+              <div class="col-6">
+                <div class="loc-stat glass-panel">
+                  <div class="loc-stat-label">Easting</div>
+                  <div class="loc-stat-value">343498</div>
+                </div>
+              </div>
+              <div class="col-6">
+                <div class="loc-stat glass-panel">
+                  <div class="loc-stat-label">Northing</div>
+                  <div class="loc-stat-value">432597</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="mt-3 d-flex flex-wrap gap-2">
+              <button class="btn btn-glass btn-glass--primary" type="button" id="copyCoordsBtn">Copy
+                coordinates</button>
+              <span class="small loc-muted" id="copyStatus" role="status" aria-live="polite"></span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Map + route planner -->
+    <section id="route-planner" class="mb-4">
+      <div class="glass-panel soft-card p-3 p-lg-4 loc-planner-shell">
+
+        <div class="loc-planner-head">
+          <div>
+            <h2 class="loc-planner-title">Route planner</h2>
+            <p class="loc-muted mb-0">Enter a postcode / town, or use your device location to get a route.</p>
+          </div>
+
+          <div class="loc-planner-head-actions">
+            <a class="btn btn-glass btn-glass--primary" href="../pages/transport.html">
+              View Transport &amp; Travel
+            </a>
+          </div>
+        </div>
+
+        <div class="loc-controls" aria-label="Route controls">
+          <div class="row g-2 align-items-end">
+            <div class="col-12 col-md-6">
+              <label class="form-label" for="startInput">Starting point:</label>
+              <input class="form-control" id="startInput" type="text" placeholder="e.g. PR4 0TH, Preston, Manchester"
+                autocomplete="off" />
+              <div class="form-text loc-muted">Tip: type a postcode, town, or place name.</div>
+            </div>
+            <div class="col-12 col-md-6">
+              <div class="d-flex flex-wrap gap-2">
+                <button class="btn btn-glass" type="button" id="useMyLocationBtn">Use my location</button>
+                <button class="btn btn-glass btn-glass--primary" type="button" id="routeBtn">Show route</button>
+                <button class="btn btn-glass" type="button" id="clearRouteBtn">Clear</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="loc-map-grid mt-3">
+          <!-- LEFT: Route info -->
+          <aside id="routeInfoBox" class="visible" aria-label="Route information">
+
+            <div class="loc-route-head">
+              <div>
+                <h3 class="h6 mb-3"><strong>Route details</strong></h3>
+
+              </div>
+            </div>
+            <div class="loc-route-tools">
+              <button class="btn btn-glass btn-sm" type="button" id="copyRouteBtn" disabled>Copy Route</button>
+              <a class="btn btn-glass btn-glass--primary btn-sm" id="openRouteMapsBtn" href="#" target="_blank"
+                rel="noopener" aria-disabled="true">Open in Maps</a>
+            </div>
+
+
+            <!-- Empty state -->
+            <div id="routeEmptyState" class="loc-empty mt-3" aria-hidden="false">
+              <div class="loc-empty-icon" aria-hidden="true"></div>
+              <div class="loc-empty-title">Ready when you are</div>
+              <div class="loc-empty-text">
+                Type a UK postcode, town, or place name — then press <strong>Show route</strong>.
+              </div>
+              <div class="loc-empty-chips">
+                <span class="loc-chip">eg.PR4 0TH</span>
+                <span class="loc-chip">eg.Preston</span>
+                <span class="loc-chip">eg.Manchester</span>
+              </div>
+            </div>
+
+            <div id="routeSummary" class="small mt-2"></div>
+
+            <div class="loc-steps-wrap mt-2" aria-label="Turn-by-turn directions">
+              <ol id="routeSteps" class="loc-route-steps mb-0"></ol>
+            </div>
+          </aside>
+
+          <!-- MIDDLE: Map -->
+          <div class="map-container">
+            <div id="map" class="loc-map" aria-label="Map"></div>
+          </div>
+
+          <!-- RIGHT: Notes -->
+          <aside id="attractionInfoBox" class="glass-panel p-3 loc-notes" aria-label="Helpful travel notes">
+            <h3 class="h6 mb-2">Quick notes</h3>
+            <ul class="loc-list mb-0">
+              <li><strong>From M55:</strong> Junction 2 or Junction 3 then follow signs for Kirkham / Wesham.</li>
+              <li><strong>Nearest rail:</strong> Kirkham &amp; Wesham (or Preston for more options).</li>
+              <li><strong>Arrival:</strong> Groups arriving by coach can turn in on Carr Lane — staff can help direct
+                parking.</li>
+            </ul>
+            <div class="mt-3 d-flex flex-wrap gap-2">
+              <a class="btn btn-glass btn-glass--primary" href="../pages/transport.html">Futher Travel Information</a>
+
+            </div>
+          </aside>
+        </div>
+
+        <div class="text-center mt-4">
+          <button id="backToTopBtn" class="btn btn-glass d-none">⬆ Back to Top</button>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <div id="site-footer"></div>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Google Translate -->
+  <script>
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement({ pageLanguage: 'en' }, 'google_translate_element_modal');
+    }
+  </script>
+  <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+  <!-- EmailJS (safe globally) -->
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
+  <!-- Theme + injected nav/footer -->
+  <script defer src="../theme.js"></script>
+  <script defer src="../components/components.js"></script>
+
+  <!-- Leaflet core then routing -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.js"></script>
+
+  <script>
+    (function () {
+      const CENTRE = { lat: 53.7866, lng: -2.8591 };
+      const centreLatLng = L.latLng(CENTRE.lat, CENTRE.lng);
+
+      const el = {
+        map: document.getElementById('map'),
+        startInput: document.getElementById('startInput'),
+        useMyLocationBtn: document.getElementById('useMyLocationBtn'),
+        routeBtn: document.getElementById('routeBtn'),
+        clearRouteBtn: document.getElementById('clearRouteBtn'),
+        routeSummary: document.getElementById('routeSummary'),
+        routeSteps: document.getElementById('routeSteps'),
+        copyStatus: document.getElementById('copyStatus'),
+        backToTopBtn: document.getElementById('backToTopBtn'),
+        copyRouteBtn: document.getElementById('copyRouteBtn'),
+        routeInfoHint: document.getElementById('routeInfoHint'),
+        openRouteMapsBtn: document.getElementById('openRouteMapsBtn'),
+        routeEmptyState: document.getElementById('routeEmptyState'),
+      };
+
+      function setStatus(msg) {
+        if (!el.copyStatus) return;
+        el.copyStatus.textContent = msg || '';
+        window.clearTimeout(setStatus._t);
+        setStatus._t = window.setTimeout(() => (el.copyStatus.textContent = ''), 2500);
+      }
+
+      async function copyToClipboard(text) {
+        const t = (text || '').trim();
+        if (!t) return;
+        try {
+          await navigator.clipboard.writeText(t);
+          setStatus('Copied ✓');
+        } catch {
+          const ta = document.createElement('textarea');
+          ta.value = t;
+          ta.setAttribute('readonly', '');
+          ta.style.position = 'absolute';
+          ta.style.left = '-9999px';
+          document.body.appendChild(ta);
+          ta.select();
+          document.execCommand('copy');
+          ta.remove();
+          setStatus('Copied ✓');
+        }
+      }
+
+      async function handleCopy(btn, text) {
+        if (!btn) return;
+        await copyToClipboard(text);
+        const original = btn.textContent;
+        btn.textContent = "Copied ✓";
+        btn.classList.add("btn-success-flash");
+        window.setTimeout(() => {
+          btn.textContent = original;
+          btn.classList.remove("btn-success-flash");
+        }, 1600);
+      }
+
+      function setCopyRouteEnabled(enabled) {
+        if (!el.copyRouteBtn) return;
+        el.copyRouteBtn.disabled = !enabled;
+      }
+
+      function setOpenRouteEnabled(enabled, url) {
+        if (!el.openRouteMapsBtn) return;
+        if (!enabled) {
+          el.openRouteMapsBtn.href = "#";
+          el.openRouteMapsBtn.setAttribute("aria-disabled", "true");
+          return;
+        }
+        el.openRouteMapsBtn.href = url;
+        el.openRouteMapsBtn.setAttribute("aria-disabled", "false");
+      }
+
+      el.copyRouteBtn?.addEventListener('click', () => {
+        const stepsText = Array.from(document.querySelectorAll('#routeSteps li'))
+          .map(li => li.textContent.trim())
+          .filter(Boolean)
+          .join('\n');
+        if (!stepsText) return;
+        handleCopy(el.copyRouteBtn, stepsText);
+      });
+
+      function clearRouteUI() {
+        el.routeSummary.innerHTML = '';
+        el.routeSteps.innerHTML = '';
+        if (el.routeInfoHint) el.routeInfoHint.textContent = 'Enter a starting point to generate directions.';
+        if (el.routeEmptyState) el.routeEmptyState.style.display = '';
+        setCopyRouteEnabled(false);
+        setOpenRouteEnabled(false);
+      }
+
+      // --- Map ---
+      const map = L.map(el.map, { scrollWheelZoom: false }).setView(centreLatLng, 13);
+      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; OpenStreetMap contributors'
+      }).addTo(map);
+
+      L.marker(centreLatLng)
+        .addTo(map)
+        .bindPopup('<strong>BBNW Training &amp; Activity Centre</strong><br>Carr Lane, Kirkham, PR4 3SS');
+
+      let routingControl = null;
+
+      function formatDistance(meters) {
+        if (!Number.isFinite(meters)) return '';
+        if (meters >= 1000) return `${(meters / 1000).toFixed(1)} km`;
+        return `${Math.round(meters)} m`;
+      }
+
+      function formatTime(seconds) {
+        if (!Number.isFinite(seconds)) return '';
+        const mins = Math.round(seconds / 60);
+        if (mins < 60) return `${mins} min`;
+        const h = Math.floor(mins / 60);
+        const m = mins % 60;
+        return `${h} h ${m} min`;
+      }
+
+      function showRoute(startLatLng) {
+        clearRouteUI();
+
+        if (routingControl) {
+          try { map.removeControl(routingControl); } catch { }
+          routingControl = null;
+        }
+
+        routingControl = L.Routing.control({
+          waypoints: [startLatLng, centreLatLng],
+          show: false,
+          addWaypoints: false,
+          routeWhileDragging: false,
+          draggableWaypoints: false,
+          createMarker: () => null
+        })
+          .on('routesfound', function (e) {
+            const r = e.routes?.[0];
+            if (!r) return;
+
+            if (el.routeEmptyState) el.routeEmptyState.style.display = 'none';
+
+            const s = r.summary || {};
+            el.routeSummary.innerHTML = `
+              <div class="loc-route-pill">Distance: <strong>${formatDistance(s.totalDistance)}</strong></div>
+              <div class="loc-route-pill">Estimated: <strong>${formatTime(s.totalTime)}</strong></div>
+            `;
+
+            const steps = r.instructions || [];
+            el.routeSteps.innerHTML = steps
+              .map(st => `<li>${(st.text || '').replace(/<[^>]+>/g, '')}</li>`)
+              .join('');
+
+            if (el.routeInfoHint) el.routeInfoHint.textContent = steps.length ? 'Turn-by-turn directions' : 'Route calculated (no detailed steps available).';
+            setCopyRouteEnabled(steps.length > 0);
+
+            const mapsUrl =
+              `https://www.google.com/maps/dir/?api=1&origin=${encodeURIComponent(startLatLng.lat + "," + startLatLng.lng)}&destination=${encodeURIComponent(CENTRE.lat + "," + CENTRE.lng)}&travelmode=driving`;
+            setOpenRouteEnabled(true, mapsUrl);
+          })
+          .on('routingerror', function () {
+            if (el.routeEmptyState) el.routeEmptyState.style.display = '';
+            el.routeSummary.innerHTML = '<p class="loc-muted mb-0">Sorry — route could not be calculated.</p>';
+            setCopyRouteEnabled(false);
+            setOpenRouteEnabled(false);
+          })
+          .addTo(map);
+
+        map.fitBounds(L.latLngBounds([startLatLng, centreLatLng]).pad(0.25));
+      }
+
+      async function geocode(query) {
+        const url = `https://nominatim.openstreetmap.org/search?format=json&limit=1&countrycodes=gb&q=${encodeURIComponent(query)}`;
+        const res = await fetch(url);
+        if (!res.ok) return null;
+        const json = await res.json();
+        const hit = json?.[0];
+        if (!hit) return null;
+        return L.latLng(parseFloat(hit.lat), parseFloat(hit.lon));
+      }
+
+      el.routeBtn?.addEventListener('click', async () => {
+        const q = (el.startInput?.value || '').trim();
+        if (!q) {
+          setStatus('Enter a starting point.');
+          el.startInput?.focus();
+          return;
+        }
+        el.routeBtn.disabled = true;
+        setStatus('Searching…');
+        try {
+          const latLng = await geocode(q);
+          if (!latLng) {
+            setStatus('No match found — try a postcode or nearby town.');
+            return;
+          }
+          setStatus('Route updated.');
+          showRoute(latLng);
+        } catch {
+          setStatus('Could not look up that location.');
+        } finally {
+          el.routeBtn.disabled = false;
+        }
+      });
+
+      el.useMyLocationBtn?.addEventListener('click', () => {
+        if (!navigator.geolocation) {
+          setStatus('Geolocation not supported on this device.');
+          return;
+        }
+        el.useMyLocationBtn.disabled = true;
+        setStatus('Getting your location…');
+
+        navigator.geolocation.getCurrentPosition(
+          (pos) => {
+            const start = L.latLng(pos.coords.latitude, pos.coords.longitude);
+            setStatus('Route updated.');
+            showRoute(start);
+            el.useMyLocationBtn.disabled = false;
+          },
+          () => {
+            setStatus('Location access denied. Type a postcode instead.');
+            el.useMyLocationBtn.disabled = false;
+          },
+          { enableHighAccuracy: false, timeout: 10000 }
+        );
+      });
+
+      el.clearRouteBtn?.addEventListener('click', () => {
+        clearRouteUI();
+        if (routingControl) {
+          try { map.removeControl(routingControl); } catch { }
+          routingControl = null;
+        }
+        map.setView(centreLatLng, 13);
+        setStatus('Cleared.');
+      });
+
+      window.addEventListener('scroll', () => {
+        if (!el.backToTopBtn) return;
+        if (window.scrollY > 800) el.backToTopBtn.classList.remove('d-none');
+        else el.backToTopBtn.classList.add('d-none');
+      });
+      el.backToTopBtn?.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+    })();
+  </script>
+
+</body>
+
+</html>

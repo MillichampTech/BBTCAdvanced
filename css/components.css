@@ -1,0 +1,578 @@
+/* Components: nav, footer, panels, buttons, dropdowns (from legacy style.css) 
+
+====================== */
+/* Components: nav, footer, panels, buttons, dropdowns (from legacy style.css)
+
+====================== */
+html { font-size: calc(var(--base-font-size)); }
+body{
+  font-family: var(--font-body);
+  color: var(--text-color);
+  min-height: 100vh;
+}
+
+.skip-link { position:absolute; left:0; top:-48px; background:var(--panel-bg); color:var(--text-color); padding:8px 12px; z-index:1200; transition:top .18s; border-radius:6px; border:1px solid rgba(255,255,255,0.06); }
+.skip-link:focus { top:8px; }
+
+/* Video / overlays */
+.theme-overlay { position: fixed; inset:0; z-index:-2; background: var(--overlay-color); pointer-events:none; transition: background-color var(--fade-speed) ease; }
+
+/* stacking */
+main, header, footer, .hero-content { position: relative; z-index:5; }
+
+/* NAVBAR */
+.nav-glass {
+  width:100%;
+  background: var(--panel-bg) !important;
+  backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturate)) brightness(var(--glass-brightness));
+  
+  box-shadow: 0 8px 28px rgba(0,0,0,0.12);
+  z-index:10; position:relative;
+}
+.nav-glass .nav-link.nav-glass-btn {
+  margin: 0 0.25rem;
+  border-radius: 0.75rem;
+  padding: 0.38rem 0.9rem;
+  background: linear-gradient(180deg,  rgba(255,255,255,0.08), rgba(255,255,255,0.01));
+  border: 1px solid rgba(255,255,255,0.04);
+  color: var(--text-color) !important;
+  transition: transform .16s ease;
+  position: relative; overflow: hidden;
+}
+.nav-glass .nav-link.nav-glass-btn:hover,
+.nav-glass .nav-link.nav-glass-btn:focus-visible {
+  transform: translateY(-2px);
+  background: rgba(255,255,255,0.08);
+  color: var(--primary) !important;
+}
+
+/* Active nav highlight (glass pill, iOS-style) */
+.nav-glass .nav-link.nav-glass-btn.active {
+  background: rgba(255,255,255,0.14);
+  border-color: rgba(255,255,255,0.18);
+  color: var(--primary) !important;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.18);
+}
+.nav-glass .nav-link.nav-glass-btn.active::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(120% 80% at 50% 0%, rgba(255,255,255,0.22), transparent 55%);
+  pointer-events: none;
+}
+
+/* FOOTER */
+.footer-glass {
+  width:100%;
+  background: var(--panel-bg);
+  backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturate)) brightness(var(--glass-brightness));
+  border-top: 1px solid rgba(255,255,255,0.10);
+  box-shadow: 0 -6px 20px rgba(0,0,0,0.10);
+  margin-top:3rem;
+}
+
+/* GLASS PANELS */
+.glass-panel {
+  position: relative;
+  background: var(--panel-bg);
+  border-radius: 1rem;
+  backdrop-filter: blur(calc(var(--glass-blur) - 10px)) saturate(var(--glass-saturate)) brightness(var(--glass-brightness));
+  border: 1px solid rgba(255,255,255,0.12);
+  box-shadow: 0 12px 40px rgba(0,0,0,0.16);
+}
+.glass-panel1 {
+  position: relative;
+  background: var(--primary);
+  border-radius: 1rem;
+  backdrop-filter: blur(calc(var(--glass-blur) - 10px)) saturate(var(--glass-saturate)) brightness(var(--glass-brightness));
+  border: 1px solid rgba(255,255,255,0.12);
+  box-shadow: 0 12px 40px rgba(0,0,0,0.16);
+  color: var(--panel-bg);
+}
+
+/* BUTTONS */
+.btn-glass {
+  display:inline-block;
+  background: rgba(255,255,255,0.12);
+  border:1px solid rgba(255,255,255,0.18);
+  backdrop-filter: blur(18px) saturate(140%) brightness(115%);
+  border-radius: var(--btn-radius);
+  padding: var(--btn-padding-y) var(--btn-padding-x);
+  color: var(--text-color);
+  font-weight:600;
+  box-shadow: 0 8px 28px rgba(0,0,0,0.12);
+  position: relative;
+  overflow: hidden;
+}
+.btn-glass:hover,
+.btn-glass:focus-visible {
+  transform: translateY(-2px);
+  background: rgba(255,255,255,0.18);
+  color: var(--text-color);
+}
+.btn-glass {
+  transition: transform 0.25s ease, background 0.25s ease, color 0.25s ease;
+}
+
+/* Navbar logo sizing */
+.navbar-brand {
+  display: flex;
+  align-items: center;
+  padding: 0;
+}
+
+.nav-logo {
+  height: 80px;     /* ideal navbar size */
+  width: auto;
+  display: block;
+}
+
+/* Button shimmer */
+.btn-glass::before,
+.nav-glass .nav-link.nav-glass-btn::before {
+  content: "";
+  position: absolute;
+  top: 0; left: -120%;
+  width: 120%; height: 100%;
+  background: linear-gradient(120deg, transparent, var(--shimmer-color), transparent);
+  transform: translateX(0);
+  transition: transform 0.7s ease;
+  mix-blend-mode: screen;
+}
+.btn-glass:hover::before,
+.btn-glass:focus-visible::before,
+.nav-glass .nav-link.nav-glass-btn:hover::before,
+.nav-glass .nav-link.nav-glass-btn:focus-visible::before {
+  transform: translateX(120%);
+}
+
+/* MODAL */
+.modal-content.glass-panel { padding: 0.5rem; }
+
+/* ======================
+   THEME MENU OPTIONS (Glass shimmer, accessible contrast)
+   ====================== */
+.theme-item {
+  display: block;
+  background: var(--panel-bg, rgba(255,255,255,0.1));
+  border: 1px solid rgba(255,255,255,0.25);
+  border-radius: 12px;
+  padding: 0.65rem 1rem;
+  margin-bottom: 0.5rem;
+  color: var(--text-color, #fff);
+  font-weight: 600;
+  text-align: center;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  backdrop-filter: blur(calc(var(--glass-blur) - 8px)) saturate(var(--glass-saturate, 180%));
+  -webkit-backdrop-filter: blur(calc(var(--glass-blur) - 8px)) saturate(var(--glass-saturate, 180%));
+  transition: transform 0.25s ease, background 0.25s ease, color 0.25s ease;
+}
+
+/* ======================
+   THEME MENU SHIMMER (continuous gentle motion + fade-out)
+   ====================== */
+@keyframes softShimmer {
+  0% { transform: translateX(-100%); opacity: 0; }
+  20% { opacity: 0.85; }
+  50% { transform: translateX(100%); opacity: 0.85; }
+  80% { opacity: 0; }
+  100% { transform: translateX(-100%); opacity: 0; }
+}
+
+.theme-item::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    120deg,
+    transparent 0%,
+    var(--shimmer-color, rgba(255,255,255,0.4)) 40%,
+    rgba(255,255,255,0.55) 50%,
+    var(--shimmer-color, rgba(255,255,255,0.4)) 60%,
+    transparent 100%
+  );
+  transform: translateX(-100%);
+  opacity: 0;
+  mix-blend-mode: screen;
+  pointer-events: none;
+  transition: opacity 0.35s ease-out;
+}
+
+.theme-item:hover::after {
+  animation: softShimmer 5.2s linear infinite;
+  animation-delay: 0s !important;
+  opacity: 1;
+}
+.theme-item::after { animation: none; }
+.theme-item:hover {
+  transform: translateY(-2px);
+  background: color-mix(in srgb, var(--shimmer-color), var(--panel-bg) 70%);
+}
+
+/* ======================
+   THEME MENU DROPDOWN (unified + theme-aware)
+   ====================== */
+.dropdown-menu {
+  background: var(--panel-bg, rgba(0,0,0,0.6)) !important;
+  backdrop-filter: blur(var(--glass-blur, 16px)) saturate(var(--glass-saturate, 180%));
+  -webkit-backdrop-filter: blur(var(--glass-blur, 16px)) saturate(var(--glass-saturate, 180%));
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+  color: var(--text-color, #fff) !important;
+  transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+/* Adjust darker and lighter themes separately for proper contrast */
+[data-theme="dark"] .dropdown-menu,
+[data-theme="winter"] .dropdown-menu,
+[data-theme="autumn"] .dropdown-menu {
+  background: rgba(25, 25, 35, 0.85) !important;
+}
+
+[data-theme="dyspraxia"] .dropdown-menu {
+  background: rgba(255, 248, 240, 0.95) !important;
+  color: #222 !important;
+}
+
+[data-theme="light"] .dropdown-menu,
+[data-theme="spring"] .dropdown-menu,
+[data-theme="summer"] .dropdown-menu {
+  background: rgba(255, 255, 255, 0.85) !important;
+  color: #111 !important;
+}
+
+/* Dropdown items */
+.dropdown-item {
+  color: inherit !important;
+  background: transparent !important;
+  transition: background 0.25s ease;
+}
+
+.dropdown-item:hover,
+.dropdown-item:focus {
+  background: rgba(255,255,255,0.15) !important;
+}
+
+/* CONTENT SPACING */
+.container { padding-top: 6.5rem; padding-bottom: 4rem; }
+.hero-content { padding: 4rem 1rem; text-align:center; }
+h1.display-4 { font-size: clamp(2.2rem, 4.5vw, 3.2rem); line-height:1.05; color: var(--text-color); font-family: var(--font-heading); }
+.lead { color: var(--muted); }
+
+/* FOOTER LINKS */
+.footer-title { font-size: 1rem; margin-bottom: .6rem; font-weight:600; color: var(--text-color); }
+.footer-subtitle{
+  font-size: .85rem;
+  font-weight: 600;
+  opacity: .85;
+  margin: .25rem 0 .4rem;
+}
+
+footer a { color: var(--text-color); text-decoration:none; }
+footer a:hover, footer a:focus { color: var(--accent); text-decoration:underline; }
+
+/* ACCESSIBILITY */
+:focus-visible { outline: 3px solid var(--focus-color); outline-offset:4px; border-radius: 0.5rem; }
+html[data-large-text="true"] { --base-font-size: 18px; }
+html[data-readable-font="true"] { font-family: 'Inter', Arial, sans-serif; }
+.visually-hidden { position:absolute !important; height:1px; width:1px; overflow:hidden; clip:rect(1px,1px,1px,1px); white-space:nowrap; }
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .container { padding-top: 5.5rem; padding-bottom: 3rem; }
+  .hero-content { padding: 2.25rem 1rem; }
+  footer .row > div { text-align: left; }
+  .modal-dialog { max-width: 720px; margin: 1rem; }
+}
+
+/* REDUCE MOTION */
+@media (prefers-reduced-motion: reduce) {
+  .btn-glass::before, .nav-glass .nav-link::before, .theme-overlay { animation:none !important; transition:none !important; }
+}
+
+/*navbar adjustment css*/
+header.site-header {
+  position: fixed;           /* not static / relative */
+  top: 0;
+  left: 0;
+  right: 0;
+
+  height: var(--nav-height, 72px);
+  z-index: 1000;
+
+  background: transparent 55% !important;
+  backdrop-filter: none;
+
+  pointer-events: auto;
+}
+
+.hero,
+.hero-video {
+  min-height: 100vh;
+  position: relative;
+}
+
+.hero video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+main { padding-top: var(--nav-height, 72px); }
+body.home main { padding-top: 0; }
+
+body.home header.site-header { background: transparent; }
+
+body.home .nav-glass,
+body.home .navbar {
+  background: transparent 75% !important;
+  box-shadow: none;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+
+/* Fade-in on load */
+@media (prefers-reduced-motion: no-preference) {
+  body.home header.site-header {
+    opacity: 0;
+    transform: none;
+    transition: opacity 9.25s linear;
+    will-change: opacity;
+  }
+
+  body.home.nav-ready header.site-header { opacity: 1; }
+}
+
+/* Accessibility fallback */
+@media (prefers-reduced-motion: reduce) {
+  body.home header.site-header { opacity: 1; transition: none; }
+}
+
+body.home .navbar a,
+body.home .navbar .nav-link {
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+/* Core nav text sizing */
+.navbar a,
+.navbar button,
+.navbar .nav-link {
+  font-size: clamp(1.05rem, 1vw + 0.8rem, 1.35rem);
+  line-height: 1.2;
+  font-weight: 500;
+}
+
+.navbar .logo,
+.navbar .brand { font-size: 1.4em; }
+
+/*navbar homepage only*/
+body.home .navbar a,
+body.home .navbar .nav-link,
+body.home .navbar button {
+  color: rgba(255, 255, 255, 0.92) !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.02em !important;
+  text-shadow:
+    0 1px 3px rgba(0,0,0,0.35),
+    0 0 10px rgba(0,0,0,0.25) !important;
+}
+
+.navbar-toggler { border: none; }
+.navbar-toggler-icon { background-image: none; }
+
+.navbar-toggler-icon::before,
+.navbar-toggler-icon::after,
+.navbar-toggler-icon {
+  width: 24px;
+  height: 2px;
+  background-color: currentColor;
+  display: block;
+  position: relative;
+}
+
+.navbar-toggler-icon::before,
+.navbar-toggler-icon::after {
+  content: "";
+  position: absolute;
+  left: 0;
+}
+
+.navbar-toggler-icon::before { top: -7px; }
+
+body.home { --nav-offset: 0px; }
+
+body.home main { padding-top: var(--nav-offset); }
+
+body.home { --nav-offset: 0px; }
+
+body.home { padding-top: var(--nav-offset); }
+
+/* HOME PAGE – mobile menu OPEN only */
+@media (max-width: 991.98px) {
+
+  body.home.nav-open header.site-header #site-nav .nav-glass .navbar-nav .nav-link,
+  body.home.nav-open header.site-header #site-nav .nav-glass .navbar-brand,
+  body.home.nav-open header.site-header #site-nav .nav-glass .navbar-toggler,
+  body.home.nav-open header.site-header #site-nav .nav-glass a {
+    color: var(--text-color) !important;
+    text-shadow: none !important;
+  }
+
+  /* Ensure the right-side button group spans the menu width */
+  body.home.nav-open header.site-header #site-nav .navbar-collapse .d-flex.align-items-center.gap-2{
+    width: 100%;
+  }
+
+  /* Mobile Accessibility button should behave like a link */
+.navbar .nav-link[type="button"]{
+  background: transparent;
+  border: 0;
+  width: 100%;
+  text-align: left;
+}
+
+
+  /* Mobile toggler colour when over light glass menu */
+  body.home .navbar .navbar-toggler {
+    color: var(--text-color) !important;
+  }
+
+  /* Menu glass panel when open */
+  body.home.nav-open header.site-header #site-nav .nav-glass,
+  body.home.nav-open header.site-header #site-nav .navbar {
+    background: var(--panel-bg) !important;
+    box-shadow: 0 8px 28px rgba(0,0,0,0.12);
+    backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturate)) brightness(var(--glass-brightness));
+    -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturate)) brightness(var(--glass-brightness));
+  }
+}
+
+/* ---- Custom blur overlay behind modal ---- */
+.modal-backdrop { display: none !important; }
+
+body.modal-open::before{
+  content:"";
+  position: fixed;
+  inset: 0;
+  z-index: 1040;                 /* below modal */
+  background: rgba(0,0,0,0.15);  /* subtle dim */
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  pointer-events: none;          /* CRITICAL: don't steal clicks/scroll */
+}
+
+/* keep modal above overlay */
+.modal { z-index: 1050 !important; }
+
+/* ---- Proper scrollable modal panel ---- */
+
+/* If the dialog has modal-dialog-centered, cancel it for this modal */
+.booking-modal .modal-dialog.modal-dialog-centered{
+  align-items: stretch;
+}
+
+/* Size the dialog */
+.booking-modal .modal-dialog{
+  max-width: 760px;
+  width: calc(100% - 24px);
+  height: 90vh;
+  margin: 5vh auto;
+}
+
+/* Modal content fills dialog */
+.booking-modal .modal-content{
+  height: 100%;
+  max-height: 100%;
+  display: flex;
+  flex-direction: column;
+
+  /* Contrast (override glass-panel) */
+  background: rgba(255,255,255,0.94) !important;
+  color: #172033;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+
+  border-radius: 16px;
+  box-shadow: 0 30px 70px rgba(0,0,0,0.25);
+}
+
+/* Header/footer fixed size */
+.booking-modal .modal-header,
+.booking-modal .modal-footer{
+  flex: 0 0 auto;
+}
+
+/* Body scrolls fully */
+.booking-modal .modal-dialog{
+  max-width: 760px;
+  width: calc(100% - 24px);
+  height: 96vh;
+  margin: 2vh auto;
+}
+
+/* Stop Bootstrap body padding shifting */
+body.modal-open{ padding-right: 0 !important; }
+/* Ensure modal always tops the stack */
+body.modal-open::before { z-index: 1990; }
+.modal { z-index: 2000 !important; }
+
+/* Home page: never push content down for the fixed header */
+body.home main{
+  padding-top: 0 !important;
+}
+@media (min-width: 992px){
+  #accessBtn{
+    white-space: nowrap;
+  }
+}
+@media (min-width: 992px){
+  #accessBtn{
+    min-width: 150px;
+    justify-content: center;
+  }
+}
+/* Desktop Accessibility CTA – refined colour */
+@media (min-width: 992px){
+
+  #accessBtn{
+    background: rgba(0, 92, 170, 0.9) ;  /* BB blue tint */
+    border: 1px solid rgba(255,255,255,0.25) !important;
+    backdrop-filter: blur(14px) saturate(140%);
+    color: #fff !important;
+  }
+
+  #accessBtn:hover{
+    background: rgba(0, 92, 170, 0.9) !important;
+  }
+
+}
+
+@media (min-width: 992px){
+  a.btn.btn-glass.btn-glass--primary{
+    background: navy !important;
+    border: 1px solid rgba(255,255,255,0.25) !important;
+    color: #fff !important;
+  }
+  a.btn.btn-glass.btn-glass--primary:hover{
+    background: navy!important;
+    color: #fff !important;
+  }
+}
+.navbar-nav .nav-link {
+    font-size: 0.95rem; /* was probably 1rem or larger */
+}
+.footer-card h4 {
+  font-size: .9rem;
+  font-weight: 600;
+  opacity: .75;
+  margin-top: .6rem;
+}
+.footer-card ul li {
+  line-height: 1.5;
+}

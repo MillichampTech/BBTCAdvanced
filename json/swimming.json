@@ -1,0 +1,23 @@
+[
+  {
+    "name": "Kirkham YMCA",
+    "lat": 53.7862,
+    "lng": -2.871,
+    "address": "Mill St, Kirkham PR4 2AN",
+    "image": "../assets/images/swimming/kirkham-ymca.jpg"
+  },
+  {
+    "name": "Poulton YMCA",
+    "lat": 53.8467,
+    "lng": -2.9893,
+    "address": "Breck Rd, Poulton-le-Fylde FY6 7HJ",
+    "image": "../assets/images/swimming/poulton-ymca.jpg"
+  },
+  {
+    "name": "St Annes YMCA Pool",
+    "lat": 53.7531,
+    "lng": -3.0234,
+    "address": "St Albans Rd, Lytham St Annes FY8 1XD",
+    "image": "../assets/images/swimming/stannes-ymca.jpg"
+  }
+]

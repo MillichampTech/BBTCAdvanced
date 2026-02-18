@@ -1,0 +1,42 @@
+[
+  {
+    "name": "Kirkham Health Centre",
+    "lat": 53.7855,
+    "lng": -2.8713,
+    "address": "Low Green, Kirkham PR4 2YH",
+    "phone": "01772 683444",
+    "website": "",
+    "image": "../assets/images/medical/kirkham-health-centre.jpg",
+    "description": "Local NHS health centre offering GP services."
+  },
+  {
+    "name": "Kirkham Dental Care",
+    "lat": 53.7847,
+    "lng": -2.8734,
+    "address": "Station Road, Kirkham PR4 2AS",
+    "phone": "01772 683555",
+    "website": "",
+    "image": "../assets/images/medical/kirkham-dental.jpg",
+    "description": "Friendly dental practice providing NHS and private treatments."
+  },
+  {
+    "name": "Lytham Hospital",
+    "lat": 53.7428,
+    "lng": -2.9619,
+    "address": "Warton St, Lytham FY8 5EE",
+    "phone": "01253 600001",
+    "website": "",
+    "image": "../assets/images/medical/lytham-hospital.jpg",
+    "description": "Community hospital serving Lytham and the Fylde area."
+  },
+  {
+    "name": "Blackpool Victoria Hospital",
+    "lat": 53.8191,
+    "lng": -3.0277,
+    "address": "Whinney Heys Rd, Blackpool FY3 8NR",
+    "phone": "01253 300000",
+    "website": "https://www.bfwh.nhs.uk/",
+    "image": "../assets/images/medical/blackpool-vic.jpg",
+    "description": "Major NHS hospital providing emergency and specialist care."
+  }
+]

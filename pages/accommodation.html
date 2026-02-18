@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en" id="html-root">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Accommodation | BBNW</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Poppins:wght@400;600&family=IBM+Plex+Sans:wght@400;600&family=Merriweather:wght@700&family=Nunito:wght@400;700&family=Lato:wght@400;700&display=swap" rel="stylesheet" />
+
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <!-- Site styles (main.css pulls support.css) -->
+  <link rel="stylesheet" href="../css/main.css" />
+
+  <!-- Page-only styles (keep ONLY what is unique to this page) -->
+  <style>
+    .accom-card{
+      overflow:hidden;
+      border-radius:18px;
+      transition: transform .25s ease, box-shadow .25s ease;
+    }
+    .accom-card:hover{ transform: translateY(-5px); }
+
+    .accom-media{
+      position:relative;
+      height:230px;
+      overflow:hidden;
+    }
+    .accom-media img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      display:block;
+      filter: saturate(1.12) contrast(1.06);
+      transform: scale(1.02);
+    }
+    .accom-media::after{
+      content:"";
+      position:absolute;
+      inset:0;
+      background: linear-gradient(to bottom, rgba(0,0,0,0) 40%, rgba(0,0,0,.58));
+      pointer-events:none;
+    }
+    .accom-title-overlay{
+      position:absolute;
+      bottom:16px;
+      left:16px;
+      right:16px;
+      padding:.6rem .75rem;
+      border-radius: 14px;
+      color:#fff;
+      font-weight: 900;
+      letter-spacing: -.2px;
+      background: rgba(0,0,0,.28);
+      backdrop-filter: blur(6px);
+      border: 1px solid rgba(255,255,255,.18);
+    }
+    .accom-body{ padding: 1rem 1rem 1.15rem 1rem; }
+  </style>
+</head>
+
+<body>
+  <div class="theme-overlay" aria-hidden="true"></div>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <header><div id="site-nav"></div></header>
+
+  <main id="main-content" role="main" class="container py-4">
+
+    <!-- Hero -->
+    <section class="mb-4">
+      <div class="glass-panel soft-card p-3 p-lg-4 hub-hero">
+        <p class="eyebrow mb-2">Stay with us</p>
+        <h1 class="mb-2 fw-bold">Accommodation</h1>
+        <p class="lead mb-0">
+          Choose indoor residential or camping — all with access to activities, grounds and local amenities.
+        </p>
+      </div>
+    </section>
+
+    <!-- Accommodation cards -->
+    <section class="mb-4">
+      <div class="row g-4">
+
+        <div class="col-12 col-md-6 col-lg-4">
+          <article class="glass-panel soft-card h-100 accom-card">
+            <div class="accom-media">
+              <img src="../assets/media/accomodation/centenary1.JPG" alt="Centenary Hall accommodation and facilities">
+              <div class="accom-title-overlay">Centenary Hall</div>
+            </div>
+            <div class="accom-body">
+              <p class="org-muted">Our main indoor residential building — ideal for groups, courses and residential weekends.</p>
+              <a class="btn btn-glass btn-glass--primary" href="../pages/centenary.html">View Centenary Hall</a>
+            </div>
+          </article>
+        </div>
+
+        <div class="col-12 col-md-6 col-lg-4">
+          <article class="glass-panel soft-card h-100 accom-card">
+            <div class="accom-media">
+              <img src="../assets/media/accomodation/stedfast1.JPG" alt="Stedfast Lodge accommodation building and rooms">
+              <div class="accom-title-overlay">Stedfast Lodge</div>
+            </div>
+            <div class="accom-body">
+              <p class="org-muted">Comfortable indoor accommodation with great access to activities and grounds.</p>
+              <a class="btn btn-glass btn-glass--primary" href="../pages/stedfast.html">View Stedfast Lodge</a>
+            </div>
+          </article>
+        </div>
+
+        <div class="col-12 col-md-6 col-lg-4">
+          <article class="glass-panel soft-card h-100 accom-card">
+            <div class="accom-media">
+              <img src="../assets/media/accomodation/camping1.JPG" alt="Campsite area suitable for group camping">
+              <div class="accom-title-overlay">Campsite</div>
+            </div>
+            <div class="accom-body">
+              <p class="org-muted">Camping and outdoor stays — a flexible option for groups and summer programmes.</p>
+              <a class="btn btn-glass btn-glass--primary" href="../pages/camping.html">View Campsite</a>
+            </div>
+          </article>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Hub links -->
+    <section class="mb-4">
+      <div class="glass-panel soft-card p-3 p-lg-4 hub-panel">
+        <div class="hub-grid">
+
+          <div class="hub-group">
+            <h2 class="h5 mb-2">Residential stays</h2>
+            <p class="org-muted mb-3">Common group types we host — pick the closest match and we’ll guide the rest.</p>
+
+            <ul class="hub-links">
+              <li><a class="hub-link" href="../pages/residentials-youth-groups.html"><strong>Youth Groups</strong><i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a></li>
+              <li><a class="hub-link" href="../pages/residentials-schools.html"><strong>School Residential Trips</strong><i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a></li>
+              <li><a class="hub-link" href="../pages/residentials-church-retreats.html"><strong>Church Retreats</strong><i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a></li>
+              <li><a class="hub-link" href="../pages/residentials-sports-teams.html"><strong>Sports Team Residentials</strong><i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a></li>
+
+              <!-- FIXED: was ./pages/... -->
+              <li><a class="hub-link" href="../pages/residentials-university.html"><strong>University &amp; College Groups</strong><i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a></li>
+              <li><a class="hub-link" href="../pages/residentials-training-weekends.html"><strong>Leadership &amp; Training Weekends</strong><i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a></li>
+              <li><a class="hub-link" href="../pages/residentials-adventure-weekends.html"><strong>Activity &amp; Adventure Weekends</strong><i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a></li>
+            </ul>
+          </div>
+
+          <div class="hub-group">
+            <h2 class="h5 mb-2">Quick links</h2>
+            <p class="org-muted mb-3">Planning tools and key information.</p>
+
+            <div class="hub-small-links">
+              <a class="hub-pill" href="../pages/how-to-book.html"><span>How to book</span><i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+              <a class="hub-pill" href="../pages/prices-2026.html"><span>Pricing</span><i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+              <a class="hub-pill" href="../pages/location.html"><span>Location</span><i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+              <a class="hub-pill" href="../pages/transport.html"><span>Transport</span><i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <div id="site-footer"></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement({ pageLanguage: 'en' }, 'google_translate_element_modal');
+    }
+  </script>
+  <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <script defer src="../theme.js"></script>
+  <script defer src="../components/components.js"></script>
+</body>
+</html>
+

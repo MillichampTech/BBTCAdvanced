@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en" id="html-root">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Tent Allocation | Campsite | BBNW</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="../css/main.css">
+
+  <style>
+    .bedding-wrap{max-width:1100px;margin-inline:auto;}
+    .meta-row{display:flex;gap:.75rem;flex-wrap:wrap;align-items:center;}
+    .counter-pill{
+      display:inline-flex; align-items:center; gap:.5rem;
+      padding:.35rem .65rem;
+      border-radius:999px;
+      border:1px solid rgba(var(--primary-rgb)/.22);
+      background: rgba(255,255,255,.38);
+      font-weight:700;
+      font-size:.9rem;
+    }
+    [data-theme="dark"] .counter-pill{border-color: rgba(255,255,255,.12);background: rgba(255,255,255,.06);}
+
+    .warn-pill{
+      display:none;
+      padding:.35rem .65rem;
+      border-radius: 999px;
+      border:1px solid rgba(var(--primary-rgb)/.28);
+      background: rgba(var(--primary-rgb)/.10);
+      font-size:.85rem;
+      font-weight:600;
+    }
+    .warn-pill.is-on{ display:inline-flex; align-items:center; gap:.5rem; }
+
+    .autosave-pill{
+      display:inline-flex; align-items:center; gap:.45rem;
+      padding:.35rem .65rem;
+      border-radius: 999px;
+      border:1px solid rgba(0,0,0,.10);
+      background: rgba(255,255,255,.38);
+      font-size:.85rem;
+      opacity:.95;
+    }
+    [data-theme="dark"] .autosave-pill{ border-color: rgba(255,255,255,.12); background: rgba(255,255,255,.06); }
+    .dot{ width:.55rem;height:.55rem;border-radius:999px;background: rgba(0,0,0,.22); }
+    .dot.on{ background: rgba(var(--primary-rgb)/.9); }
+
+    .room-card{ border:1px solid rgba(0,0,0,.08); }
+    [data-theme="dark"] .room-card{ border-color: rgba(255,255,255,.12); }
+    .room-head{ display:flex; justify-content:space-between; gap:.75rem; flex-wrap:wrap; align-items:flex-start; margin-bottom:.75rem; }
+    .room-title{ font-weight:800; }
+    .room-sub{ opacity:.8; font-size:.85rem; }
+    .room-status{ display:inline-flex; align-items:center; gap:.4rem; font-size:.82rem; opacity:.9; }
+    .status-icon{
+      width:1.05rem;height:1.05rem;border-radius:999px;
+      border:1px solid rgba(0,0,0,.10);
+      display:inline-flex;align-items:center;justify-content:center;
+      font-size:.72rem;
+      background: rgba(255,255,255,.35);
+    }
+    [data-theme="dark"] .status-icon{ border-color: rgba(255,255,255,.12); background: rgba(255,255,255,.06); }
+    .is-empty  .status-icon{ opacity:.55; }
+    .is-partial .status-icon{ border-color: rgba(var(--primary-rgb)/.30); background: rgba(var(--primary-rgb)/.10); }
+    .is-full   .status-icon{ border-color: rgba(var(--primary-rgb)/.45); background: rgba(var(--primary-rgb)/.16); }
+
+    .bed-input{
+      width:100%;
+      border:1px solid rgba(0,0,0,.08);
+      border-radius:.75rem;
+      padding:.55rem .65rem;
+      background: rgba(255,255,255,.45);
+      outline:none;
+    }
+    [data-theme="dark"] .bed-input{ background: rgba(255,255,255,.06); border-color: rgba(255,255,255,.12); color: rgba(255,255,255,.92); }
+    .bed-input:focus{ border-color: rgba(var(--primary-rgb)/.45); box-shadow: 0 0 0 .2rem rgba(var(--primary-rgb)/.18); }
+
+    .sticky-bar{ position: fixed; left: 0; right: 0; bottom: 0; z-index: 1000; padding: .5rem 0; background: transparent; }
+    .sticky-bar .inner{ max-width:1100px; margin-inline:auto; padding: .55rem .75rem; display:flex; align-items:center; justify-content:space-between; gap:.75rem; flex-wrap:wrap; }
+    .sticky-counter{ font-weight:800; }
+    .sticky-actions{ display:flex; gap:.5rem; flex-wrap:wrap; }
+
+    body{ padding-bottom: 90px; }
+    @media print{
+      body{ padding-bottom: 0 !important; background:#fff !important; }
+      .print-hide{ display:none !important; }
+      .glass-panel,.soft-card{ box-shadow:none !important; }
+      .bed-input{ background:#fff !important; }
+    }
+  </style>
+</head>
+
+<body>
+  <header><div id="site-nav"></div></header>
+
+  <main class="container py-4 bedding-wrap" id="main-content">
+
+    <section class="glass-panel soft-card p-3 p-lg-4 mb-4">
+      <div class="d-flex justify-content-between align-items-start flex-wrap gap-2">
+        <div>
+          <h1 class="h3 mb-1">Campsite – Tent Allocation</h1>
+          <p class="small-muted mb-2">Choose how many tents you’re bringing, then assign names. Max 8 people per tent.</p>
+
+          <div class="meta-row">
+            <span class="counter-pill" id="globalCounter">0 / 0 assigned</span>
+            <span class="warn-pill" id="warnPill">⚠ <span id="warnText"></span></span>
+            <span class="autosave-pill" title="Auto-save status">
+              <span class="dot" id="saveDot" aria-hidden="true"></span>
+              <span id="saveText">Auto-save ready</span>
+            </span>
+          </div>
+        </div>
+
+        <a href="camping.html" class="btn btn-outline-secondary print-hide">Back to Campsite</a>
+      </div>
+    </section>
+
+    <section class="glass-panel soft-card p-3 p-lg-4 mb-4 print-hide">
+      <div class="row g-3 align-items-end">
+        <div class="col-md-4">
+          <label class="form-label fw-bold" for="groupName">Group name</label>
+          <input class="form-control" id="groupName" maxlength="80" placeholder="e.g. 5th Blackpool Cubs">
+        </div>
+        <div class="col-md-4">
+          <label class="form-label fw-bold" for="stayDates">Dates</label>
+          <input class="form-control" id="stayDates" maxlength="80" placeholder="e.g. 18–20 July 2026">
+        </div>
+        <div class="col-md-4">
+          <label class="form-label fw-bold" for="leaderName">Lead organiser</label>
+          <input class="form-control" id="leaderName" maxlength="80" placeholder="Name">
+        </div>
+
+        <div class="col-md-4">
+          <label class="form-label fw-bold" for="tentCount">Number of tents</label>
+          <select class="form-select" id="tentCount"></select>
+          <div class="small-muted mt-1">You can change this later — we’ll keep saved names where possible.</div>
+        </div>
+
+        <div class="col-md-8 d-flex gap-2 flex-wrap">
+          <button class="btn btn-glass btn-glass--primary" type="button" onclick="window.print()">Print</button>
+          <button class="btn btn-outline-secondary" type="button" id="sendBtn">Send via contact</button>
+          <button class="btn btn-outline-secondary" type="button" id="clearBtn">Clear all</button>
+        </div>
+      </div>
+
+      <div class="small-muted mt-2">Tip: paste a vertical list of names into any slot and it will auto-fill down the spaces.</div>
+    </section>
+
+    <section class="glass-panel soft-card p-3 p-lg-4 mb-4">
+      <div class="d-flex align-items-center justify-content-between flex-wrap gap-2 mb-2">
+        <h2 class="h5 mb-0">Tents</h2>
+        <span class="badge-soft">Max 8 per tent</span>
+      </div>
+      <div id="tentsWrap" class="row g-3"></div>
+    </section>
+
+  </main>
+
+  <div class="sticky-bar print-hide">
+    <div class="inner glass-panel">
+      <div class="sticky-counter" id="stickyCounter">0 / 0 assigned</div>
+      <div class="sticky-actions">
+        <a class="btn btn-outline-secondary btn-sm" href="camping.html">Back</a>
+        <button class="btn btn-glass btn-glass--primary btn-sm" type="button" onclick="window.print()">Print</button>
+        <button class="btn btn-outline-secondary btn-sm" type="button" id="sendBtn2">Send</button>
+        <button class="btn btn-outline-secondary btn-sm" type="button" id="clearBtn2">Clear</button>
+      </div>
+    </div>
+  </div>
+
+  <footer><div id="site-footer"></div></footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script defer src="../components/components.js"></script>
+  <script defer src="../theme.js"></script>
+
+  <script>
+    (() => {
+      const STORAGE_KEY = "bbnw_tents_campsite_v1";
+      const MAX_PER_TENT = 8;
+      const MAX_TENTS_UI = 20;
+
+      const tentsWrap = document.getElementById("tentsWrap");
+      const tentCountSel = document.getElementById("tentCount");
+
+      const globalCounter = document.getElementById("globalCounter");
+      const stickyCounter = document.getElementById("stickyCounter");
+      const warnPill = document.getElementById("warnPill");
+      const warnText = document.getElementById("warnText");
+      const saveDot = document.getElementById("saveDot");
+      const saveText = document.getElementById("saveText");
+
+      const groupName = document.getElementById("groupName");
+      const stayDates = document.getElementById("stayDates");
+      const leaderName = document.getElementById("leaderName");
+
+      const btnSend = document.getElementById("sendBtn");
+      const btnClear = document.getElementById("clearBtn");
+      const btnSend2 = document.getElementById("sendBtn2");
+      const btnClear2 = document.getElementById("clearBtn2");
+
+      function setSaveState(on, msg){
+        saveDot.classList.toggle("on", !!on);
+        saveText.textContent = msg || (on ? "Saved" : "Auto-save ready");
+      }
+
+      function debounce(fn, wait){ let t; return (...args)=>{ clearTimeout(t); t=setTimeout(()=>fn(...args), wait); }; }
+      const saveDebounced = debounce(() => { saveNow(); countAndPaint(); }, 220);
+
+      function buildTent(tentNo){
+        const col = document.createElement("div");
+        col.className = "col-12";
+        const card = document.createElement("div");
+        card.className = "glass-panel soft-card p-3 room-card is-empty";
+        card.dataset.tent = String(tentNo);
+
+        card.innerHTML = `
+          <div class="room-head">
+            <div>
+              <div class="room-title">Tent ${tentNo}</div>
+              <div class="room-sub">Up to ${MAX_PER_TENT} people</div>
+            </div>
+            <div class="room-status">
+              <span class="status-icon" aria-hidden="true">○</span>
+              <span class="status-text">0 / ${MAX_PER_TENT} assigned</span>
+            </div>
+          </div>
+          <div class="row g-2">
+            ${Array.from({length:MAX_PER_TENT}).map((_,i)=>`
+              <div class="col-12 col-md-6">
+                <input class="bed-input" type="text" maxlength="80" data-slot="${i+1}" placeholder="Person ${i+1} – Full name">
+              </div>
+            `).join("")}
+          </div>
+        `;
+
+        col.appendChild(card);
+        return col;
+      }
+
+      function buildTentCountOptions(){
+        tentCountSel.innerHTML = "";
+        for (let i=1; i<=MAX_TENTS_UI; i++){
+          const opt = document.createElement("option");
+          opt.value = String(i);
+          opt.textContent = String(i);
+          tentCountSel.appendChild(opt);
+        }
+      }
+
+      function buildTents(count){
+        tentsWrap.innerHTML = "";
+        for (let i=1; i<=count; i++){
+          tentsWrap.appendChild(buildTent(i));
+        }
+      }
+
+      function getTentCount(){
+        const v = Number(tentCountSel.value || 1);
+        return Number.isFinite(v) && v > 0 ? v : 1;
+      }
+
+      function countAndPaint(){
+        const totalSlots = getTentCount() * MAX_PER_TENT;
+        let totalAssigned = 0;
+
+        document.querySelectorAll("[data-tent]").forEach(card => {
+          const inputs = Array.from(card.querySelectorAll("input.bed-input"));
+          const assigned = inputs.reduce((n, inp) => n + (inp.value.trim() ? 1 : 0), 0);
+          totalAssigned += assigned;
+
+          const st = card.querySelector(".status-text");
+          if (st) st.textContent = `${assigned} / ${MAX_PER_TENT} assigned`;
+
+          card.classList.remove("is-empty","is-partial","is-full");
+          if (assigned === 0) card.classList.add("is-empty");
+          else if (assigned === MAX_PER_TENT) card.classList.add("is-full");
+          else card.classList.add("is-partial");
+
+          const icon = card.querySelector(".status-icon");
+          if (icon) icon.textContent = assigned === 0 ? "○" : (assigned === MAX_PER_TENT ? "●" : "◐");
+        });
+
+        const label = `${totalAssigned} / ${totalSlots} assigned`;
+        globalCounter.textContent = label;
+        stickyCounter.textContent = label;
+
+        const remaining = totalSlots - totalAssigned;
+        if (remaining > 0){
+          warnPill.classList.add("is-on");
+          warnText.textContent = `${remaining} space${remaining>1?"s":""} still unassigned`;
+        } else {
+          warnPill.classList.remove("is-on");
+          warnText.textContent = "";
+        }
+      }
+
+      function serialize(){
+        const data = {
+          groupName: groupName.value || "",
+          stayDates: stayDates.value || "",
+          leaderName: leaderName.value || "",
+          tentCount: getTentCount(),
+          tents: {}
+        };
+
+        document.querySelectorAll("[data-tent]").forEach(card => {
+          const tent = card.dataset.tent;
+          data.tents[tent] = {};
+          card.querySelectorAll("input.bed-input").forEach(inp => {
+            data.tents[tent][inp.dataset.slot] = inp.value || "";
+          });
+        });
+
+        return data;
+      }
+
+      function hydrate(data){
+        if (!data) return;
+        groupName.value = data.groupName || "";
+        stayDates.value = data.stayDates || "";
+        leaderName.value = data.leaderName || "";
+
+        const count = Math.max(1, Math.min(MAX_TENTS_UI, Number(data.tentCount || 1)));
+        tentCountSel.value = String(count);
+        buildTents(count);
+
+        document.querySelectorAll("[data-tent]").forEach(card => {
+          const tent = card.dataset.tent;
+          const saved = data.tents && data.tents[tent];
+          if (!saved) return;
+          card.querySelectorAll("input.bed-input").forEach(inp => {
+            inp.value = saved[inp.dataset.slot] || "";
+          });
+        });
+      }
+
+      function saveNow(){
+        try{
+          localStorage.setItem(STORAGE_KEY, JSON.stringify(serialize()));
+          setSaveState(true, "Saved");
+          window.clearTimeout(saveNow._t);
+          saveNow._t = window.setTimeout(() => setSaveState(false, "Auto-save ready"), 1200);
+        }catch(e){
+          setSaveState(false, "Auto-save unavailable");
+        }
+      }
+
+      function load(){
+        try{
+          const raw = localStorage.getItem(STORAGE_KEY);
+          if (!raw) return false;
+          hydrate(JSON.parse(raw));
+          setSaveState(true, "Restored saved list");
+          window.setTimeout(() => setSaveState(false, "Auto-save ready"), 1400);
+          return true;
+        }catch(e){ return false; }
+      }
+
+      function clearAll(){
+        if (!confirm("Clear all tent entries and saved data?")) return;
+        try{ localStorage.removeItem(STORAGE_KEY); }catch(e){}
+        groupName.value=""; stayDates.value=""; leaderName.value="";
+        tentCountSel.value = "1";
+        buildTents(1);
+        countAndPaint();
+        setSaveState(false, "Cleared");
+      }
+
+      function buildBodyText(){
+        const d = serialize();
+        const lines = [
+          "Campsite Tent Allocation",
+          "",
+          "Group: " + (d.groupName.trim() || "—"),
+          "Dates: " + (d.stayDates.trim() || "—"),
+          "Lead organiser: " + (d.leaderName.trim() || "—"),
+          "Tents: " + d.tentCount,
+          "",
+          "Allocations:",
+          ""
+        ];
+
+        const tentsSorted = Object.keys(d.tents).map(n => Number(n)).sort((a,b)=>a-b);
+        tentsSorted.forEach(t => {
+          lines.push("Tent " + t);
+          const slots = d.tents[String(t)];
+          Object.keys(slots).sort((a,b)=>Number(a)-Number(b)).forEach(slot => {
+            const name = (slots[slot] || "").trim();
+            lines.push("  Person " + slot + ": " + (name || "Unassigned"));
+          });
+          lines.push("");
+        });
+
+        return lines.join("\\n");
+      }
+
+      function sendToContact(){
+        const d = serialize();
+        const subject = "Campsite Tent Allocation" + (d.groupName.trim() ? " – " + d.groupName.trim() : "");
+        const payload = { subject, body: buildBodyText(), name: d.leaderName || "", source: "campsite-tents" };
+        try{ sessionStorage.setItem("bbnw_contact_prefill", JSON.stringify(payload)); }catch(e){}
+        window.location.assign("contact.html?subject=" + encodeURIComponent(subject) + "&from=campsite-tents");
+      }
+
+      // Sequential paste autofill
+      document.addEventListener("paste", (e) => {
+        const active = document.activeElement;
+        if (!active || !active.classList.contains("bed-input")) return;
+        const text = (e.clipboardData || window.clipboardData).getData("text");
+        if (!text || !text.includes("\\n")) return;
+        e.preventDefault();
+        const names = text.split(/\\r?\\n/).map(s => s.trim()).filter(Boolean);
+        const inputs = Array.from(document.querySelectorAll("input.bed-input"));
+        let idx = inputs.indexOf(active);
+        names.forEach(name => {
+          if (idx >= 0 && idx < inputs.length) { inputs[idx].value = name; idx++; }
+        });
+        saveDebounced();
+      });
+
+      // init
+      buildTentCountOptions();
+      const restored = load();
+      if (!restored){
+        tentCountSel.value = "1";
+        buildTents(1);
+      }
+      countAndPaint();
+
+      tentCountSel.addEventListener("change", () => {
+        const prev = serialize();
+        buildTents(getTentCount());
+        // rehydrate overlapping tent/slots
+        document.querySelectorAll("[data-tent]").forEach(card => {
+          const t = card.dataset.tent;
+          const saved = prev.tents && prev.tents[t];
+          if (!saved) return;
+          card.querySelectorAll("input.bed-input").forEach(inp => {
+            inp.value = saved[inp.dataset.slot] || "";
+          });
+        });
+        saveDebounced();
+      });
+
+      [groupName, stayDates, leaderName].forEach(inp => inp.addEventListener("input", saveDebounced));
+      document.addEventListener("input", (e) => {
+        if (e.target && e.target.classList && e.target.classList.contains("bed-input")) saveDebounced();
+      });
+
+      btnSend.addEventListener("click", sendToContact);
+      btnSend2.addEventListener("click", sendToContact);
+      btnClear.addEventListener("click", clearAll);
+      btnClear2.addEventListener("click", clearAll);
+    })();
+  </script>
+</body>
+</html>

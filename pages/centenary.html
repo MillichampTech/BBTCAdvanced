@@ -1,0 +1,1060 @@
+<!DOCTYPE html>
+<html lang="en" id="html-root">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Centenary Hall | BBNW</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Poppins:wght@400;600&family=IBM+Plex+Sans:wght@400;600&family=Merriweather:wght@700&family=Nunito:wght@400;700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Site globals -->
+  <link rel="stylesheet" href="../css/main.css">
+  <!-- Page polish (built on top of existing systems) -->
+  <link rel="stylesheet" href="../css/centenary.css">
+
+  <!-- Centenary theme: page accent + primary button colour (no new system) -->
+  <style>
+    /* Match Organisation “Warden” maroon */
+    .centenary-theme{
+      --primary-rgb: 107 30 43; /* enables .btn-glass--primary from buttons.css */
+      --hub-accent: #6b1e2b;    /* enables hub-card accent from support.css */
+    }
+    [data-theme="dark"] .centenary-theme{
+      --primary-rgb: 159 18 57;
+      --hub-accent: #9f1239;
+    }
+
+    /* Optional: subtle premium accent on key panels (still using glass-panel/soft-card) */
+    .centenary-theme .centenary-accent{
+      border-color: rgba(var(--primary-rgb) / 0.22) !important;
+      box-shadow:
+        0 16px 42px rgba(0,0,0,.10),
+        0 0 0 1px rgba(var(--primary-rgb) / 0.10) inset;
+    }
+    .centenary-theme .badge-soft{
+      border-color: rgba(var(--primary-rgb) / 0.22);
+    }
+  </style>
+</head>
+
+<body class="centenary-theme">
+  <div class="theme-overlay" aria-hidden="true"></div>
+
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <header>
+    <div id="site-nav"></div>
+  </header>
+
+  <main id="main-content" role="main" class="container py-4">
+
+    <!-- HERO -->
+    <section class="reveal mb-4" aria-label="Centenary Hall introduction">
+      <div class="glass-panel soft-card p-3 p-lg-4 centenary-hero2 centenary-accent">
+        <div class="row g-4 align-items-stretch">
+
+          <div class="col-12 col-lg-6 d-flex">
+            <div class="w-100 d-flex flex-column">
+              <p class="kicker mb-2">Centenary Hall • Residential & Day Venue</p>
+
+              <h1 class="display-5 mb-2">
+                Your event, but
+                <span class="centenary-rotator" aria-label="rotating highlights">
+                  <span class="rotator-word is-on">sorted</span>
+                  <span class="rotator-word">effortless</span>
+                  <span class="rotator-word">smooth</span>
+                </span>
+                .
+              </h1>
+
+              <div class="hero-capacity-badge mb-2">
+                Sleeps up to 48 • Single-storey • Accessible
+              </div>
+
+              <p class="lead mb-3" id="heroLead">
+                Run your own weekend at your own pace: cook together, serve straight into the hall, meet, eat and sleep — all under one roof.
+              </p>
+
+              <div class="centenary-switcher mb-3" role="tablist" aria-label="Choose your event type">
+                <button class="btn btn-outline-secondary centenary-tab is-active" type="button" data-mode="self" role="tab" aria-selected="true">Self-catering stay</button>
+                <button class="btn btn-outline-secondary centenary-tab" type="button" data-mode="catered" role="tab" aria-selected="false">Catered stay</button>
+                <button class="btn btn-outline-secondary centenary-tab" type="button" data-mode="training" role="tab" aria-selected="false">Training day</button>
+                <button class="btn btn-outline-secondary centenary-tab" type="button" data-mode="church" role="tab" aria-selected="false">Church day</button>
+                <button class="btn btn-outline-secondary centenary-tab" type="button" data-mode="meetings" role="tab" aria-selected="false">Meetings</button>
+              </div>
+
+              <div class="centenary-highlights mb-3" id="heroHighlights" aria-live="polite">
+                <!-- injected by JS per mode -->
+              </div>
+
+              <div class="d-flex flex-wrap gap-2 mt-auto">
+                <!-- High-intent primary -->
+                <a class="btn btn-glass btn-glass--primary" id="heroCta"
+                   href="#"
+                   role="button"
+                   data-bs-toggle="modal"
+                   data-bs-target="#enquiryModal"
+                   data-subject="Centenary Hall Self Catering Enquiry"
+                   data-source="centenary">
+                  Enquire about self-catering
+                </a>
+
+                <!-- Secondary actions -->
+                <a class="btn btn-outline-secondary" href="/files/public/webbooklet.pdf" target="_blank" rel="noopener">Download brochure</a>
+                <a class="btn btn-outline-secondary" href="#gallery">View photos</a>
+
+                <!-- Leaders utility -->
+                <a class="btn btn-outline-secondary" href="bedding-listCH.html?from=centenary" id="beddingLink">
+                  Bedding list (leaders)
+                </a>
+              </div>
+
+              <div class="small-muted mt-2">
+                Leaders: use the bedding list to allocate beds, print, and send via the contact prefill.
+              </div>
+            </div>
+          </div>
+
+          <div class="col-12 col-lg-6">
+            <div class="centenary-collage">
+              <div class="gallery-grid" aria-label="Centenary Hall image collage">
+                <a class="g g1" id="heroImgMainLink" href="../images/centenary-hall/hall.jpg">
+                  <img id="heroImgMain" src="../images/centenary-hall/hall.jpg" alt="Centenary Hall main hall" loading="lazy">
+                </a>
+                <a class="g g2" href="../images/centenary-hall/kitchen.jpg">
+                  <img src="../images/centenary-hall/kitchen.jpg" alt="Kitchen preparation space" loading="lazy">
+                </a>
+                <a class="g g3" href="../images/centenary-hall/serving-hatch.jpg">
+                  <img src="../images/centenary-hall/serving-hatch.jpg" alt="Serving hatch to the hall" loading="lazy">
+                </a>
+                <a class="g g4" href="../images/centenary-hall/dorms.jpg">
+                  <img src="../images/centenary-hall/dorms.jpg" alt="Dormitory accommodation" loading="lazy">
+                </a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- “How it runs” + Featured photo (mode-driven) -->
+    <section class="row g-4 mb-4 align-items-stretch reveal">
+      <div class="col-12 col-lg-6">
+        <div class="glass-panel soft-card h-100 p-3 p-lg-4 centenary-accent">
+          <div class="d-flex align-items-start justify-content-between gap-2 flex-wrap">
+            <div>
+              <h2 class="h4 mb-1">How your day runs here</h2>
+              <p class="small-muted mb-0">A quick feel for the flow — this changes with your selection above.</p>
+            </div>
+            <span class="badge-soft">Mode-aware</span>
+          </div>
+
+          <div class="runline mt-3" id="runlineBox" aria-live="polite"></div>
+
+          <div class="d-flex flex-wrap gap-2 mt-3">
+            <a class="btn btn-outline-secondary" id="planCta"
+               href="#"
+               role="button"
+               data-bs-toggle="modal"
+               data-bs-target="#enquiryModal"
+               data-subject="Centenary Hall Self Catering Enquiry"
+               data-source="centenary">
+              Ask a quick question
+            </a>
+            <a class="btn btn-outline-secondary" href="/files/public/webbooklet.pdf" target="_blank" rel="noopener">Brochure</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12 col-lg-6" id="gallery">
+        <div class="featured-photo h-100 centenary-accent">
+          <img id="featuredImg" src="../images/centenary-hall/hall.jpg" alt="Featured view of Centenary Hall" loading="lazy">
+          <div class="featured-photo__cap">
+            <div>
+              <strong id="galleryFeaturedTitle">The main hall</strong>
+              <div class="small-muted" id="galleryFeaturedText">Flexible layouts for sessions, meals, worship or meetings.</div>
+            </div>
+            <a class="btn btn-outline-secondary btn-sm" id="featuredImgLink" href="../images/centenary-hall/hall.jpg">Open</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- GALLERY + MODE SELL -->
+    <section class="row g-4 mb-4 align-items-stretch reveal">
+      <div class="col-12 col-lg-7">
+        <div class="glass-panel soft-card h-100 p-3 centenary-accent">
+          <div class="d-flex align-items-center justify-content-between flex-wrap gap-2 mb-2">
+            <h2 class="h4 mb-0">More photos</h2>
+            <span class="badge-soft">Centenary Hall gallery</span>
+          </div>
+
+          <div class="gallery-grid" aria-label="Centenary Hall photo gallery">
+            <a class="g g1" href="../images/centenary-hall/hall.jpg">
+              <img src="../images/centenary-hall/hall.jpg" alt="Centenary Hall main hall" loading="lazy">
+            </a>
+            <a class="g g2" href="../images/centenary-hall/kitchen.jpg">
+              <img src="../images/centenary-hall/kitchen.jpg" alt="Kitchen preparation area" loading="lazy">
+            </a>
+            <a class="g g3" href="../images/centenary-hall/serving-hatch.jpg">
+              <img src="../images/centenary-hall/serving-hatch.jpg" alt="Serving hatch into the main hall" loading="lazy">
+            </a>
+            <a class="g g4" href="../images/centenary-hall/dorms.jpg">
+              <img src="../images/centenary-hall/dorms.jpg" alt="Dormitory accommodation" loading="lazy">
+            </a>
+          </div>
+
+          <div class="small-muted mt-3">
+            Add your best: 1 wide hall shot, 1 kitchen, 1 dorm, 1 “tables set” people-scale image.
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12 col-lg-5">
+        <div class="glass-panel soft-card h-100 p-3 centenary-accent">
+          <h2 class="h4" id="modeSellTitle">Self-catering stays that feel easy</h2>
+          <p class="mb-3" id="modeSellLead"></p>
+
+          <ul class="feature-list" id="modeSellList"></ul>
+
+          <div class="cta-bar mt-3">
+            <a class="btn btn-glass btn-glass--primary w-100 mb-2" id="modeSellCta"
+               href="#"
+               role="button"
+               data-bs-toggle="modal"
+               data-bs-target="#enquiryModal"
+               data-subject="Centenary Hall Self Catering Enquiry"
+               data-source="centenary">
+              Check availability & pricing
+            </a>
+
+            <div class="d-flex gap-2">
+              <a class="btn btn-outline-secondary flex-fill"
+                 href="#"
+                 role="button"
+                 data-bs-toggle="modal"
+                 data-bs-target="#enquiryModal"
+                 data-subject="Site Visit Request"
+                 data-source="centenary">
+                Request a site visit
+              </a>
+              <a class="btn btn-outline-secondary flex-fill" href="/files/public/webbooklet.pdf" target="_blank" rel="noopener">Brochure</a>
+            </div>
+
+            <div class="small-muted mt-2" id="modeSellNote">
+              Include dates + group size in your enquiry for a fast reply.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- STRIP (mode driven) -->
+    <section class="glass-panel soft-card p-3 mb-4 reveal centenary-accent">
+      <div class="row g-3 align-items-center">
+        <div class="col-12 col-lg-8">
+          <h2 class="h4 mb-1" id="modeStripTitle">Best for self-cater weekends</h2>
+          <p class="mb-0 small-muted" id="modeStripText"></p>
+        </div>
+        <div class="col-12 col-lg-4">
+          <div class="d-flex gap-2 justify-content-lg-end flex-wrap">
+            <a class="btn btn-glass btn-glass--primary" id="stripCta"
+               href="#"
+               role="button"
+               data-bs-toggle="modal"
+               data-bs-target="#enquiryModal"
+               data-subject="Centenary Hall Self Catering Enquiry"
+               data-source="centenary">
+              Enquire
+            </a>
+            <a class="btn btn-outline-secondary" id="stripCateringCta"
+               href="#"
+               role="button"
+               data-bs-toggle="modal"
+               data-bs-target="#enquiryModal"
+               data-subject="Catering Options Centenary Hall"
+               data-source="centenary">
+              Ask about catering
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SOCIAL PROOF -->
+    <section class="reveal mb-4">
+      <div class="glass-panel soft-card p-3 p-lg-4 centenary-accent">
+        <div class="d-flex align-items-center justify-content-between flex-wrap gap-2 mb-2">
+          <h2 class="h4 mb-0">What groups like about Centenary Hall</h2>
+          <span class="badge-soft">Social proof</span>
+        </div>
+
+        <div id="testimonials" class="carousel slide" data-bs-ride="carousel" data-bs-interval="7000">
+          <div class="carousel-inner">
+
+            <div class="carousel-item active">
+              <div class="testimonial-card p-3">
+                <p class="mb-2">“Everything was in one place — meals, sessions and sleeping — it made the weekend run smoothly.”</p>
+                <div class="small-muted">— Training weekend organiser, Lancashire</div>
+              </div>
+            </div>
+
+            <div class="carousel-item">
+              <div class="testimonial-card p-3">
+                <p class="mb-2">“The kitchen + hatch setup is a game changer for group catering. Service was quick and easy.”</p>
+                <div class="small-muted">— Youth leader (residential group)</div>
+              </div>
+            </div>
+
+            <div class="carousel-item">
+              <div class="testimonial-card p-3">
+                <p class="mb-2">“Accessible, practical and comfortable — exactly what we needed for a mixed group.”</p>
+                <div class="small-muted">— Community day coordinator</div>
+              </div>
+            </div>
+
+          </div>
+
+          <button class="carousel-control-prev" type="button" data-bs-target="#testimonials" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#testimonials" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ + ENQUIRY HELPER -->
+    <section class="row g-4 mb-4 reveal">
+      <div class="col-12 col-lg-6">
+        <div class="glass-panel soft-card p-3 h-100 centenary-accent">
+          <h2 class="h4 mb-3">Frequently asked</h2>
+
+          <details class="mb-2" open>
+            <summary class="fw-bold">How is the sleeping arranged?</summary>
+            <div class="pt-2 small-muted">
+              Dormitories typically range from 3–7 bunks, with additional staff bedrooms (with basins).
+            </div>
+          </details>
+
+          <details class="mb-2">
+            <summary class="fw-bold">Do we need to bring bedding?</summary>
+            <div class="pt-2 small-muted">
+              Bedding is provided (sheets, duvets, pillows and covers). Blankets are available on request.
+            </div>
+          </details>
+
+          <details class="mb-2">
+            <summary class="fw-bold">What’s included for training sessions?</summary>
+            <div class="pt-2 small-muted">
+              Projector/screen and wipe boards are available, plus flexible table/chair set-ups.
+            </div>
+          </details>
+
+          <details class="mb-2">
+            <summary class="fw-bold">Is the building accessible?</summary>
+            <div class="pt-2 small-muted">
+              Yes — it’s a single-storey building with ramp access and disabled friendly facilities.
+            </div>
+          </details>
+
+          <details>
+            <summary class="fw-bold">How do leaders manage bed allocations?</summary>
+            <div class="pt-2 small-muted">
+              Use the Bedding list page to allocate beds, print a list for arrival, and send the completed list via the contact prefill.
+              <div class="mt-2">
+                <a class="btn btn-outline-secondary btn-sm" href="bedding-list.html?from=centenary">Open bedding list</a>
+              </div>
+            </div>
+          </details>
+        </div>
+      </div>
+
+      <div class="col-12 col-lg-6">
+        <div class="glass-panel soft-card p-3 h-100 centenary-accent">
+          <h2 class="h4 mb-2">A quick enquiry that gets a quick answer</h2>
+          <p class="small-muted mb-2">Copy/paste into your enquiry:</p>
+
+          <div class="enquiry-box p-3 rounded">
+            <p class="mb-1"><strong>Dates:</strong> [start] – [end]</p>
+            <p class="mb-1"><strong>Group size:</strong> [number]</p>
+            <p class="mb-1"><strong>Purpose:</strong> <span id="modeEnquiryPurpose">Self-catering residential (sleeping + hall + kitchen)</span></p>
+            <p class="mb-1"><strong>Accessibility needs:</strong> [if any]</p>
+            <p class="mb-0"><strong>Food plan:</strong> [self-cater / catered]</p>
+          </div>
+
+          <div class="d-flex gap-2 mt-3 flex-wrap">
+            <a class="btn btn-glass btn-glass--primary"
+               href="#"
+               role="button"
+               data-bs-toggle="modal"
+               data-bs-target="#enquiryModal"
+               data-subject="Centenary Hall Enquiry"
+               data-source="centenary">
+              Open enquiry form
+            </a>
+            <a class="btn btn-outline-secondary" href="/files/public/webbooklet.pdf" target="_blank" rel="noopener">View brochure</a>
+          </div>
+
+          <div class="small-muted mt-3">
+            Leaders: you can also send your completed bedding list via the contact prefill from the Bedding list page.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Explore other options (hub-card system, maroon accent via --hub-accent) -->
+    <section class="reveal mb-4" aria-label="Explore other options">
+      <div class="glass-panel soft-card p-3 p-lg-4 centenary-accent">
+        <div class="d-flex align-items-center justify-content-between flex-wrap gap-2 mb-2">
+          <h2 class="h4 mb-0">Explore other options</h2>
+          <span class="badge-soft">More at the Centre</span>
+        </div>
+
+        <div class="row g-3">
+          <div class="col-12 col-md-6">
+            <a class="hub-card d-block p-3 text-decoration-none" href="stedfast-lodge.html">
+              <div class="d-flex gap-3 align-items-start">
+                <div class="hub-icon" aria-hidden="true">SL</div>
+                <div>
+                  <h3 class="h5 mb-1">Stedfast Lodge</h3>
+                  <div class="org-muted">Indoor accommodation option for groups who want a different layout.</div>
+                </div>
+              </div>
+            </a>
+          </div>
+
+          <div class="col-12 col-md-6">
+            <a class="hub-card d-block p-3 text-decoration-none" href="camping.html">
+              <div class="d-flex gap-3 align-items-start">
+                <div class="hub-icon" aria-hidden="true">⛺</div>
+                <div>
+                  <h3 class="h5 mb-1">Campsite</h3>
+                  <div class="org-muted">Outdoor stays with access to activities and facilities.</div>
+                </div>
+              </div>
+            </a>
+          </div>
+
+          <div class="col-12 col-md-6">
+            <a class="hub-card d-block p-3 text-decoration-none" href="pricing.html">
+              <div class="d-flex gap-3 align-items-start">
+                <div class="hub-icon" aria-hidden="true">£</div>
+                <div>
+                  <h3 class="h5 mb-1">Pricing</h3>
+                  <div class="org-muted">View 2026/2027 rates and booking info.</div>
+                </div>
+              </div>
+            </a>
+          </div>
+
+          <div class="col-12 col-md-6">
+            <a class="hub-card d-block p-3 text-decoration-none" href="activities.html">
+              <div class="d-flex gap-3 align-items-start">
+                <div class="hub-icon" aria-hidden="true">⚡</div>
+                <div>
+                  <h3 class="h5 mb-1">Activities</h3>
+                  <div class="org-muted">Add sessions and adventure to your residential.</div>
+                </div>
+              </div>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div id="site-footer"></div>
+  </footer>
+
+  <!-- Sticky mini-CTA -->
+  <div class="sticky-cta" id="stickyCta" aria-hidden="true">
+    <div class="sticky-cta__inner glass-panel">
+      <div class="sticky-cta__text">
+        <p class="sticky-cta__title">Centenary Hall</p>
+        <p class="sticky-cta__sub" id="stickySub">Self-catering • Sleeps 48 • Enquire now</p>
+      </div>
+      <div class="sticky-cta__actions">
+        <a class="btn btn-glass btn-glass--primary" id="stickyCtaPrimary"
+           href="#"
+           role="button"
+           data-bs-toggle="modal"
+           data-bs-target="#enquiryModal"
+           data-subject="Centenary Hall Enquiry"
+           data-source="centenary">
+          Enquire
+        </a>
+        <a class="btn btn-outline-secondary" href="/files/public/webbooklet.pdf" target="_blank" rel="noopener">Brochure</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- EmailJS (if your site contact uses it) -->
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
+  <!-- Theme + components -->
+  <script defer src="../components/components.js"></script>
+  <script defer src="../theme.js"></script>
+
+  <!-- MODE ENGINE (modal-safe: updates data-subject, not href) -->
+  <script>
+    (() => {
+      const reduceMotion =
+        (window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches) ||
+        document.documentElement.classList.contains("reduce-motion") ||
+        document.documentElement.classList.contains("reduced-motion");
+
+      // rotator
+      if (!reduceMotion) {
+        const words = Array.from(document.querySelectorAll(".rotator-word"));
+        if (words.length) {
+          let i = 0;
+          setInterval(() => {
+            words[i].classList.remove("is-on");
+            i = (i + 1) % words.length;
+            words[i].classList.add("is-on");
+          }, 2200);
+        }
+      }
+
+      const tabs = Array.from(document.querySelectorAll(".centenary-tab"));
+
+      const lead = document.getElementById("heroLead");
+      const cta = document.getElementById("heroCta");
+      const stickyPrimary = document.getElementById("stickyCtaPrimary");
+      const stickySub = document.getElementById("stickySub");
+
+      const img = document.getElementById("heroImgMain");
+      const imgLink = document.getElementById("heroImgMainLink");
+      const highlights = document.getElementById("heroHighlights");
+
+      const modeSellTitle = document.getElementById("modeSellTitle");
+      const modeSellLead  = document.getElementById("modeSellLead");
+      const modeSellList  = document.getElementById("modeSellList");
+      const modeSellCta   = document.getElementById("modeSellCta");
+
+      const modeStripTitle = document.getElementById("modeStripTitle");
+      const modeStripText  = document.getElementById("modeStripText");
+      const stripCta = document.getElementById("stripCta");
+
+      const modeEnquiryPurpose = document.getElementById("modeEnquiryPurpose");
+
+      const runlineBox = document.getElementById("runlineBox");
+      const planCta = document.getElementById("planCta");
+
+      const featuredImg = document.getElementById("featuredImg");
+      const featuredImgLink = document.getElementById("featuredImgLink");
+      const galleryFeaturedTitle = document.getElementById("galleryFeaturedTitle");
+      const galleryFeaturedText = document.getElementById("galleryFeaturedText");
+
+      function swapFx(...els){
+        if (reduceMotion) return;
+        els.forEach(el => el && el.classList.add("is-swapping"));
+        requestAnimationFrame(() => setTimeout(() => els.forEach(el => el && el.classList.remove("is-swapping")), 140));
+      }
+
+      function setSubjectOn(btn, subject){
+        if (!btn) return;
+        btn.setAttribute("data-subject", subject);
+      }
+
+      const modes = {
+        self: {
+          lead: "Run your own weekend at your own pace: cook together, serve straight into the hall, meet, eat and sleep — all under one roof.",
+          cta: "Enquire about self-catering",
+          subject: "Centenary Hall Self Catering Enquiry",
+          heroImg: "../images/centenary-hall/kitchen.jpg",
+          heroAlt: "Self catering kitchen at Centenary Hall",
+          highlightsHtml: `
+            <div class="row g-2">
+              <div class="col-6"><div class="quick-card h-100"><div class="quick-num">48</div><div class="quick-label">sleeps</div><div class="small-muted">Dorms + staff rooms</div></div></div>
+              <div class="col-6"><div class="quick-card h-100"><div class="quick-num">Kitchen</div><div class="quick-label">fully equipped</div><div class="small-muted">Prep + larder</div></div></div>
+              <div class="col-6"><div class="quick-card h-100"><div class="quick-num">Hatch</div><div class="quick-label">to hall</div><div class="small-muted">Easy service flow</div></div></div>
+              <div class="col-6"><div class="quick-card h-100"><div class="quick-num">All-in</div><div class="quick-label">one building</div><div class="small-muted">No shuttling</div></div></div>
+            </div>`,
+          sellTitle: "Self-catering stays that feel easy",
+          sellLead: "Bring your own plan — the building supports it. Great flow, simple service, comfortable sleeping and facilities.",
+          sellListHtml: `
+            <li><strong>Cook & prep properly:</strong> full kitchen + larder space.</li>
+            <li><strong>Serve fast:</strong> hatch straight into the main hall.</li>
+            <li><strong>One-roof flow:</strong> sessions, meals and sleep in one place.</li>
+            <li><strong>Sleeps 48:</strong> dorms + staff rooms.</li>
+            <li><strong>Accessible layout:</strong> single-storey with ramp access.</li>
+          `,
+          stripTitle: "Best for self-cater weekends",
+          stripText: "Training weekends • youth groups • residential courses • retreats • team weekends • community groups.",
+          enquiryPurpose: "Self-catering residential (sleeping + hall + kitchen)",
+          pricingCtaLabel: "Check availability & pricing",
+          sticky: "Self-catering • Sleeps 48 • Enquire now",
+          featured: {
+            img: "../images/centenary-hall/kitchen.jpg",
+            title: "Self-catering kitchen",
+            text: "Designed for groups: prep space, storage and easy service into the hall."
+          },
+          runline: [
+            { tag: "Arrival", title: "Arrive & settle", text: "Quick check-in, unload, get set up." },
+            { tag: "Food", title: "Cook & serve", text: "Kitchen → hatch → hall. Simple meal flow." },
+            { tag: "Programme", title: "Meet & run sessions", text: "Flexible hall layout for your timetable." },
+            { tag: "Overnight", title: "Sleep & reset", text: "Dorm accommodation + facilities ready." }
+          ]
+        },
+
+        catered: {
+          lead: "Let us handle the food so you can focus on people. Catering options work brilliantly with the serving hatch into the main hall.",
+          cta: "Enquire about catered stays",
+          subject: "Centenary Hall Catered Enquiry",
+          heroImg: "../images/centenary-hall/serving-hatch.jpg",
+          heroAlt: "Serving hatch from kitchen into the main hall",
+          highlightsHtml: `
+            <div class="row g-2">
+              <div class="col-6"><div class="quick-card h-100"><div class="quick-num">48</div><div class="quick-label">sleeps</div><div class="small-muted">Residential groups</div></div></div>
+              <div class="col-6"><div class="quick-card h-100"><div class="quick-num">Catered</div><div class="quick-label">options</div><div class="small-muted">Ask for menus</div></div></div>
+              <div class="col-6"><div class="quick-card h-100"><div class="quick-num">Fast</div><div class="quick-label">service</div><div class="small-muted">Hatch → hall</div></div></div>
+              <div class="col-6"><div class="quick-card h-100"><div class="quick-num">Smooth</div><div class="quick-label">weekends</div><div class="small-muted">Less admin</div></div></div>
+            </div>`,
+          sellTitle: "Catered stays — less admin, more programme",
+          sellLead: "Ideal for courses and weekends where you want the focus on content and people, not cooking and washing up.",
+          sellListHtml: `
+            <li><strong>Catering options:</strong> ask about menus and serving arrangements.</li>
+            <li><strong>Timetable-friendly:</strong> hatch service keeps things moving.</li>
+            <li><strong>Big shared space:</strong> sessions and meals in the same hall.</li>
+            <li><strong>Overnight comfort:</strong> sleeps 48.</li>
+            <li><strong>Accessible & practical:</strong> works well for mixed groups.</li>
+          `,
+          stripTitle: "Best for catered weekends",
+          stripText: "Residential courses • retreats • training weekends • groups who want simplicity.",
+          enquiryPurpose: "Catered residential (meals included)",
+          pricingCtaLabel: "Check availability & pricing",
+          sticky: "Catered options • Sleeps 48 • Enquire now",
+          featured: {
+            img: "../images/centenary-hall/serving-hatch.jpg",
+            title: "Efficient food service",
+            text: "Serving hatch into the hall makes large-group meals easy."
+          },
+          runline: [
+            { tag: "Arrival", title: "Arrive & start", text: "Get settled quickly — we keep it simple." },
+            { tag: "Food", title: "Meals handled", text: "Catered options to match your programme." },
+            { tag: "Programme", title: "Sessions flow", text: "No long breaks — food service is fast." },
+            { tag: "Overnight", title: "Rest & repeat", text: "Sleeps 48 for residential courses." }
+          ]
+        },
+
+        training: {
+          lead: "Training and conference days that just work: flexible seating, presentation kit ready, Wi‑Fi throughout and easy breaks.",
+          cta: "Enquire about training days",
+          subject: "Centenary Hall Training Day Enquiry",
+          heroImg: "../images/centenary-hall/hall.jpg",
+          heroAlt: "Main hall set up for training and group sessions",
+          highlightsHtml: `
+            <div class="row g-2">
+              <div class="col-6"><div class="quick-card h-100"><div class="quick-num">Hall</div><div class="quick-label">flexible</div><div class="small-muted">Tables + chairs</div></div></div>
+              <div class="col-6"><div class="quick-card h-100"><div class="quick-num">Projector</div><div class="quick-label">+ boards</div><div class="small-muted">Training-ready</div></div></div>
+              <div class="col-6"><div class="quick-card h-100"><div class="quick-num">Wi‑Fi</div><div class="quick-label">throughout</div><div class="small-muted">Easy setup</div></div></div>
+              <div class="col-6"><div class="quick-card h-100"><div class="quick-num">Breaks</div><div class="quick-label">made easy</div><div class="small-muted">Refreshments</div></div></div>
+            </div>`,
+          sellTitle: "Training days & conferences that run smoothly",
+          sellLead: "Arrive, set up, deliver. Flexible layouts, presentation kit, and refreshment options make it painless.",
+          sellListHtml: `
+            <li><strong>Flexible hall:</strong> classroom, cabaret, workshop, open-space.</li>
+            <li><strong>Presentation ready:</strong> projector/screen + wipe boards.</li>
+            <li><strong>Wi‑Fi throughout:</strong> easy working for teams.</li>
+            <li><strong>Breaks made easy:</strong> refreshments/catering options.</li>
+            <li><strong>Accessible venue:</strong> inclusive layout for mixed groups.</li>
+          `,
+          stripTitle: "Best for day events",
+          stripText: "Training days • conferences • workshops • seminars • away-days.",
+          enquiryPurpose: "Training / conference day (no overnight)",
+          pricingCtaLabel: "Check training day pricing",
+          sticky: "Training days • Presentation kit • Enquire now",
+          featured: {
+            img: "../images/centenary-hall/hall.jpg",
+            title: "The main hall",
+            text: "Flexible layouts for training, talks and workshops."
+          },
+          runline: [
+            { tag: "Setup", title: "Arrive & set up", text: "Projector/boards ready — quick layout changes." },
+            { tag: "Sessions", title: "Deliver training", text: "Comfortable group space for learning." },
+            { tag: "Breaks", title: "Refresh & reset", text: "Easy breaks with refreshment options." },
+            { tag: "Wrap", title: "Pack down", text: "Simple exit — no fuss." }
+          ]
+        },
+
+        church: {
+          lead: "Ideal for church and community days: a calm space for worship, teaching, discussion and shared meals with an accessible layout.",
+          cta: "Enquire about church days",
+          subject: "Centenary Hall Church Day Enquiry",
+          heroImg: "../images/centenary-hall/community.jpg",
+          heroAlt: "Community or church-style setup at Centenary Hall",
+          highlightsHtml: `
+            <div class="row g-2">
+              <div class="col-6"><div class="quick-card h-100"><div class="quick-num">Welcoming</div><div class="quick-label">space</div><div class="small-muted">Calm + practical</div></div></div>
+              <div class="col-6"><div class="quick-card h-100"><div class="quick-num">Meals</div><div class="quick-label">together</div><div class="small-muted">Kitchen + hatch</div></div></div>
+              <div class="col-6"><div class="quick-card h-100"><div class="quick-num">Accessible</div><div class="quick-label">layout</div><div class="small-muted">Single-storey</div></div></div>
+              <div class="col-6"><div class="quick-card h-100"><div class="quick-num">Optional</div><div class="quick-label">overnight</div><div class="small-muted">Sleeps 48</div></div></div>
+            </div>`,
+          sellTitle: "Church & community days that feel welcoming",
+          sellLead: "A space that can shift between worship, teaching, small groups and shared meals — without hassle.",
+          sellListHtml: `
+            <li><strong>Warm, neutral hall:</strong> works for worship, talks and discussion.</li>
+            <li><strong>Meals together:</strong> kitchen + hatch supports group catering/self-serve.</li>
+            <li><strong>Accessible facilities:</strong> inclusive for mixed ages and needs.</li>
+            <li><strong>Flexible layout:</strong> chairs/tables arranged to suit your programme.</li>
+            <li><strong>Weekend option:</strong> sleeps 48 if you want a retreat format.</li>
+          `,
+          stripTitle: "Best for church / community use",
+          stripText: "Away-days • teaching days • fellowship meals • volunteer training • retreats.",
+          enquiryPurpose: "Church / community day (or weekend)",
+          pricingCtaLabel: "Check church day pricing",
+          sticky: "Church days • Community • Enquire now",
+          featured: {
+            img: "../images/centenary-hall/community.jpg",
+            title: "Community set-up",
+            text: "A calm, flexible room for worship, teaching and meals."
+          },
+          runline: [
+            { tag: "Welcome", title: "Arrive & gather", text: "Easy access for all ages and needs." },
+            { tag: "Session", title: "Worship / teaching", text: "Space flexes between formats quickly." },
+            { tag: "Food", title: "Shared meal", text: "Kitchen + hatch makes serving easy." },
+            { tag: "Optional", title: "Extend to a retreat", text: "Sleeps 48 for weekend formats." }
+          ]
+        },
+
+        meetings: {
+          lead: "Meetings without distractions: a neutral space for teams and groups, with flexible layouts, Wi‑Fi and refreshments.",
+          cta: "Enquire about meetings",
+          subject: "Centenary Hall Meeting Enquiry",
+          heroImg: "../images/centenary-hall/meeting.jpg",
+          heroAlt: "Meeting setup at Centenary Hall",
+          highlightsHtml: `
+            <div class="row g-2">
+              <div class="col-6"><div class="quick-card h-100"><div class="quick-num">Focused</div><div class="quick-label">space</div><div class="small-muted">Room to think</div></div></div>
+              <div class="col-6"><div class="quick-card h-100"><div class="quick-num">Wi‑Fi</div><div class="quick-label">ready</div><div class="small-muted">Easy working</div></div></div>
+              <div class="col-6"><div class="quick-card h-100"><div class="quick-num">Layouts</div><div class="quick-label">flexible</div><div class="small-muted">Boardroom/cabaret</div></div></div>
+              <div class="col-6"><div class="quick-card h-100"><div class="quick-num">Upgrade</div><div class="quick-label">to overnight</div><div class="small-muted">Sleeps 48</div></div></div>
+            </div>`,
+          sellTitle: "Meetings & groups — simple, focused, practical",
+          sellLead: "Ideal for committees, boards, volunteers and teams who want a clean space to think and plan.",
+          sellListHtml: `
+            <li><strong>Focused environment:</strong> room to work without distractions.</li>
+            <li><strong>Flexible seating:</strong> boardroom, cabaret, breakout-style.</li>
+            <li><strong>Wi‑Fi throughout:</strong> easy working for teams.</li>
+            <li><strong>Refreshments:</strong> tea/coffee and catering options.</li>
+            <li><strong>Optional overnight:</strong> sleeps 48 if it becomes a retreat.</li>
+          `,
+          stripTitle: "Best for meetings",
+          stripText: "Committees • boards • volunteer teams • planning days • partner meetings.",
+          enquiryPurpose: "Meeting / group booking",
+          pricingCtaLabel: "Check meeting pricing",
+          sticky: "Meetings • Planning days • Enquire now",
+          featured: {
+            img: "../images/centenary-hall/meeting.jpg",
+            title: "Meeting layout",
+            text: "Practical layouts for boards, committees and teams."
+          },
+          runline: [
+            { tag: "Arrival", title: "Arrive & settle", text: "Set up quickly, get working." },
+            { tag: "Work", title: "Deep focus", text: "A neutral space built for collaboration." },
+            { tag: "Breaks", title: "Refreshments", text: "Tea/coffee + catering options." },
+            { tag: "Option", title: "Turn it into a retreat", text: "Sleeps 48 if you extend overnight." }
+          ]
+        }
+      };
+
+      function renderRunline(steps){
+        return steps.map(s => `
+          <div class="runline-step">
+            <div class="top">
+              <strong>${s.title}</strong>
+              <span class="tag">${s.tag}</span>
+            </div>
+            <p>${s.text}</p>
+          </div>
+        `).join("");
+      }
+
+      function setMode(mode){
+        const m = modes[mode] || modes.self;
+
+        swapFx(
+          lead, highlights,
+          modeSellTitle, modeSellLead, modeSellList,
+          modeStripTitle, modeStripText,
+          modeEnquiryPurpose,
+          featuredImg, galleryFeaturedTitle, galleryFeaturedText,
+          runlineBox, stickySub
+        );
+
+        if (lead) lead.textContent = m.lead;
+
+        if (cta) {
+          cta.textContent = m.cta;
+          setSubjectOn(cta, m.subject);
+        }
+
+        if (stickyPrimary) setSubjectOn(stickyPrimary, m.subject);
+        if (stickySub) stickySub.textContent = m.sticky;
+
+        if (img) { img.src = m.heroImg; img.alt = m.heroAlt; }
+        if (imgLink) imgLink.href = m.heroImg;
+
+        if (highlights) highlights.innerHTML = m.highlightsHtml;
+
+        if (modeSellTitle) modeSellTitle.textContent = m.sellTitle;
+        if (modeSellLead) modeSellLead.textContent = m.sellLead;
+        if (modeSellList) modeSellList.innerHTML = m.sellListHtml;
+
+        if (modeSellCta) {
+          modeSellCta.textContent = m.pricingCtaLabel;
+          setSubjectOn(modeSellCta, m.subject);
+        }
+
+        if (modeStripTitle) modeStripTitle.textContent = m.stripTitle;
+        if (modeStripText) modeStripText.textContent = m.stripText;
+
+        if (stripCta) setSubjectOn(stripCta, m.subject);
+
+        if (modeEnquiryPurpose) modeEnquiryPurpose.textContent = m.enquiryPurpose;
+
+        if (runlineBox) runlineBox.innerHTML = renderRunline(m.runline || []);
+        if (planCta) setSubjectOn(planCta, m.subject);
+
+        if (featuredImg) { featuredImg.src = m.featured.img; featuredImg.alt = m.featured.title; }
+        if (featuredImgLink) featuredImgLink.href = m.featured.img;
+        if (galleryFeaturedTitle) galleryFeaturedTitle.textContent = m.featured.title;
+        if (galleryFeaturedText) galleryFeaturedText.textContent = m.featured.text;
+
+        tabs.forEach(t => {
+          const on = t.dataset.mode === mode;
+          t.classList.toggle("is-active", on);
+          t.setAttribute("aria-selected", on ? "true" : "false");
+        });
+      }
+
+      tabs.forEach(t => t.addEventListener("click", () => setMode(t.dataset.mode)));
+      setMode("self");
+    })();
+  </script>
+
+  <!-- Scroll reveal + Sticky CTA -->
+  <script>
+    (() => {
+      const prefersReduced =
+        window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+      const html = document.documentElement;
+      const reducedByClass =
+        html.classList.contains("reduce-motion") || html.classList.contains("reduced-motion");
+
+      const reduceMotion = prefersReduced || reducedByClass;
+
+      const revealEls = Array.from(document.querySelectorAll(".reveal"));
+      if (!reduceMotion && "IntersectionObserver" in window && revealEls.length) {
+        const io = new IntersectionObserver((entries) => {
+          for (const e of entries) {
+            if (e.isIntersecting) {
+              e.target.classList.add("is-in");
+              io.unobserve(e.target);
+            }
+          }
+        }, { threshold: 0.16 });
+
+        revealEls.forEach((el) => io.observe(el));
+      } else {
+        revealEls.forEach((el) => el.classList.add("is-in"));
+      }
+
+      const sticky = document.getElementById("stickyCta");
+      if (!sticky) return;
+
+      const hero = document.querySelector(".centenary-hero2");
+      const footer = document.querySelector("footer") || document.getElementById("site-footer");
+
+      const setOn = (on) => {
+        sticky.classList.toggle("is-on", on);
+        sticky.setAttribute("aria-hidden", on ? "false" : "true");
+      };
+
+      let heroPassed = false;
+      let nearFooter = false;
+
+      if ("IntersectionObserver" in window && hero) {
+        const heroObserver = new IntersectionObserver((entries) => {
+          const entry = entries[0];
+          heroPassed = entry.intersectionRatio < 0.6;
+          setOn(heroPassed && !nearFooter);
+        }, { threshold: [0, .2, .4, .6, .8, 1] });
+        heroObserver.observe(hero);
+      } else {
+        const onScroll = () => {
+          const y = window.scrollY || document.documentElement.scrollTop;
+          const heroH = hero ? hero.getBoundingClientRect().height : 520;
+          heroPassed = y > heroH * 0.6;
+          setOn(heroPassed && !nearFooter);
+        };
+        window.addEventListener("scroll", onScroll, { passive: true });
+        onScroll();
+      }
+
+      if ("IntersectionObserver" in window && footer) {
+        const footerObserver = new IntersectionObserver((entries) => {
+          nearFooter = entries[0].isIntersecting;
+          setOn(heroPassed && !nearFooter);
+        }, { threshold: 0.05 });
+        footerObserver.observe(footer);
+      }
+    })();
+  </script>
+
+  <!-- Enquiry modal (consistent across site) -->
+  <div class="modal fade" id="enquiryModal" tabindex="-1" aria-labelledby="enquiryModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content glass-panel soft-card">
+        <div class="modal-header border-0">
+          <h5 class="modal-title" id="enquiryModalLabel">Quick enquiry</h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+
+        <div class="modal-body">
+          <p class="small-muted mb-3">Fill this in and we’ll prefill the Contact page for you to send.</p>
+
+          <form id="bbnwEnquiryForm" class="row g-3 needs-validation" novalidate
+                data-subject="Centenary Hall Enquiry" data-source="centenary">
+
+            <div class="col-12 col-md-6">
+              <label class="form-label fw-bold" for="qeName">Your name</label>
+              <input id="qeName" name="qeName" class="form-control" type="text" autocomplete="name" required maxlength="80">
+              <div class="invalid-feedback">Please enter your name.</div>
+            </div>
+
+            <div class="col-12 col-md-6">
+              <label class="form-label fw-bold" for="qeEmail">Your email</label>
+              <input id="qeEmail" name="qeEmail" class="form-control" type="email" autocomplete="email" required maxlength="254">
+              <div class="invalid-feedback">Please enter a valid email address.</div>
+            </div>
+
+            <div class="col-12 col-md-6">
+              <label class="form-label fw-bold" for="qePhone">Phone (optional)</label>
+              <input id="qePhone" name="qePhone" class="form-control" type="tel" inputmode="tel" autocomplete="tel" maxlength="20">
+            </div>
+
+            <div class="col-12 col-md-6">
+              <label class="form-label fw-bold" for="qeGroup">Group / organisation (optional)</label>
+              <input id="qeGroup" name="qeGroup" class="form-control" type="text" autocomplete="organization" maxlength="80">
+            </div>
+
+            <div class="col-12 col-md-6">
+              <label class="form-label fw-bold" for="qeDates">Preferred date(s) (optional)</label>
+              <input id="qeDates" name="qeDates" class="form-control" type="text" placeholder="e.g. 12–14 June" maxlength="80">
+            </div>
+
+            <div class="col-12 col-md-6">
+              <label class="form-label fw-bold" for="qeNumbers">Numbers / age range (optional)</label>
+              <input id="qeNumbers" name="qeNumbers" class="form-control" type="text" placeholder="e.g. 18 young people, 4 leaders" maxlength="120">
+            </div>
+
+            <div class="col-12">
+              <label class="form-label fw-bold" for="qeNotes">Notes (optional)</label>
+              <textarea id="qeNotes" name="qeNotes" class="form-control" rows="4" maxlength="800"
+                        placeholder="Anything you want us to know?"></textarea>
+            </div>
+
+            <div class="col-12 d-grid d-md-flex gap-2 justify-content-md-end">
+              <button type="submit" class="btn btn-glass btn-glass--primary">Continue to contact form</button>
+              <a class="btn btn-outline-secondary" href="contact.html?subject=Centenary%20Hall%20Enquiry&from=centenary">Open contact without prefill</a>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Store prefill then redirect to contact.html (same folder as this page)
+    function bbnwGoToContact(payload) {
+      try {
+        sessionStorage.setItem("bbnw_contact_prefill", JSON.stringify({
+          subject: payload.subject || "Enquiry",
+          body: payload.body || "",
+          name: payload.name || "",
+          email: payload.email || "",
+          source: payload.source || "",
+          ts: Date.now()
+        }));
+      } catch (e) {}
+
+      const url = "contact.html?subject=" + encodeURIComponent(payload.subject || "Enquiry")
+                + "&from=" + encodeURIComponent(payload.source || "");
+      window.location.assign(url);
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+      // Allow any trigger to override subject/source
+      document.querySelectorAll('[data-bs-target="#enquiryModal"][data-subject]').forEach((btn) => {
+        btn.addEventListener("click", () => {
+          const form = document.getElementById("bbnwEnquiryForm");
+          if (!form) return;
+          form.dataset.subject = btn.getAttribute("data-subject") || form.dataset.subject;
+          form.dataset.source  = btn.getAttribute("data-source")  || form.dataset.source;
+        });
+      });
+
+      const form = document.getElementById("bbnwEnquiryForm");
+      if (!form) return;
+
+      const phone = document.getElementById("qePhone");
+      if (phone) {
+        phone.addEventListener("input", () => {
+          phone.value = phone.value.replace(/[^\\d+\\s\\-()]/g, "").slice(0, 20);
+        });
+      }
+
+      form.addEventListener("submit", (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        form.classList.add("was-validated");
+        if (!form.checkValidity()) return;
+
+        const subject = form.dataset.subject || "Enquiry";
+        const source  = form.dataset.source  || "";
+
+        const name = (document.getElementById("qeName")?.value || "").trim();
+        const email = (document.getElementById("qeEmail")?.value || "").trim();
+        const qePhone = (document.getElementById("qePhone")?.value || "").trim();
+        const qeGroup = (document.getElementById("qeGroup")?.value || "").trim();
+        const qeDates = (document.getElementById("qeDates")?.value || "").trim();
+        const qeNumbers = (document.getElementById("qeNumbers")?.value || "").trim();
+        const qeNotes = (document.getElementById("qeNotes")?.value || "").trim();
+
+        const body = [
+          subject,
+          "",
+          "Page: " + source,
+          "",
+          "Name: " + name,
+          "Email: " + email,
+          "Phone: " + (qePhone || "—"),
+          "Group / organisation: " + (qeGroup || "—"),
+          "Preferred date(s): " + (qeDates || "—"),
+          "Numbers / age range: " + (qeNumbers || "—"),
+          "",
+          "Notes: " + (qeNotes || "—")
+        ].join("\\n");
+
+        bbnwGoToContact({ subject, body, name, email, source });
+      });
+    });
+  </script>
+
+</body>
+</html>

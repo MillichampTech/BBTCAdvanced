@@ -1,0 +1,244 @@
+:root{
+  --primary: #224B8E;
+  --accent: #5D99D2;
+
+  --bg-color: #f6fbff;
+  --bg-fade: #f6fbff;
+
+  --panel-bg: rgba(255,255,255,0.66);
+  --text-color: #172033;
+  --muted: rgba(23,32,51,0.9);
+
+  --glass-blur: 28px;
+  --glass-saturate: 140%;
+  --glass-brightness: 120%;
+  --focus-color: rgba(34,75,142,0.95);
+  --primary-rgb: 10 132 255; /* set this to match your primary */
+  --btn-padding-y: .65rem;
+  --btn-padding-x: 1.6rem;
+  --btn-radius: 1rem;
+/* === OpenDyslexlexic Local Font === */
+
+
+
+  --font-body: 'Poppins', system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  --font-heading: Merriweather, Georgia, serif;
+
+  --overlay-color: rgba(255,255,255,0.25);
+  --overlay-gradient: linear-gradient(180deg, rgba(255,255,255,0.22) 0%, rgba(255,255,255,0.12) 55%, rgba(255,255,255,0.06) 100%);
+  --fade-speed: 0.5s;
+
+  /* default shimmer color */
+  --shimmer-color: rgba(255,255,255,0.35);
+}
+
+
+
+
+
+@font-face {
+  font-family: 'OpenDyslexic';
+  src: url('../assets/fonts/opendyslexic/OpenDyslexic-Regular.woff2') format('woff2'),
+       url('../assets/fonts/opendyslexic/OpenDyslexic-Regular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'OpenDyslexic';
+  src: url('../assets/fonts/opendyslexic/OpenDyslexic-Bold.woff2') format('woff2'),
+       url('../assets/fonts/opendyslexic/OpenDyslexic-Bold.woff') format('woff');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'OpenDyslexic';
+  src: url('../assets/fonts/opendyslexic/OpenDyslexic-Italic.woff2') format('woff2'),
+       url('../assets/fonts/opendyslexic/OpenDyslexic-Italic.woff') format('woff');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'OpenDyslexic';
+  src: url('../assets/fonts/opendyslexic/OpenDyslexic-BoldItalic.woff2') format('woff2'),
+       url('../assets/fonts/opendyslexic/OpenDyslexic-BoldItalic.woff') format('woff');
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+
+
+
+/* ======================
+   THEME OVERRIDES
+
+html[data-theme="dark"]{
+  --overlay-gradient: linear-gradient(
+    180deg,
+    rgba(0,0,0,0.12) 0%,
+    rgba(0,0,0,0.28) 55%,
+    rgba(0,0,0,0.46) 100%
+  );
+}
+
+
+   ====================== */
+
+/* Light */
+/* ======================
+   THEMES
+   ====================== */
+
+/* Light */
+html[data-theme="light"]{
+  --bg-fade: #f6fbff;
+  --bg-color: linear-gradient(180deg, #f6fbff 0%, #eef4ff 45%, #f8fbff 100%);
+
+  --panel-bg: rgba(255,255,255,0.70);
+  --text-color: #172033;
+  --muted: rgba(23,32,51,0.82);
+  --overlay-color: rgba(255,255,255,0.18);
+  --overlay-gradient: linear-gradient(
+    180deg,
+    rgba(255,255,255,0.10) 0%,
+    rgba(255,255,255,0.06) 55%,
+    rgba(255,255,255,0.04) 100%
+  );
+  --shimmer-color: rgba(255,255,255,0.35);
+}
+
+/* Dark */
+html[data-theme="dark"]{
+    --bg-fade: #05060a;
+  --bg-color: linear-gradient(180deg, #05060a 0%, #07101f 45%, #05060a 100%);
+  --panel-bg: rgba(20,20,22,0.52);
+  --text-color: #eaf4ff;
+  --muted: rgba(234,244,255,0.78);
+  --overlay-color: rgba(2,8,24,0.50);
+  --overlay-gradient: linear-gradient(
+    180deg,
+    rgba(0,0,0,0.12) 0%,
+    rgba(0,0,0,0.28) 55%,
+    rgba(0,0,0,0.46) 100%
+  );
+  --shimmer-color: rgba(255,255,255,0.22);
+}
+
+/* === Dyspraxia / Dyslexia — Neutral Brown Parchment (NO pink) === */
+html[data-theme="dyspraxia"]{
+  --font-body: 'OpenDyslexic', Arial, sans-serif;
+
+  /* Browner parchment paper */
+   --bg-fade: #efe9dd;
+  --bg-color: linear-gradient(180deg, #efe9dd 0%, #e1d8c8 52%, #eee7db 100%);
+
+  --panel-bg: rgba(236,231,221,0.82);
+
+  --text-color: #201d16;
+  --muted: rgba(32,29,22,0.74);
+
+  /* Brown/olive depth – zero peach */
+  --overlay-color: rgba(95,88,70,0.06);
+  --overlay-gradient: linear-gradient(
+    180deg,
+    rgba(252,251,247,0.08) 0%,
+    rgba(155,146,122,0.14) 58%,
+    rgba(95,88,70,0.18) 100%
+  );
+
+  --shimmer-color: rgba(0,0,0,0.06);
+
+  --glass-blur: 24px;
+  --glass-saturate: 110%;
+  --btn-padding-y: 0.9rem;
+  --btn-padding-x: 2rem;
+  --btn-radius: 1.2rem;
+
+  --fade-speed: 0.6s;
+}
+
+/* Dyspraxia glass panels */
+[data-theme="dyspraxia"] .glass-panel,
+[data-theme="dyspraxia"] #routeInfoBox,
+[data-theme="dyspraxia"] #attractionInfoBox {
+  background: var(--panel-bg);
+  border: 1px solid rgba(120,112,92,0.34);
+  color: var(--text-color);
+  backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturate));
+  box-shadow: 0 6px 24px rgba(24,20,14,0.16);
+}
+
+/* Dyspraxia buttons */
+[data-theme="dyspraxia"] .btn-glass,
+[data-theme="dyspraxia"] .church-btn {
+  background: rgba(238,232,220,0.72);
+  color: var(--text-color);
+  border: 1px solid rgba(120,112,92,0.38);
+}
+
+[data-theme="dyspraxia"] .btn-glass:hover,
+[data-theme="dyspraxia"] .church-btn:hover {
+  background: rgba(232,226,212,0.86);
+  transform: scale(1.04);
+}
+
+[data-theme="dyspraxia"] .church-btn.active {
+  background: rgba(160,150,120,0.22);
+  border: 1px solid rgba(160,150,120,0.44);
+  box-shadow: 0 0 10px rgba(24,20,14,0.18);
+}
+
+/* Spring — green + lilac (NOT light, NOT teal) */
+html[data-theme="spring"]{
+  --bg-fade: #fbfaff;
+  --bg-color: linear-gradient(180deg, #fbfaff 0%, #f1ffe9 52%, #fbfaff 100%);
+  --panel-bg: rgba(255,255,255,0.70);
+  --text-color: #172033;
+  --muted: rgba(23,32,51,0.82);
+  --overlay-color: rgba(170,135,255,0.10);
+  --overlay-gradient: linear-gradient(
+    180deg,
+    rgba(252,250,255,0.10) 0%,
+    rgba(175,205,105,0.18) 52%,
+    rgba(170,135,255,0.20) 100%
+  );
+  --shimmer-color: rgba(255,255,255,0.30);
+}
+
+/* Summer — unchanged */
+html[data-theme="summer"]{
+  --bg-fade: #fffaf0;
+  --bg-color: linear-gradient(180deg, #fffaf0 0%, #fff3dc 52%, #fff9ef 100%);
+  --panel-bg: rgba(255,255,255,0.66);
+  --text-color: #201a12;
+  --muted: rgba(32,26,18,0.75);
+  --overlay-color: rgba(255,190,80,0.10);
+  --shimmer-color: rgba(255,255,255,0.28);
+}
+
+/* Autumn — unchanged */
+html[data-theme="autumn"]{
+  --bg-fade: #120a08;
+  --bg-color: linear-gradient(180deg, #120a08 0%, #24130e 55%, #0f0807 100%);
+  --panel-bg: rgba(255,210,180,0.10);
+  --text-color: #fff3ea;
+  --muted: rgba(255,243,234,0.78);
+  --overlay-color: rgba(255,140,80,0.10);
+  --shimmer-color: rgba(255,255,255,0.20);
+}
+
+/* Winter — unchanged */
+html[data-theme="winter"]{
+  --bg-fade: #07131f;
+  --bg-color: linear-gradient(180deg, #07131f 0%, #0b1f33 50%, #06101a 100%);
+  --panel-bg: rgba(210,230,255,0.14);
+  --text-color: #eaf4ff;
+  --muted: rgba(234,244,255,0.78);
+  --overlay-color: rgba(120,170,255,0.12);
+  --shimmer-color: rgba(255,255,255,0.22);
+}

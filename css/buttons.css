@@ -1,0 +1,28 @@
+/* Base glass button */
+.btn-glass{
+  color: var(--text-color);
+  transition: transform .16s ease, background .16s ease, color .16s ease;
+}
+
+/* Hover / focus — MATCH NAV BUTTON BEHAVIOUR */
+.btn-glass:hover,
+.btn-glass:focus-visible{
+  background: rgba(255,255,255,0.08);   /* same feel as nav */
+  color: var(--text-color);
+  transform: translateY(-2px);
+}
+
+/* Primary variant — keep its background, only text changes */
+.btn-glass.btn-glass--primary{
+  background: rgba(var(--primary-rgb) / 0.22);
+  border-color: rgba(var(--primary-rgb) / 0.45);
+  color: var(--text-color);
+}
+
+.btn-glass.btn-glass--primary:hover,
+.btn-glass.btn-glass--primary:focus-visible{
+  background: rgba(var(--primary-rgb) / 0.22); /* lock background */
+  border-color: rgba(var(--primary-rgb) / 0.45);
+  color: var(--text-color);
+  transform: translateY(-2px);
+}

@@ -1,0 +1,1289 @@
+<!DOCTYPE html>
+<html lang="en" id="html-root">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Sports Barn | BBNW</title>
+
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Poppins:wght@400;600&family=IBM+Plex+Sans:wght@400;600&family=Merriweather:wght@700&family=Nunito:wght@400;700&family=Lato:wght@400;700&display=swap"
+    rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style></style>
+
+  <link rel="stylesheet" href="../css/main.css">
+</head>
+
+<body>
+  <div class="theme-overlay" aria-hidden="true"></div>
+
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <header>
+    <div id="site-nav"></div>
+  </header>
+
+  <main id="main-content" role="main" class="py-4">
+
+    <!-- HERO -->
+    <section class="reveal mb-4" aria-label="Sports Barn introduction">
+      <div class="glass-panel soft-card p-3 p-lg-4 sportsbarn-hero">
+        <div class="row g-4 align-items-stretch">
+
+          <div class="col-12 col-lg-6 d-flex">
+            <div class="w-100 d-flex flex-column">
+              <p class="kicker mb-2">Sports Barn • Bookable Indoor Space</p>
+
+              <h1 class="display-6 mb-2">
+                Book the Sports Barn in
+                <span class="centenary-rotator" aria-label="rotating highlights">
+                  <span class="rotator-word is-on">1-hour</span>
+                  <span class="rotator-word">simple</span>
+                  <span class="rotator-word">repeatable</span>
+                </span>
+                slots.
+              </h1>
+
+              <p class="lead mb-3">
+                Perfect for training, small-sided games, clubs and regular sessions.
+                Choose a date, pick a time slot, and send a booking request in seconds.
+              </p>
+
+              <div class="centenary-highlights mb-3">
+                <div class="row g-2">
+                  <div class="col-6">
+                    <div class="quick-card h-100">
+                      <div class="quick-num">7am–11pm</div>
+                      <div class="quick-label">open daily</div>
+                      <div class="small-muted">Mon–Sun</div>
+                    </div>
+                  </div>
+                  <div class="col-6">
+                    <div class="quick-card h-100">
+                      <div class="quick-num">1 hour</div>
+                      <div class="quick-label">slot length</div>
+                      <div class="small-muted">Simple bookings</div>
+                    </div>
+                  </div>
+                  <div class="col-6">
+                    <div class="quick-card h-100">
+                      <div class="quick-num">Clubs</div>
+                      <div class="quick-label">welcome</div>
+                      <div class="small-muted">Recurring slots</div>
+                    </div>
+                  </div>
+                  <div class="col-6">
+                    <div class="quick-card h-100">
+                      <div class="quick-num">Indoor</div>
+                      <div class="quick-label">reliable</div>
+                      <div class="small-muted">Weather-proof</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="d-flex flex-wrap gap-2 mt-auto">
+                <a class="btn btn-glass" href="#book">Book a time slot</a>
+                <a class="btn btn-outline-secondary" href="/files/public/webbooklet.pdf" target="_blank" rel="noopener">
+                  Brochure
+                </a>
+                <a class="btn btn-outline-secondary" href="#rules">Rules & info</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-12 col-lg-6">
+            <div class="centenary-collage">
+              <div class="gallery-grid" aria-label="Sports Barn image collage">
+                <a class="g g1" href="../images/sports-barn/barn.jpg">
+                  <img src="../images/sports-barn/barn.jpg" alt="Sports Barn interior" loading="lazy">
+                </a>
+                <a class="g g2" href="../images/sports-barn/action1.jpg">
+                  <img src="../images/sports-barn/action1.jpg" alt="Training session" loading="lazy">
+                </a>
+                <a class="g g3" href="../images/sports-barn/action2.jpg">
+                  <img src="../images/sports-barn/action2.jpg" alt="Small-sided game" loading="lazy">
+                </a>
+                <a class="g g4" href="../images/sports-barn/equipment.jpg">
+                  <img src="../images/sports-barn/equipment.jpg" alt="Sports equipment" loading="lazy">
+                </a>
+              </div>
+
+              <p class="small-muted mt-3 mb-0">
+                Best photo set: one bright wide interior, one “in use”, one equipment/detail, one people-scale shot.
+              </p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- BOOKING -->
+    <section class="reveal mb-4" id="book" aria-label="Sports Barn booking">
+      <div class="glass-panel soft-card p-3 p-lg-4">
+        <div class="d-flex align-items-start justify-content-between gap-2 flex-wrap">
+          <div>
+            <h2 class="h4 mb-1">Book a 1-hour slot</h2>
+            <p class="small-muted mb-0">Open 07:00–23:00, Monday to Sunday. Slots shown in your local time.</p>
+          </div>
+          <span class="badge-soft" id="bookingStatus">Loading availability…</span>
+        </div>
+
+        <div class="row g-3 mt-2">
+          <div class="col-12 col-lg-4">
+            <label class="form-label fw-bold" for="sbDate">Choose a date</label>
+            <input type="date" class="form-control" id="sbDate" />
+            <div class="small-muted mt-2">
+              Tip: Clubs can request a recurring weekly slot. Pick a time then tick “recurring”.
+            </div>
+
+            <hr class="my-3">
+
+            <div class="quick-card">
+              <div class="quick-label fw-bold mb-1">Selected slot</div>
+              <div class="small-muted" id="sbSelected">None selected</div>
+            </div>
+
+            <div class="form-check form-switch mt-3">
+              <input class="form-check-input" type="checkbox" id="sbRecurring">
+              <label class="form-check-label" for="sbRecurring">Request recurring weekly booking</label>
+            </div>
+            <div class="form-check form-switch mt-2">
+              <input class="form-check-input" type="checkbox" id="sbAddonCaving">
+              <label class="form-check-label" for="sbAddonCaving">
+                Add-on: Caving Experience (tunnel system)
+              </label>
+            </div>
+
+            <div class="form-check form-switch mt-2">
+              <input class="form-check-input" type="checkbox" id="sbAddonArchery">
+              <label class="form-check-label" for="sbAddonArchery">
+                Add-on: Archery Experience
+              </label>
+            </div>
+
+            <div class="form-check form-switch mt-2">
+              <input class="form-check-input" type="checkbox" id="sbAddonClimbing">
+              <label class="form-check-label" for="sbAddonClimbing">
+                Add-on: Climbing Experience
+              </label>
+            </div>
+
+
+            <div class="mt-3 d-grid gap-2">
+              <button class="btn btn-glass" id="sbRequestBtn" type="button" disabled>Request this slot</button>
+              <button class="btn btn-outline-secondary" id="sbCopyBtn" type="button" disabled>Copy request text</button>
+            </div>
+
+            <div class="small-muted mt-2" id="sbHint">
+              Pick a date and time slot to enable booking.
+            </div>
+          </div>
+
+          <div class="col-12 col-lg-8">
+            <div class="glass-panel soft-card p-3">
+              <div class="d-flex align-items-center justify-content-between flex-wrap gap-2 mb-2">
+                <h3 class="h5 mb-0">Available time slots</h3>
+                <span class="badge-soft" id="sbDayLabel">—</span>
+              </div>
+
+              <div class="sb-slots" id="sbSlots" aria-label="Time slots grid">
+                <!-- injected -->
+              </div>
+
+              <p class="small-muted mt-3 mb-0">
+                Grey = booked/unavailable. Dim = in the past (today). Click a time to select.
+              </p>
+            </div>
+          </div>
+        </div>
+
+
+
+        <!-- tiny inline styles for slots (kept minimal) -->
+        <style>
+          .sb-slots {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 10px;
+          }
+
+          @media (min-width: 992px) {
+            .sb-slots {
+              grid-template-columns: repeat(6, minmax(0, 1fr));
+            }
+          }
+
+          .sb-slot {
+            border: 1px solid rgba(255, 255, 255, 0.10);
+            border-radius: 12px;
+            padding: 10px 10px;
+            cursor: pointer;
+            user-select: none;
+            background: rgba(255, 255, 255, 0.04);
+          }
+
+          .sb-slot strong {
+            display: block;
+          }
+
+          .sb-slot .small-muted {
+            font-size: 12px;
+          }
+
+          .sb-slot.is-booked {
+            opacity: .45;
+            cursor: not-allowed;
+            text-decoration: line-through;
+          }
+
+          .sb-slot.is-past {
+            opacity: .35;
+            cursor: not-allowed;
+          }
+
+          .sb-slot.is-selected {
+            outline: 2px solid rgba(255, 255, 255, 0.35);
+          }
+
+          /* Ensure modal is above backdrop and fully interactive (some themes override z-index) */
+          .modal {
+            z-index: 2000;
+          }
+
+          .modal-backdrop {
+            z-index: 1990;
+          }
+
+          .modal-dialog,
+          .modal-content {
+            pointer-events: auto;
+          }
+
+          /* Hard override: ensure theme rules cannot disable interaction inside modal */
+          .modal,
+          .modal * {
+            pointer-events: auto !important;
+          }
+
+          .modal-backdrop {
+            pointer-events: none;
+          }
+        </style>
+
+    </section>
+
+    <!-- INFO / SELL -->
+    <section class="row g-4 mb-4 align-items-stretch reveal">
+      <div class="col-12 col-lg-7">
+        <div class="glass-panel soft-card p-3 p-lg-4 h-100" id="rules">
+          <h2 class="h4 mb-2">What it’s best for</h2>
+          <ul class="feature-list">
+            <li>Small-sided games and training sessions</li>
+            <li>Badminton / indoor sports</li>
+            <li>Fitness circuits and group sessions</li>
+            <li>Clubs wanting a recurring weekly slot</li>
+          </ul>
+
+          <hr>
+
+          <h3 class="h5 mb-2">Rules & useful info</h3>
+          <ul class="feature-list">
+            <li><strong>Slots:</strong> 60 minutes (07:00–23:00)</li>
+            <li><strong>Confirmation:</strong> Requests are confirmed by email</li>
+            <li><strong>Recurring:</strong> Weekly blocks available for clubs</li>
+            <li><strong>Arrival:</strong> Please arrive a few minutes early</li>
+          </ul>
+
+          <p class="small-muted mb-0">
+            Replace/add venue-specific rules here (footwear, equipment, safeguarding, etc.).
+          </p>
+        </div>
+      </div>
+
+      <div class="col-12 col-lg-5">
+        <div class="glass-panel soft-card p-3 p-lg-4 h-100">
+          <h2 class="h4 mb-2">Pricing</h2>
+          <p class="small-muted">
+            Add your real pricing once confirmed. Until then, keep it clean and enquiry-driven.
+          </p>
+
+          <div class="row g-2">
+            <div class="col-12">
+              <div class="quick-card">
+                <div class="quick-label fw-bold">Standard</div>
+                <div class="small-muted">£— / hour</div>
+              </div>
+            </div>
+            <div class="col-12">
+              <div class="quick-card">
+                <div class="quick-label fw-bold">Clubs (recurring)</div>
+                <div class="small-muted">Discounted rate (ask)</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="cta-bar mt-3">
+            <a class="btn btn-glass w-100" href="#book">Pick a slot now</a>
+            <div class="small-muted mt-2">Include date + time + activity for a fast reply.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+
+  <footer>
+    <div id="site-footer"></div>
+  </footer>
+
+
+  <!-- Accessibility Modal (unchanged) -->
+  
+
+<!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Google Translate -->
+  <script>
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement(
+        { pageLanguage: "en" },
+        "google_translate_element_modal"
+      );
+    }
+  </script>
+  <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+  <!-- EmailJS -->
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
+  <!-- Theme (kept consistent with other pages) -->
+  <script defer src="../components/components.js"></script>
+  <script defer src="../theme.js"></script>
+
+  <!-- PREMIUM MODE ENGINE (Centenary / pages with .centenary-tab only) -->
+  <script>
+    (() => {
+      const tabs = Array.from(document.querySelectorAll(".centenary-tab"));
+      if (!tabs.length) return; // IMPORTANT: don't run on activity pages
+
+      const reduceMotion =
+        (window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches) ||
+        document.documentElement.classList.contains("reduce-motion") ||
+        document.documentElement.classList.contains("reduced-motion");
+
+      // rotator (safe)
+      if (!reduceMotion) {
+        const words = Array.from(document.querySelectorAll(".rotator-word"));
+        if (words.length) {
+          let i = 0;
+          setInterval(() => {
+            words[i].classList.remove("is-on");
+            i = (i + 1) % words.length;
+            words[i].classList.add("is-on");
+          }, 2200);
+        }
+      }
+
+      const lead = document.getElementById("heroLead");
+      const cta = document.getElementById("heroCta");
+
+      const img = document.getElementById("heroImgMain");
+      const imgLink = document.getElementById("heroImgMainLink");
+      const highlights = document.getElementById("heroHighlights");
+
+      const modeSellTitle = document.getElementById("modeSellTitle");
+      const modeSellLead = document.getElementById("modeSellLead");
+      const modeSellList = document.getElementById("modeSellList");
+      const modeSellCta = document.getElementById("modeSellCta");
+
+      const elFormError = document.getElementById("sbFormError");
+
+      const modeStripTitle = document.getElementById("modeStripTitle");
+      const modeStripText = document.getElementById("modeStripText");
+      const stripCta = document.getElementById("stripCta");
+
+      const modeEnquiryPurpose = document.getElementById("modeEnquiryPurpose");
+
+      const runlineBox = document.getElementById("runlineBox");
+      const planCta = document.getElementById("planCta");
+
+      const featuredImg = document.getElementById("featuredImg");
+      const featuredImgLink = document.getElementById("featuredImgLink");
+      const galleryFeaturedTitle = document.getElementById("galleryFeaturedTitle");
+      const galleryFeaturedText = document.getElementById("galleryFeaturedText");
+
+      function swapFx(...els) {
+        if (reduceMotion) return;
+        els.forEach((el) => el && el.classList.add("is-swapping"));
+        requestAnimationFrame(() =>
+          setTimeout(() => els.forEach((el) => el && el.classList.remove("is-swapping")), 140)
+        );
+      }
+
+      const modes = {
+        self: {
+          lead:
+            "Run your own weekend at your own pace: cook together, serve straight into the hall, meet, eat and sleep — all under one roof.",
+          cta: "Enquire about self-catering",
+          subject: "Centenary%20Hall%20Self%20Catering%20Enquiry",
+          heroImg: "../images/centenary-hall/kitchen.jpg",
+          heroAlt: "Self catering kitchen at Centenary Hall",
+          highlightsHtml: `
+          <div class="row g-2">
+            <div class="col-6"><div class="quick-card h-100"><div class="quick-num">48</div><div class="quick-label">sleeps</div><div class="small-muted">Dorms + staff rooms</div></div></div>
+            <div class="col-6"><div class="quick-card h-100"><div class="quick-num">Kitchen</div><div class="quick-label">fully equipped</div><div class="small-muted">Prep + larder</div></div></div>
+            <div class="col-6"><div class="quick-card h-100"><div class="quick-num">Hatch</div><div class="quick-label">to hall</div><div class="small-muted">Easy service flow</div></div></div>
+            <div class="col-6"><div class="quick-card h-100"><div class="quick-num">All-in</div><div class="quick-label">one building</div><div class="small-muted">No shuttling</div></div></div>
+          </div>`,
+          sellTitle: "Self-catering stays that feel easy",
+          sellLead:
+            "Bring your own plan — the building supports it. Great flow, simple service, comfortable sleeping and facilities.",
+          sellListHtml: `
+          <li><strong>Cook & prep properly:</strong> full kitchen + larder space.</li>
+          <li><strong>Serve fast:</strong> hatch straight into the main hall.</li>
+          <li><strong>One-roof flow:</strong> sessions, meals and sleep in one place.</li>
+          <li><strong>Sleeps 48:</strong> dorms + staff rooms.</li>
+          <li><strong>Accessible layout:</strong> single-storey with ramp access.</li>
+        `,
+          stripTitle: "Best for self-cater weekends",
+          stripText:
+            "Training weekends • youth groups • residential courses • retreats • team weekends • community groups.",
+          enquiryPurpose: "Self-catering residential (sleeping + hall + kitchen)",
+          pricingCtaLabel: "Check self-cater availability & pricing",
+          sticky: "Self-catering • Sleeps 48 • Enquire now",
+          featured: {
+            img: "../images/centenary-hall/kitchen.jpg",
+            title: "Self-catering kitchen",
+            text: "Designed for groups: prep space, storage and easy service into the hall.",
+          },
+          runline: [
+            { tag: "Arrival", title: "Arrive & settle", text: "Quick check-in, unload, get set up." },
+            { tag: "Food", title: "Cook & serve", text: "Kitchen → hatch → hall. Simple meal flow." },
+            { tag: "Programme", title: "Meet & run sessions", text: "Flexible hall layout for your timetable." },
+            { tag: "Overnight", title: "Sleep & reset", text: "Dorm accommodation + facilities ready." },
+          ],
+        },
+
+        catered: {
+          lead:
+            "Let us handle the food so you can focus on people. Catering options work brilliantly with the serving hatch into the main hall.",
+          cta: "Enquire about catered stays",
+          subject: "Centenary%20Hall%20Catered%20Enquiry",
+          heroImg: "../images/centenary-hall/serving-hatch.jpg",
+          heroAlt: "Serving hatch from kitchen into the main hall",
+          highlightsHtml: `
+          <div class="row g-2">
+            <div class="col-6"><div class="quick-card h-100"><div class="quick-num">48</div><div class="quick-label">sleeps</div><div class="small-muted">Residential groups</div></div></div>
+            <div class="col-6"><div class="quick-card h-100"><div class="quick-num">Catered</div><div class="quick-label">options</div><div class="small-muted">Ask for menus</div></div></div>
+            <div class="col-6"><div class="quick-card h-100"><div class="quick-num">Fast</div><div class="quick-label">service</div><div class="small-muted">Hatch → hall</div></div></div>
+            <div class="col-6"><div class="quick-card h-100"><div class="quick-num">Smooth</div><div class="quick-label">weekends</div><div class="small-muted">Less admin</div></div></div>
+          </div>`,
+          sellTitle: "Catered stays — less admin, more programme",
+          sellLead:
+            "Ideal for courses and weekends where you want the focus on content and people, not cooking and washing up.",
+          sellListHtml: `
+          <li><strong>Catering options:</strong> ask about menus and serving arrangements.</li>
+          <li><strong>Timetable-friendly:</strong> hatch service keeps things moving.</li>
+          <li><strong>Big shared space:</strong> sessions and meals in the same hall.</li>
+          <li><strong>Overnight comfort:</strong> sleeps 48.</li>
+          <li><strong>Accessible & practical:</strong> works well for mixed groups.</li>
+        `,
+          stripTitle: "Best for catered weekends",
+          stripText: "Residential courses • retreats • training weekends • groups who want simplicity.",
+          enquiryPurpose: "Catered residential (meals included)",
+          pricingCtaLabel: "Check catered availability & pricing",
+          sticky: "Catered options • Sleeps 48 • Enquire now",
+          featured: {
+            img: "../images/centenary-hall/serving-hatch.jpg",
+            title: "Efficient food service",
+            text: "Serving hatch into the hall makes large-group meals easy.",
+          },
+          runline: [
+            { tag: "Arrival", title: "Arrive & start", text: "Get settled quickly — we keep it simple." },
+            { tag: "Food", title: "Meals handled", text: "Catered options to match your programme." },
+            { tag: "Programme", title: "Sessions flow", text: "No long breaks — food service is fast." },
+            { tag: "Overnight", title: "Rest & repeat", text: "Sleeps 48 for residential courses." },
+          ],
+        },
+
+        training: {
+          lead:
+            "Training and conference days that just work: flexible seating, presentation kit ready, Wi-Fi throughout and easy breaks.",
+          cta: "Enquire about training days",
+          subject: "Centenary%20Hall%20Training%20Day%20Enquiry",
+          heroImg: "../images/centenary-hall/hall.jpg",
+          heroAlt: "Main hall set up for training and group sessions",
+          highlightsHtml: `
+          <div class="row g-2">
+            <div class="col-6"><div class="quick-card h-100"><div class="quick-num">Hall</div><div class="quick-label">flexible</div><div class="small-muted">Tables + chairs</div></div></div>
+            <div class="col-6"><div class="quick-card h-100"><div class="quick-num">Projector</div><div class="quick-label">+ boards</div><div class="small-muted">Training-ready</div></div></div>
+            <div class="col-6"><div class="quick-card h-100"><div class="quick-num">Wi-Fi</div><div class="quick-label">throughout</div><div class="small-muted">Easy setup</div></div></div>
+            <div class="col-6"><div class="quick-card h-100"><div class="quick-num">Breaks</div><div class="quick-label">made easy</div><div class="small-muted">Refreshments</div></div></div>
+          </div>`,
+          sellTitle: "Training days & conferences that run smoothly",
+          sellLead:
+            "Arrive, set up, deliver. Flexible layouts, presentation kit, and refreshment options make it painless.",
+          sellListHtml: `
+          <li><strong>Flexible hall:</strong> classroom, cabaret, workshop, open-space.</li>
+          <li><strong>Presentation ready:</strong> projector/screen + wipe boards.</li>
+          <li><strong>Wi-Fi throughout:</strong> easy working for teams.</li>
+          <li><strong>Breaks made easy:</strong> refreshments/catering options.</li>
+          <li><strong>Accessible venue:</strong> inclusive layout for mixed groups.</li>
+        `,
+          stripTitle: "Best for day events",
+          stripText: "Training days • conferences • workshops • seminars • away-days.",
+          enquiryPurpose: "Training / conference day (no overnight)",
+          pricingCtaLabel: "Check training day pricing",
+          sticky: "Training days • Presentation kit • Enquire now",
+          featured: {
+            img: "../images/centenary-hall/hall.jpg",
+            title: "The main hall",
+            text: "Flexible layouts for training, talks and workshops.",
+          },
+          runline: [
+            { tag: "Setup", title: "Arrive & set up", text: "Projector/boards ready — quick layout changes." },
+            { tag: "Sessions", title: "Deliver training", text: "Comfortable group space for learning." },
+            { tag: "Breaks", title: "Refresh & reset", text: "Easy breaks with refreshment options." },
+            { tag: "Wrap", title: "Pack down", text: "Simple exit — no fuss." },
+          ],
+        },
+
+        church: {
+          lead:
+            "Ideal for church and community days: a calm space for worship, teaching, discussion and shared meals with an accessible layout.",
+          cta: "Enquire about church days",
+          subject: "Centenary%20Hall%20Church%20Day%20Enquiry",
+          heroImg: "../images/centenary-hall/community.jpg",
+          heroAlt: "Community or church-style setup at Centenary Hall",
+          highlightsHtml: `
+          <div class="row g-2">
+            <div class="col-6"><div class="quick-card h-100"><div class="quick-num">Welcoming</div><div class="quick-label">space</div><div class="small-muted">Calm + practical</div></div></div>
+            <div class="col-6"><div class="quick-card h-100"><div class="quick-num">Meals</div><div class="quick-label">together</div><div class="small-muted">Kitchen + hatch</div></div></div>
+            <div class="col-6"><div class="quick-card h-100"><div class="quick-num">Accessible</div><div class="quick-label">layout</div><div class="small-muted">Single-storey</div></div></div>
+            <div class="col-6"><div class="quick-card h-100"><div class="quick-num">Optional</div><div class="quick-label">overnight</div><div class="small-muted">Sleeps 48</div></div></div>
+          </div>`,
+          sellTitle: "Church & community days that feel welcoming",
+          sellLead:
+            "A space that can shift between worship, teaching, small groups and shared meals — without hassle.",
+          sellListHtml: `
+          <li><strong>Warm, neutral hall:</strong> works for worship, talks and discussion.</li>
+          <li><strong>Meals together:</strong> kitchen + hatch supports group catering/self-serve.</li>
+          <li><strong>Accessible facilities:</strong> inclusive for mixed ages and needs.</li>
+          <li><strong>Flexible layout:</strong> chairs/tables arranged to suit your programme.</li>
+          <li><strong>Weekend option:</strong> sleeps 48 if you want a retreat format.</li>
+        `,
+          stripTitle: "Best for church / community use",
+          stripText: "Away-days • teaching days • fellowship meals • volunteer training • retreats.",
+          enquiryPurpose: "Church / community day (or weekend)",
+          pricingCtaLabel: "Check church day pricing",
+          sticky: "Church days • Community • Enquire now",
+          featured: {
+            img: "../images/centenary-hall/community.jpg",
+            title: "Community set-up",
+            text: "A calm, flexible room for worship, teaching and meals.",
+          },
+          runline: [
+            { tag: "Welcome", title: "Arrive & gather", text: "Easy access for all ages and needs." },
+            { tag: "Session", title: "Worship / teaching", text: "Space flexes between formats quickly." },
+            { tag: "Food", title: "Shared meal", text: "Kitchen + hatch makes serving easy." },
+            { tag: "Optional", title: "Extend to a retreat", text: "Sleeps 48 for weekend formats." },
+          ],
+        },
+
+        meetings: {
+          lead:
+            "Meetings without distractions: a neutral space for teams and groups, with flexible layouts, Wi-Fi and refreshments.",
+          cta: "Enquire about meetings",
+          subject: "Centenary%20Hall%20Meeting%20Enquiry",
+          heroImg: "../images/centenary-hall/meeting.jpg",
+          heroAlt: "Meeting setup at Centenary Hall",
+          highlightsHtml: `
+          <div class="row g-2">
+            <div class="col-6"><div class="quick-card h-100"><div class="quick-num">Focused</div><div class="quick-label">space</div><div class="small-muted">Room to think</div></div></div>
+            <div class="col-6"><div class="quick-card h-100"><div class="quick-num">Wi-Fi</div><div class="quick-label">ready</div><div class="small-muted">Easy working</div></div></div>
+            <div class="col-6"><div class="quick-card h-100"><div class="quick-num">Layouts</div><div class="quick-label">flexible</div><div class="small-muted">Boardroom/cabaret</div></div></div>
+            <div class="col-6"><div class="quick-card h-100"><div class="quick-num">Upgrade</div><div class="quick-label">to overnight</div><div class="small-muted">Sleeps 48</div></div></div>
+          </div>`,
+          sellTitle: "Meetings & groups — simple, focused, practical",
+          sellLead:
+            "Ideal for committees, boards, volunteers and teams who want a clean space to think and plan.",
+          sellListHtml: `
+          <li><strong>Focused environment:</strong> room to work without distractions.</li>
+          <li><strong>Flexible seating:</strong> boardroom, cabaret, breakout-style.</li>
+          <li><strong>Wi-Fi throughout:</strong> easy working for teams.</li>
+          <li><strong>Refreshments:</strong> tea/coffee and catering options.</li>
+          <li><strong>Optional overnight:</strong> sleeps 48 if it becomes a retreat.</li>
+        `,
+          stripTitle: "Best for meetings",
+          stripText: "Committees • boards • volunteer teams • planning days • partner meetings.",
+          enquiryPurpose: "Meeting / group booking",
+          pricingCtaLabel: "Check meeting pricing",
+          sticky: "Meetings • Planning days • Enquire now",
+          featured: {
+            img: "../images/centenary-hall/meeting.jpg",
+            title: "Meeting layout",
+            text: "Practical layouts for boards, committees and teams.",
+          },
+          runline: [
+            { tag: "Arrival", title: "Arrive & settle", text: "Set up quickly, get working." },
+            { tag: "Work", title: "Deep focus", text: "A neutral space built for collaboration." },
+            { tag: "Breaks", title: "Refreshments", text: "Tea/coffee + catering options." },
+            { tag: "Option", title: "Turn it into a retreat", text: "Sleeps 48 if you extend overnight." },
+          ],
+        },
+      };
+
+      function renderRunline(steps) {
+        return (steps || [])
+          .map(
+            (s) => `
+        <div class="runline-step">
+          <div class="top">
+            <strong>${s.title}</strong>
+            <span class="tag">${s.tag}</span>
+          </div>
+          <p>${s.text}</p>
+        </div>
+      `
+          )
+          .join("");
+      }
+
+      function setMode(mode) {
+        const m = modes[mode] || modes.self;
+
+        swapFx(
+          lead,
+          highlights,
+          modeSellTitle,
+          modeSellLead,
+          modeSellList,
+          modeStripTitle,
+          modeStripText,
+          modeEnquiryPurpose,
+          featuredImg,
+          galleryFeaturedTitle,
+          galleryFeaturedText,
+          runlineBox,
+        );
+
+        if (lead) lead.textContent = m.lead;
+
+        if (cta) {
+          cta.textContent = m.cta;
+          cta.href = "/pages/contact.html?subject=" + m.subject;
+        }
+        if (stickyPrimary) stickyPrimary.href = "/pages/contact.html?subject=" + m.subject;
+
+        if (img) {
+          img.src = m.heroImg;
+          img.alt = m.heroAlt;
+        }
+        if (imgLink) imgLink.href = m.heroImg;
+
+        if (highlights) highlights.innerHTML = m.highlightsHtml;
+
+        if (modeSellTitle) modeSellTitle.textContent = m.sellTitle;
+        if (modeSellLead) modeSellLead.textContent = m.sellLead;
+        if (modeSellList) modeSellList.innerHTML = m.sellListHtml;
+
+        if (modeSellCta) {
+          modeSellCta.textContent = m.pricingCtaLabel;
+          modeSellCta.href = "/pages/contact.html?subject=" + m.subject;
+        }
+
+        if (modeStripTitle) modeStripTitle.textContent = m.stripTitle;
+        if (modeStripText) modeStripText.textContent = m.stripText;
+        if (stripCta) stripCta.href = "/pages/contact.html?subject=" + m.subject;
+
+        if (modeEnquiryPurpose) modeEnquiryPurpose.textContent = m.enquiryPurpose;
+
+        if (runlineBox) runlineBox.innerHTML = renderRunline(m.runline);
+        if (planCta) planCta.href = "/pages/contact.html?subject=" + m.subject;
+
+        if (featuredImg) {
+          featuredImg.src = m.featured.img;
+          featuredImg.alt = m.featured.title;
+        }
+        if (featuredImgLink) featuredImgLink.href = m.featured.img;
+        if (galleryFeaturedTitle) galleryFeaturedTitle.textContent = m.featured.title;
+        if (galleryFeaturedText) galleryFeaturedText.textContent = m.featured.text;
+
+        tabs.forEach((t) => {
+          const on = t.dataset.mode === mode;
+          t.classList.toggle("is-active", on);
+          t.setAttribute("aria-selected", on ? "true" : "false");
+        });
+      }
+
+      tabs.forEach((t) => t.addEventListener("click", () => setMode(t.dataset.mode)));
+      setMode(tabs[0]?.dataset.mode || "self");
+    })();
+  </script>
+
+  <!-- Scroll reveal + Sticky CTA -->
+  <script>
+    (() => {
+      const prefersReduced = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+      const html = document.documentElement;
+      const reducedByClass = html.classList.contains("reduce-motion") || html.classList.contains("reduced-motion");
+      const reduceMotion = prefersReduced || reducedByClass;
+
+      const revealEls = Array.from(document.querySelectorAll(".reveal"));
+      if (!reduceMotion && "IntersectionObserver" in window && revealEls.length) {
+        const io = new IntersectionObserver(
+          (entries) => {
+            for (const e of entries) {
+              if (e.isIntersecting) {
+                e.target.classList.add("is-in");
+                io.unobserve(e.target);
+              }
+            }
+          },
+          { threshold: 0.16 }
+        );
+        revealEls.forEach((el) => io.observe(el));
+      } else {
+        revealEls.forEach((el) => el.classList.add("is-in"));
+      }
+
+      if (!sticky) return;
+
+      const hero = document.querySelector(".centenary-hero2");
+      const footer = document.querySelector("footer") || document.getElementById("site-footer");
+
+      const setOn = (on) => {
+        sticky.classList.toggle("is-on", on);
+        sticky.setAttribute("aria-hidden", on ? "false" : "true");
+      };
+
+      let heroPassed = false;
+      let nearFooter = false;
+
+      if ("IntersectionObserver" in window && hero) {
+        const heroObserver = new IntersectionObserver(
+          (entries) => {
+            const entry = entries[0];
+            heroPassed = entry.intersectionRatio < 0.6;
+            setOn(heroPassed && !nearFooter);
+          },
+          { threshold: [0, 0.2, 0.4, 0.6, 0.8, 1] }
+        );
+        heroObserver.observe(hero);
+      } else {
+        const onScroll = () => {
+          const y = window.scrollY || document.documentElement.scrollTop;
+          const heroH = hero ? hero.getBoundingClientRect().height : 520;
+          heroPassed = y > heroH * 0.6;
+          setOn(heroPassed && !nearFooter);
+        };
+        window.addEventListener("scroll", onScroll, { passive: true });
+        onScroll();
+      }
+
+      if ("IntersectionObserver" in window && footer) {
+        const footerObserver = new IntersectionObserver(
+          (entries) => {
+            nearFooter = entries[0].isIntersecting;
+            setOn(heroPassed && !nearFooter);
+          },
+          { threshold: 0.05 }
+        );
+        footerObserver.observe(footer);
+      }
+    })();
+  </script>
+
+  <!-- Sports Barn Booking (1-hour slots 07:00–23:00) -->
+  <script>
+    (() => {
+      // ---- Config ----
+      const OPEN_HOUR = 7; // 07:00
+      const CLOSE_HOUR = 23; // 23:00 (last slot starts 22:00)
+      const BOOKINGS_URL = "../data/sportsbarn-booked.json"; // optional
+      const BOOKING_EMAIL_TO = "bookings@example.com"; // <-- CHANGE THIS
+
+      // ---- Elements ----
+      const elDate = document.getElementById("sbDate");
+      const elSlots = document.getElementById("sbSlots");
+      const elDayLabel = document.getElementById("sbDayLabel");
+      const elSelected = document.getElementById("sbSelected");
+      const elRecurring = document.getElementById("sbRecurring");
+      const elRequestBtn = document.getElementById("sbRequestBtn");
+      const elCopyBtn = document.getElementById("sbCopyBtn");
+      const elHint = document.getElementById("sbHint");
+      const elStatus = document.getElementById("bookingStatus");
+
+      // Optional add-on checkbox (for Caving integration)
+      const elAddonCaving = document.getElementById("sbAddonCaving");
+      const elAddonArchery = document.getElementById("sbAddonArchery");
+      const elAddonClimbing = document.getElementById("sbAddonClimbing");
+
+      const modalEl = document.getElementById("sbModal");
+      const modal = window.bootstrap && modalEl ? new bootstrap.Modal(modalEl) : null;
+
+      const elModalSlot = document.getElementById("sbModalSlot");
+      const elModalRecurring = document.getElementById("sbModalRecurring");
+      const elName = document.getElementById("sbName");
+      const elGroupName = document.getElementById("sbGroupName");
+      const elEmail = document.getElementById("sbEmail");
+      const elPhone = document.getElementById("sbPhone");
+      const elActivity = document.getElementById("sbActivity");
+      const elGroupSize = document.getElementById("sbGroupSize");
+      const elModalAddons = document.getElementById("sbModalAddons");
+
+      const elNotes = document.getElementById("sbNotes");
+      const elAgree = document.getElementById("sbAgree");
+      const elSendBtn = document.getElementById("sbSendBtn");
+
+
+
+      const elFormError = document.getElementById("sbFormError");
+      const elCompany = document.getElementById("sbCompany"); // honeypot
+
+      function resetToggles() {
+        if (elRecurring) elRecurring.checked = false;
+
+        // Add-ons
+        if (elAddonCaving) elAddonCaving.checked = false;
+        if (elAddonArchery) elAddonArchery.checked = false;
+        if (elAddonClimbing) elAddonClimbing.checked = false;
+      }
+
+      // Run on normal load
+      resetToggles();
+
+      // Run again when Firefox restores the page from back/forward cache
+      window.addEventListener("pageshow", (e) => {
+        if (e.persisted) {
+          resetToggles();
+        }
+      });
+
+      if (modalEl) {
+        modalEl.addEventListener("show.bs.modal", () => {
+          if (elName) elName.value = "";
+          if (elGroupName) elGroupName.value = "";
+          if (elEmail) elEmail.value = "";
+          if (elPhone) elPhone.value = "";
+          if (elActivity) elActivity.value = "";
+          if (elGroupSize) elGroupSize.value = "";
+          if (elNotes) elNotes.value = "";
+          if (elAgree) elAgree.checked = false;
+
+          if (elFormError) elFormError.classList.add("visually-hidden");
+          if (elCompany) elCompany.value = "";
+          updateModalPreview();
+
+        });
+      }
+
+      if (elPhone) {
+        elPhone.addEventListener("input", () => {
+          // Allow digits, spaces, +, hyphen, parentheses while typing
+          elPhone.value = elPhone.value.replace(/[^\d+\s\-()]/g, "").slice(0, 20);
+        });
+      }
+
+
+      // ---- Guard: only run on Sports Barn page ----
+      if (!elDate || !elSlots || !elRequestBtn) return;
+
+      // ---- State ----
+      let booked = new Set(); // keys like "YYYY-MM-DD|HH:MM"
+      let selectedKey = null;
+      let selectedPretty = null;
+
+      // ---- Helpers ----
+      const pad2 = (n) => String(n).padStart(2, "0");
+
+      function isoTodayLocal() {
+        const d = new Date();
+        const y = d.getFullYear();
+        const m = pad2(d.getMonth() + 1);
+        const day = pad2(d.getDate());
+        return `${y}-${m}-${day}`;
+      }
+      function clampInt(value, min, max) {
+        const n = parseInt(String(value || "").trim(), 10);
+        if (Number.isNaN(n)) return "";
+        return String(Math.min(max, Math.max(min, n)));
+      }
+      function isValidEmail(email) {
+        const s = String(email || "").trim();
+        // Use browser validity if possible
+        if (elEmail && typeof elEmail.checkValidity === "function") {
+          elEmail.value = s; // ensure validity is checking the trimmed value
+          if (!elEmail.checkValidity()) return false;
+        }
+        // Extra basic pattern (avoids obvious gibberish like "aaaa" or "x@")
+        return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(s);
+      }
+
+      function cleanPhoneUK(input) {
+        // Accept: 07..., 01..., 02..., +44..., with spaces/dashes allowed.
+        // Output: a cleaned readable version, or "" if invalid.
+        const raw = String(input || "").trim();
+
+        // Remove spaces, hyphens, parentheses
+        const compact = raw.replace(/[\s\-().]/g, "");
+
+        // Allow leading +, otherwise digits only
+        if (!/^\+?\d+$/.test(compact)) return "";
+
+        // Convert +44XXXXXXXXXX -> 0XXXXXXXXXX for consistency (optional)
+        let normalized = compact;
+        if (normalized.startsWith("+44")) normalized = "0" + normalized.slice(3);
+
+        // UK numbers are typically 10–11 digits starting with 0 (mobiles 11)
+        if (!/^0\d{9,10}$/.test(normalized)) return "";
+
+        // Return a nice readable format (light touch)
+        return normalized;
+      }
+
+      function cleanLine(value, maxLen) {
+        const s = String(value || "")
+          .replace(/[\u0000-\u001F\u007F]/g, "") // strip control chars
+          .trim();
+        return s.length > maxLen ? s.slice(0, maxLen) : s;
+      }
+
+      function weekdayLabel(isoDate) {
+        const d = new Date(isoDate + "T00:00:00");
+        return d.toLocaleDateString(undefined, {
+          weekday: "long",
+          year: "numeric",
+          month: "short",
+          day: "numeric",
+        });
+      }
+
+      function buildSlotKey(isoDate, hhmm) {
+        return `${isoDate}|${hhmm}`;
+      }
+
+      function isPastSlot(isoDate, hh) {
+        const now = new Date();
+        const today = isoTodayLocal();
+        if (isoDate !== today) return false;
+        const curH = now.getHours();
+        return hh < curH;
+      }
+
+      function slotPretty(isoDate, hh) {
+        const start = `${pad2(hh)}:00`;
+        const end = `${pad2(hh + 1)}:00`;
+        return `${weekdayLabel(isoDate)} • ${start}–${end}`;
+      }
+
+      function setSelected(key, pretty) {
+        selectedKey = key;
+        selectedPretty = pretty;
+
+        if (elSelected) elSelected.textContent = pretty || "None selected";
+        elRequestBtn.disabled = !key;
+        if (elCopyBtn) elCopyBtn.disabled = !key;
+
+        if (elHint) {
+          elHint.textContent = key
+            ? 'Click “Request this slot” to send a booking request.'
+            : "Pick a date and time slot to enable booking.";
+        }
+      }
+
+      function clearSelectionUI() {
+        const tiles = elSlots.querySelectorAll(".sb-slot");
+        tiles.forEach((t) => t.classList.remove("is-selected"));
+      }
+
+      function renderSlotsForDate(isoDate) {
+        elSlots.innerHTML = "";
+        if (elDayLabel) elDayLabel.textContent = weekdayLabel(isoDate);
+
+        const lastStart = CLOSE_HOUR - 1;
+        const frag = document.createDocumentFragment();
+
+        for (let h = OPEN_HOUR; h <= lastStart; h++) {
+          const hhmm = `${pad2(h)}:00`;
+          const key = buildSlotKey(isoDate, hhmm);
+          const pretty = slotPretty(isoDate, h);
+
+          const div = document.createElement("div");
+          div.className = "sb-slot";
+          div.setAttribute("role", "button");
+          div.setAttribute("tabindex", "0");
+          div.dataset.key = key;
+
+          const bookedThis = booked.has(key);
+          const pastThis = isPastSlot(isoDate, h);
+
+          if (bookedThis) div.classList.add("is-booked");
+          if (pastThis) div.classList.add("is-past");
+
+          div.innerHTML = `
+          <strong>${hhmm}</strong>
+          <div class="small-muted">${pad2(h + 1)}:00 end</div>
+        `;
+
+          function trySelect() {
+            if (bookedThis || pastThis) return;
+            clearSelectionUI();
+            div.classList.add("is-selected");
+            setSelected(key, pretty);
+          }
+
+          div.addEventListener("click", trySelect);
+          div.addEventListener("keydown", (e) => {
+            if (e.key === "Enter" || e.key === " ") {
+              e.preventDefault();
+              trySelect();
+            }
+          });
+
+          frag.appendChild(div);
+        }
+
+        elSlots.appendChild(frag);
+        setSelected(null, null);
+      }
+
+      function requestText() {
+        if (!selectedKey || !selectedPretty) return "";
+
+        const recurring = elRecurring && elRecurring.checked ? "Yes (weekly)" : "No (one-off)";
+        const addons = [];
+
+        if (elAddonCaving && elAddonCaving.checked) {
+          addons.push("Caving Experience (tunnel system)");
+        }
+        if (elAddonArchery && elAddonArchery.checked) {
+          addons.push("Archery Experience");
+        }
+        if (elAddonClimbing && elAddonClimbing.checked) {
+          addons.push("Climbing Experience");
+        }
+
+        const addonText = addons.length ? addons.join(", ") : "None";
+
+
+        const name = cleanLine(elName?.value, 80);
+        const groupName = cleanLine(elGroupName?.value, 80);
+        const email = cleanLine(elEmail?.value, 254);
+        const phone = cleanLine(elPhone?.value, 20);
+        const activity = cleanLine(elActivity?.value, 80);
+        const groupSize = clampInt(elGroupSize?.value, 1, 200);
+        const notes = cleanLine(elNotes?.value, 800);
+
+
+        return [
+          "Sports Barn booking request",
+          "",
+          `Slot: ${selectedPretty}`,
+          `Recurring: ${recurring}`,
+          `Add-on: ${addonText}`,
+          `Group / organisation: ${groupName}`,
+          `Activity: ${activity}`,
+          `Group size: ${groupSize}`,
+          `Name: ${name}`,
+          `Email: ${email}`,
+          `Phone: ${phone}`,
+          "",
+          `Notes: ${notes}`,
+        ].join("\n");
+
+      }
+
+
+      function copyToClipboard(text) {
+        if (!navigator.clipboard) return Promise.resolve(false);
+        return navigator.clipboard
+          .writeText(text)
+          .then(() => true)
+          .catch(() => false);
+      }
+
+      function goToContact(subject, body, name, email) {
+        // Store a single payload object for the contact page to read
+        try {
+          sessionStorage.setItem(
+            "bbnw_contact_prefill",
+            JSON.stringify({
+              subject: subject || "Sports Barn booking request",
+              body: body || "",
+              name: name || "",
+              email: email || "",
+              source: "sportsbarn",
+              ts: Date.now()
+            })
+          );
+        } catch (e) { }
+
+        // IMPORTANT: your real contact page
+        const url = `/pages/contact.html?subject=${encodeURIComponent(subject || "Sports Barn booking request")}&from=sportsbarn`;
+        window.location.assign(url);
+      }
+
+
+
+      async function loadBooked() {
+        try {
+          const res = await fetch(BOOKINGS_URL, { cache: "no-cache" });
+          if (!res.ok) throw new Error("No bookings file");
+          const data = await res.json();
+
+          const list = Array.isArray(data.booked) ? data.booked : [];
+          booked = new Set(list);
+
+          if (elStatus) elStatus.textContent = "Availability loaded";
+          return true;
+        } catch (e) {
+          if (elStatus) elStatus.textContent = "Availability (no live lockouts yet)";
+          return false;
+        }
+      }
+
+      function updateModalPreview() {
+        // Slot
+        if (elModalSlot) elModalSlot.textContent = selectedPretty || "—";
+
+        // Recurring
+        if (elModalRecurring) {
+          elModalRecurring.textContent =
+            elRecurring && elRecurring.checked
+              ? "Recurring: Yes (weekly request)"
+              : "Recurring: No (one-off request)";
+        }
+
+        // Add-ons
+        const addons = [];
+        if (elAddonCaving?.checked) addons.push("Caving");
+        if (elAddonArchery?.checked) addons.push("Archery");
+        if (elAddonClimbing?.checked) addons.push("Climbing");
+
+        if (elModalAddons) {
+          elModalAddons.textContent = "Add-ons: " + (addons.length ? addons.join(", ") : "None");
+        }
+      }
+
+
+
+      // ---- Wiring ----
+      const today = isoTodayLocal();
+      elDate.min = today;
+      elDate.value = today;
+
+      // Auto tick add-on from URL: ?addon=caving
+      try {
+        const params = new URLSearchParams(window.location.search);
+        if (elAddonCaving && params.get("addon") === "caving") elAddonCaving.checked = true;
+      } catch { }
+
+      elDate.addEventListener("change", () => {
+        const iso = elDate.value || today;
+        renderSlotsForDate(iso);
+      });
+
+      if (elRecurring) {
+        elRecurring.addEventListener("change", () => {
+          if (selectedPretty) setSelected(selectedKey, selectedPretty);
+        });
+      }
+
+      elRequestBtn.addEventListener("click", () => {
+        if (!selectedKey || !selectedPretty) return;
+        if (!modal) return;
+
+        if (elAgree) elAgree.checked = false;
+        if (elNotes) elNotes.value = "";
+        updateModalPreview();
+        modal.show();
+      });
+
+      if (elCopyBtn) {
+        elCopyBtn.addEventListener("click", async () => {
+          const text = requestText();
+          const ok = await copyToClipboard(text);
+          if (elHint) elHint.textContent = ok ? "Copied request text to clipboard." : "Couldn’t copy — use Request instead.";
+        });
+      }
+
+      if (elAgree) elAgree.addEventListener("change", updateModalPreview);
+      if (elActivity) elActivity.addEventListener("change", updateModalPreview);
+      if (elRecurring) elRecurring.addEventListener("change", updateModalPreview);
+      if (elAddonCaving) elAddonCaving.addEventListener("change", updateModalPreview);
+      if (elAddonArchery) elAddonArchery.addEventListener("change", updateModalPreview);
+      if (elAddonClimbing) elAddonClimbing.addEventListener("change", updateModalPreview);
+
+      if (elSendBtn) {
+        elSendBtn.addEventListener("click", () => {
+          // Reset error state
+          if (elFormError) elFormError.classList.add("visually-hidden");
+
+          if (!selectedPretty) return;
+
+          // Honeypot (bots)
+          if (elCompany && String(elCompany.value || "").trim().length > 0) return;
+
+          const name = cleanLine(elName?.value, 80);
+          const email = cleanLine(elEmail?.value, 254);
+          const phoneClean = cleanPhoneUK(elPhone?.value);
+          const groupName = cleanLine(elGroupName?.value, 80);
+          // Required: name
+          if (!name) {
+            elName.focus();
+            if (elFormError) {
+              elFormError.textContent = "Please enter your name.";
+              elFormError.classList.remove("visually-hidden");
+            }
+            return;
+          }
+          if (!groupName) {
+            elGroupName.focus();
+            if (elFormError) {
+              elFormError.textContent = "Please enter your group or organisation name.";
+              elFormError.classList.remove("visually-hidden");
+            }
+            return;
+          }
+          // Required: email must be valid
+          if (!isValidEmail(email)) {
+            elEmail.focus();
+            if (elFormError) {
+              elFormError.textContent = "Please enter a valid email address (e.g. name@example.com).";
+              elFormError.classList.remove("visually-hidden");
+            }
+            return;
+          }
+
+          // Required: phone must be valid UK-style
+          if (!phoneClean) {
+            elPhone.focus();
+            if (elFormError) {
+              elFormError.textContent = "Please enter a valid UK phone number (e.g. 07700 900123 or +44 7700 900123).";
+              elFormError.classList.remove("visually-hidden");
+            }
+            return;
+          }
+
+          const subject = "Sports Barn booking request";
+          const body = requestText();
+
+          goToContact(subject, body, name, email);
+        });
+      }
+
+      // ---- Init ----
+      (async () => {
+        await loadBooked();
+        renderSlotsForDate(elDate.value || today);
+      })();
+    })();
+  </script>

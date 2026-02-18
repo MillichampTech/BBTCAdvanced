@@ -1,0 +1,81 @@
+/* ======================
+   base.css — FINAL (theme-swap safe)
+   - Body paints --bg-color (flows on long pages)
+   - .theme-overlay paints --overlay-color (tint layer)
+   - Works with theme.js swapping html[data-theme]
+   ====================== */
+
+/* RESET */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* ROOT */
+html {
+  --base-font-size: 16px;
+  font-size: var(--base-font-size);
+  height: 100%;
+}
+
+/* BODY */
+body{
+  font-family: var(--font-body);
+  color: var(--text-color);
+  min-height: 100vh;
+
+  /* IMPORTANT: use background (not background-image) */
+  background: var(--bg-color);
+
+  /* Make the gradient "live" in the first viewport */
+  background-repeat: no-repeat;
+  background-size: 120% 180%;   /* <- key change */
+  background-position: 50% 0%;
+  background-attachment: fixed; /* <- key change */
+}
+body::before{
+  opacity: 0.06;        /* was 0.025 */
+}
+
+
+
+/* Your main wrapper MUST grow to push footer down */
+main {
+  flex: 1 0 auto;
+}
+
+/* Footer should be in normal flow */
+footer,
+#site-footer {
+  flex-shrink: 0;
+}
+
+/* Page padding (matches your header height) */
+main .container {
+  padding-top: 6.5rem;
+  padding-bottom: 4rem;
+}
+
+/* =========================================================
+   THEME OVERLAY LAYER (tint / atmosphere)
+   Keep this as overlay-color so theme swapping behaves
+   ========================================================= */
+
+.theme-overlay{
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  background: var(--overlay-gradient, var(--overlay-color));
+  pointer-events: none;
+  transition: background-color var(--fade-speed) ease, background-image var(--fade-speed) ease;
+}
+
+
+/* If you ever apply reduce-motion via class */
+html.reduce-motion .theme-overlay {
+  transition: none;
+}
+@media (prefers-reduced-motion: reduce) {
+  .theme-overlay { transition: none; }
+}

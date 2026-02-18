@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en" id="html-root">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>NW Reloaded 2026 | BBNW</title>
+
+  <!-- Match existing pages -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Poppins:wght@400;600&family=IBM+Plex+Sans:wght@400;600&family=Merriweather:wght@700&family=Nunito:wght@400;700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="../css/main.css">
+
+  <!-- Page-only helpers (minimal, safe) -->
+  <style>
+    .event-hero{
+      min-height: 360px;
+      display:flex;
+      align-items: stretch;
+    }
+    .event-badge{ border-radius: 999px; }
+    .fact-card{
+      border: 1px solid rgba(255,255,255,.16);
+      background: rgba(0,0,0,.10);
+      border-radius: 18px;
+      padding: 14px 14px;
+      height: 100%;
+    }
+    .fact-kicker{ font-size: 12px; opacity: .85; margin-bottom: 4px; }
+    .fact-value{ font-weight: 800; letter-spacing: .2px; }
+
+    .activity-chip{
+      border: 1px solid rgba(255,255,255,.16);
+      background: rgba(255,255,255,.08);
+      border-radius: 999px;
+      padding: 10px 12px;
+      display:flex;
+      align-items:center;
+      gap: 10px;
+      min-height: 46px;
+    }
+    .activity-dot{
+      width: 10px; height: 10px; border-radius: 999px;
+      background: var(--accent, rgba(255,255,255,.7));
+      box-shadow: 0 0 0 4px rgba(255,255,255,.08);
+      flex: 0 0 auto;
+    }
+
+    .event-poster{
+      border-radius: 18px;
+      overflow:hidden;
+      border: 1px solid rgba(255,255,255,.14);
+      background: rgba(0,0,0,.10);
+    }
+    .event-poster img{ width:100%; height:auto; display:block; }
+
+    .small-muted{ opacity: .86; }
+  </style>
+</head>
+
+<body>
+  <div class="theme-overlay" aria-hidden="true"></div>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <header>
+    <div id="site-nav"></div>
+  </header>
+
+  <main id="main-content" role="main" class="container py-4">
+
+    <!-- HERO -->
+    <section class="reveal mb-4" aria-label="NW Reloaded 2026 introduction">
+      <div class="glass-panel soft-card p-3 p-lg-4 event-hero">
+        <div class="row g-4 align-items-stretch w-100">
+
+          <div class="col-12 col-lg-7 d-flex">
+            <div class="w-100 d-flex flex-column">
+              <p class="kicker mb-2">North West District • Centre Open Day</p>
+
+              <div class="d-flex flex-wrap gap-2 align-items-center mb-2">
+                <h1 class="display-6 mb-0">NW Reloaded 2026!</h1>
+                <span class="badge-soft event-badge">Only £4 per person</span>
+                <span class="badge-soft event-badge">Free entry for NW District members</span>
+              </div>
+
+              <p class="lead mb-3">
+                A relaxed, family-friendly day at the Training & Activity Centre with activities running throughout.
+                Come along, explore the site, and enjoy a BBQ lunch included with your entry.
+              </p>
+
+              <div class="row g-2 mb-3" aria-label="Event details">
+                <div class="col-12 col-md-4">
+                  <div class="fact-card">
+                    <div class="fact-kicker">Date</div>
+                    <div class="fact-value">Saturday 20th June 2026</div>
+                  </div>
+                </div>
+                <div class="col-12 col-md-4">
+                  <div class="fact-card">
+                    <div class="fact-kicker">Time</div>
+                    <div class="fact-value">11am – 4pm</div>
+                  </div>
+                </div>
+                <div class="col-12 col-md-4">
+                  <div class="fact-card">
+                    <div class="fact-kicker">Venue</div>
+                    <div class="fact-value">BBNW Training & Activity Centre</div>
+                    <div class="small-muted">Treales • Preston</div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="glass-panel p-3 rounded-4 mb-3" aria-label="What's included">
+                <div class="d-flex align-items-start justify-content-between gap-2 flex-wrap">
+                  <div>
+                    <h2 class="h5 mb-1">Entry includes</h2>
+                    <p class="mb-0 small-muted">BBQ lunch • Drink • Snack (as advertised)</p>
+                  </div>
+                  <span class="badge-soft event-badge">All-in</span>
+                </div>
+              </div>
+
+              <div class="d-flex flex-wrap gap-2 mt-auto">
+                <a class="btn btn-glass" href="#" role="button"
+                   data-bs-toggle="modal" data-bs-target="#enquiryModal"
+                   data-subject="NW Reloaded 2026 Booking" data-source="nw-reloaded-2026">Book / ask a question</a>
+
+                <a class="btn btn-outline-secondary" href="#activities">View activities</a>
+
+                <a class="btn btn-outline-secondary" href="contact.html?subject=NW%20Reloaded%202026%20Booking&from=nw-reloaded-2026">Open contact form</a>
+              </div>
+
+              <p class="small-muted mt-3 mb-0">
+                You can drop your flyer image / QR code into the right column when you’re ready.
+              </p>
+            </div>
+          </div>
+
+          <div class="col-12 col-lg-5">
+            <div class="event-poster" aria-label="Event poster">
+              <!-- Placeholder: you will fix image routing after -->
+              <img src="../assets/media/nw reloaded/NW_Reloaded_2026_Poster.png" alt="NW Reloaded 2026 event poster (placeholder image)">
+            </div>
+
+            <div class="glass-panel soft-card p-3 mt-3">
+              <h2 class="h5 mb-1">Where to find us</h2>
+              <p class="mb-2">Carr Lane, Treales, Preston, <strong>PR4 3SS</strong></p>
+              <p class="small-muted mb-3">Parking and arrival details can be shared when you book.</p>
+              <div class="d-grid gap-2">
+                <a class="btn btn-outline-secondary" href="https://www.google.com/maps?q=PR4+3SS" target="_blank" rel="noopener">Open map</a>
+                <a class="btn btn-glass" href="#" role="button"
+                   data-bs-toggle="modal" data-bs-target="#enquiryModal"
+                   data-subject="NW Reloaded 2026 Booking" data-source="nw-reloaded-2026">Quick booking enquiry</a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ACTIVITIES -->
+    <section id="activities" class="reveal mb-4" aria-label="Activities at NW Reloaded 2026">
+      <div class="glass-panel soft-card p-3 p-lg-4">
+        <div class="d-flex align-items-end justify-content-between flex-wrap gap-2 mb-3">
+          <div>
+            <h2 class="h4 mb-1">Activities running on the day</h2>
+            <p class="small-muted mb-0">A mix of action and family fun — dip in and out throughout the day.</p>
+          </div>
+          <span class="badge-soft">11am – 4pm</span>
+        </div>
+
+        <div class="row g-2">
+          <div class="col-12 col-md-6"><div class="activity-chip"><span class="activity-dot" aria-hidden="true"></span><strong>Climbing Wall</strong></div></div>
+          <div class="col-12 col-md-6"><div class="activity-chip"><span class="activity-dot" aria-hidden="true"></span><strong>Laser Tag</strong></div></div>
+          <div class="col-12 col-md-6"><div class="activity-chip"><span class="activity-dot" aria-hidden="true"></span><strong>Bouncy Castles</strong></div></div>
+          <div class="col-12 col-md-6"><div class="activity-chip"><span class="activity-dot" aria-hidden="true"></span><strong>Games</strong></div></div>
+          <div class="col-12 col-md-6"><div class="activity-chip"><span class="activity-dot" aria-hidden="true"></span><strong>Face Painting</strong></div></div>
+          <div class="col-12 col-md-6"><div class="activity-chip"><span class="activity-dot" aria-hidden="true"></span><strong>Ice Cream Van</strong></div></div>
+        </div>
+
+        <div class="row g-3 mt-3">
+          <div class="col-12 col-lg-7">
+            <div class="glass-panel p-3 rounded-4">
+              <h3 class="h5 mb-2">Who it’s for</h3>
+              <p class="mb-0">Perfect for North West District groups, families and supporters who want a relaxed day out, plus a proper look around the centre and what it can offer.</p>
+            </div>
+          </div>
+          <div class="col-12 col-lg-5">
+            <div class="glass-panel p-3 rounded-4">
+              <h3 class="h5 mb-2">Pricing (as advertised)</h3>
+              <ul class="mb-2">
+                <li><strong>£4 per person</strong></li>
+                <li><strong>Free entry</strong> for NW District members</li>
+                <li>Entry includes <strong>BBQ lunch, drink & snack</strong></li>
+              </ul>
+              <a class="btn btn-glass w-100" href="#" role="button"
+                 data-bs-toggle="modal" data-bs-target="#enquiryModal"
+                 data-subject="NW Reloaded 2026 Booking" data-source="nw-reloaded-2026">Reserve places</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- CTA STRIP -->
+    <section class="reveal mb-4" aria-label="Booking call to action">
+      <div class="glass-panel soft-card p-3 p-lg-4">
+        <div class="row g-3 align-items-center">
+          <div class="col-12 col-lg-8">
+            <h2 class="h4 mb-1">Book your places</h2>
+            <p class="mb-0 small-muted">Send a quick message and we’ll confirm the best way to book for your group.</p>
+          </div>
+          <div class="col-12 col-lg-4 d-grid gap-2">
+            <a class="btn btn-glass" href="#" role="button"
+               data-bs-toggle="modal" data-bs-target="#enquiryModal"
+               data-subject="NW Reloaded 2026 Booking" data-source="nw-reloaded-2026">Quick enquiry</a>
+            <a class="btn btn-outline-secondary" href="contact.html?subject=NW%20Reloaded%202026%20Booking&from=nw-reloaded-2026">Open contact</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div id="site-footer"></div>
+  </footer>
+
+  <!-- Enquiry modal (consistent pattern used on Centenary page) -->
+  <div class="modal fade" id="enquiryModal" tabindex="-1" aria-labelledby="enquiryModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content glass-panel soft-card">
+        <div class="modal-header border-0">
+          <h5 class="modal-title" id="enquiryModalLabel">Quick enquiry</h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+
+        <div class="modal-body">
+          <p class="small-muted mb-3">Fill this in and we’ll prefill the Contact page for you to send.</p>
+
+          <form id="bbnwEnquiryForm" class="row g-3 needs-validation" novalidate
+                data-subject="NW Reloaded 2026 Booking" data-source="nw-reloaded-2026">
+
+            <div class="col-12 col-md-6">
+              <label class="form-label fw-bold" for="qeName">Your name</label>
+              <input id="qeName" name="qeName" class="form-control" type="text" autocomplete="name" required maxlength="80">
+              <div class="invalid-feedback">Please enter your name.</div>
+            </div>
+
+            <div class="col-12 col-md-6">
+              <label class="form-label fw-bold" for="qeEmail">Your email</label>
+              <input id="qeEmail" name="qeEmail" class="form-control" type="email" autocomplete="email" required maxlength="254">
+              <div class="invalid-feedback">Please enter a valid email address.</div>
+            </div>
+
+            <div class="col-12 col-md-6">
+              <label class="form-label fw-bold" for="qePhone">Phone (optional)</label>
+              <input id="qePhone" name="qePhone" class="form-control" type="tel" inputmode="tel" autocomplete="tel" maxlength="20">
+            </div>
+
+            <div class="col-12 col-md-6">
+              <label class="form-label fw-bold" for="qeGroup">Group / organisation (optional)</label>
+              <input id="qeGroup" name="qeGroup" class="form-control" type="text" autocomplete="organization" maxlength="80">
+            </div>
+
+            <div class="col-12 col-md-6">
+              <label class="form-label fw-bold" for="qeNumbers">Numbers (optional)</label>
+              <input id="qeNumbers" name="qeNumbers" class="form-control" type="text" placeholder="e.g. 12 young people, 4 leaders" maxlength="120">
+            </div>
+
+            <div class="col-12 col-md-6">
+              <label class="form-label fw-bold" for="qeMember">NW District member?</label>
+              <select id="qeMember" name="qeMember" class="form-select" required>
+                <option value="" selected disabled>Select…</option>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+                <option value="Not sure">Not sure</option>
+              </select>
+              <div class="invalid-feedback">Please choose an option.</div>
+            </div>
+
+            <div class="col-12">
+              <label class="form-label fw-bold" for="qeNotes">Message</label>
+              <textarea id="qeNotes" name="qeNotes" class="form-control" rows="5" maxlength="900" required
+                        placeholder="Tell us roughly who’s coming and any questions (e.g. booking / arrival / access needs)."></textarea>
+              <div class="invalid-feedback">Please add a short message.</div>
+            </div>
+
+            <div class="col-12 d-grid d-md-flex gap-2 justify-content-md-end">
+              <button type="submit" class="btn btn-glass">Continue to contact form</button>
+              <a class="btn btn-outline-secondary" href="contact.html?subject=NW%20Reloaded%202026%20Booking&from=nw-reloaded-2026">Open contact without prefill</a>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts (match existing pages) -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script defer src="../components/components.js"></script>
+  <script defer src="../theme.js"></script>
+
+  <script>
+    // Store prefill then redirect to contact.html (same folder as this page)
+    function bbnwGoToContact(payload) {
+      try {
+        sessionStorage.setItem("bbnw_contact_prefill", JSON.stringify({
+          subject: payload.subject || "Enquiry",
+          body: payload.body || "",
+          name: payload.name || "",
+          email: payload.email || "",
+          source: payload.source || "",
+          ts: Date.now()
+        }));
+      } catch (e) {}
+
+      const url = "contact.html?subject=" + encodeURIComponent(payload.subject || "Enquiry")
+                + "&from=" + encodeURIComponent(payload.source || "");
+      window.location.assign(url);
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+      // Allow CTA buttons to override subject/source for this modal
+      document.querySelectorAll('[data-bs-target="#enquiryModal"][data-subject]').forEach((btn) => {
+        btn.addEventListener("click", () => {
+          const form = document.getElementById("bbnwEnquiryForm");
+          if (!form) return;
+          form.dataset.subject = btn.getAttribute("data-subject") || form.dataset.subject;
+          form.dataset.source  = btn.getAttribute("data-source")  || form.dataset.source;
+        });
+      });
+
+      const form = document.getElementById("bbnwEnquiryForm");
+      if (!form) return;
+
+      form.addEventListener("submit", (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+
+        if (!form.checkValidity()) {
+          form.classList.add("was-validated");
+          return;
+        }
+
+        const subject = form.dataset.subject || "NW Reloaded 2026 Booking";
+        const source = form.dataset.source || "nw-reloaded-2026";
+
+        const name = (document.getElementById("qeName").value || "").trim();
+        const email = (document.getElementById("qeEmail").value || "").trim();
+        const phone = (document.getElementById("qePhone").value || "").trim();
+        const group = (document.getElementById("qeGroup").value || "").trim();
+        const numbers = (document.getElementById("qeNumbers").value || "").trim();
+        const member = (document.getElementById("qeMember").value || "").trim();
+        const notes = (document.getElementById("qeNotes").value || "").trim();
+
+        const lines = [
+          "NW Reloaded 2026 enquiry",
+          "",
+          "Name: " + name,
+          "Email: " + email,
+          phone ? ("Phone: " + phone) : null,
+          group ? ("Group/Organisation: " + group) : null,
+          numbers ? ("Numbers: " + numbers) : null,
+          "NW District member: " + member,
+          "",
+          "Message:",
+          notes
+        ].filter(Boolean);
+
+        bbnwGoToContact({
+          subject,
+          source,
+          name,
+          email,
+          body: lines.join("\n")
+        });
+      });
+    });
+  </script>
+  <!-- Reveal script (required in your project for .reveal sections) -->
+  <script>
+    (() => {
+      const prefersReduced =
+        window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+      const html = document.documentElement;
+      const reducedByClass =
+        html.classList.contains("reduce-motion") || html.classList.contains("reduced-motion");
+
+      const reduceMotion = prefersReduced || reducedByClass;
+
+      const revealEls = Array.from(document.querySelectorAll(".reveal"));
+      if (!revealEls.length) return;
+
+      if (!reduceMotion && "IntersectionObserver" in window) {
+        const io = new IntersectionObserver((entries) => {
+          for (const e of entries) {
+            if (e.isIntersecting) {
+              e.target.classList.add("is-in");
+              io.unobserve(e.target);
+            }
+          }
+        }, { threshold: 0.16 });
+
+        revealEls.forEach((el) => io.observe(el));
+      } else {
+        revealEls.forEach((el) => el.classList.add("is-in"));
+      }
+    })();
+  </script>
+</body>
+</html>

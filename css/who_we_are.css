@@ -1,0 +1,94 @@
+/* ===========================
+   Partners Carousel (DROP-IN)
+   Bigger logos + clean glass
+   =========================== */
+
+/* Carousel container */
+.partners-carousel{
+  overflow: hidden;
+  position: relative;
+  padding: 1rem;
+  border-radius: 1.25rem;
+
+  /* theme-backed strip */
+  background: var(--bg-color);
+  border: 1px solid rgba(255,255,255,.10);
+
+  /* edge fade */
+  mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
+}
+
+/* Scrolling track */
+.partners-track{
+  display: flex;
+  gap: 1.25rem;
+  align-items: stretch;
+  width: max-content;
+  will-change: transform;
+  animation: partners-marquee var(--partners-duration, 24s) linear infinite;
+}
+
+/* Pause on hover/focus */
+.partners-carousel:hover .partners-track,
+.partners-carousel:focus-within .partners-track{
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce){
+  .partners-track{ animation: none; }
+  .partners-carousel{ overflow-x: auto; }
+}
+
+/* Card (keeps your step-card class but makes it lighter) */
+.partners-carousel .partner-card.step-card{
+  width: min(360px, 86vw);
+  flex: 0 0 auto;
+
+  background: rgba(255,255,255,.04) !important;
+  border: 1px solid rgba(255,255,255,.10) !important;
+  box-shadow: none !important;
+
+  border-radius: 1rem;
+  padding: 1rem;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+/* Logo frame (BIGGER) */
+/* Logo frame */
+.partners-carousel .partner-media{
+  height: 110px;   /* was 92px — small bump only */
+  background-color: rgba(0, 92, 170, 0.9) !important;
+}
+
+/* Make logos slightly bigger */
+.partners-carousel .partner-media img{
+  height: 100px;    /* was 56px — controlled increase */
+  width: auto;
+  max-width: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+
+/* Optional per-logo overrides (use as needed) */
+.partners-carousel .partner-media img.logo--xl{ height: 110px; }
+.partners-carousel .partner-media img.logo--sm{ height: 80px; }
+
+/* Marquee animation */
+@keyframes partners-marquee{
+  from { transform: translateX(0); }
+  to   { transform: translateX(calc(-1 * var(--scroll-distance, 600px))); }
+}
+.who-closing{
+  margin: 1.5rem 0 2.5rem;
+  text-align: center;
+}
+
+.who-closing p{
+  max-width: 70ch;
+  margin: 0 auto;
+  color: var(--muted);
+  font-size: 1.05rem;
+}

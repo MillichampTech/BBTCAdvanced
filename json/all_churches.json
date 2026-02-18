@@ -1,0 +1,134 @@
+[
+  {
+    "id": "st-michael-kirkham",
+    "name": "St Michael’s Church, Kirkham",
+    "denomination": "Church of England",
+    "lat": 53.78438,
+    "lng": -2.87106,
+    "image": "assets/st_michaels_kirkham.jpg",
+    "website": "https://stmichaelskirkham.org.uk",
+    "email": "",
+    "phone": ""
+  },
+  {
+    "id": "st-john-evangelist-kirkham",
+    "name": "St John the Evangelist’s Church, Kirkham",
+    "denomination": "Roman Catholic",
+    "lat": 53.78080,
+    "lng": -2.88739,
+    "image": "assets/st_john_kirkham.jpg",
+    "website": "",
+    "email": "",
+    "phone": ""
+  },
+  {
+    "id": "kirkham-methodist-church",
+    "name": "Kirkham Methodist Church",
+    "denomination": "Methodist",
+    "lat": 53.78413,
+    "lng": -2.88195,
+    "image": "assets/kirkham_methodist.jpg",
+    "website": "",
+    "email": "",
+    "phone": ""
+  },
+  {
+    "id": "kirkham-urc",
+    "name": "Kirkham United Reformed Church",
+    "denomination": "United Reformed",
+    "lat": 53.78234,
+    "lng": -2.87500,
+    "image": "assets/kirkham_urc.jpg",
+    "website": "https://kirkhamurc.org.uk",
+    "email": "",
+    "phone": ""
+  },
+  {
+    "id": "christ-church-wesham",
+    "name": "Christ Church, Wesham",
+    "denomination": "Church of England",
+    "lat": 53.79090,
+    "lng": -2.88600,
+    "image": "assets/christ_church_wesham.jpg",
+    "website": "",
+    "email": "",
+    "phone": ""
+  },
+  {
+    "id": "st-joseph-wesham",
+    "name": "St Joseph’s Church, Wesham",
+    "denomination": "Roman Catholic",
+    "lat": 53.79222,
+    "lng": -2.88636,
+    "image": "assets/st_joseph_wesham.jpg",
+    "website": "",
+    "email": "",
+    "phone": ""
+  },
+  {
+    "id": "freckleton-methodist",
+    "name": "Freckleton Methodist Church",
+    "denomination": "Methodist",
+    "lat": 53.76040,
+    "lng": -2.91800,
+    "image": "assets/freckleton_methodist.jpg",
+    "website": "",
+    "email": "",
+    "phone": ""
+  },
+  {
+    "id": "light-church",
+    "name": "Light Church, Kirkham/Wesham",
+    "denomination": "Evangelical",
+    "lat": 53.79700,
+    "lng": -2.88720,
+    "image": "assets/light_church.jpg",
+    "website": "https://light.church",
+    "email": "",
+    "phone": ""
+  },
+  {
+    "id": "warton-st-pauls",
+    "name": "Warton St Paul’s Church",
+    "denomination": "Church of England",
+    "lat": 53.77090,
+    "lng": -2.85150,
+    "image": "assets/warton_st_pauls.jpg",
+    "website": "",
+    "email": "",
+    "phone": ""
+  },
+  {
+    "id": "great-eccleston-st-mary",
+    "name": "Great Eccleston St Mary’s Church",
+    "denomination": "Church of England",
+    "lat": 53.87660,
+    "lng": -2.86910,
+    "image": "assets/great_eccleston_st_mary.jpg",
+    "website": "",
+    "email": "",
+    "phone": ""
+  },
+  {
+    "id": "salwick-chapel",
+    "name": "Salwick Chapel (Local Independent)",
+    "denomination": "Independent/Methodist",
+    "lat": 53.79600,
+    "lng": -2.91200,
+    "image": "assets/salwick_chapel.jpg",
+    "website": "",
+    "email": "",
+    "phone": ""
+  },
+  {
+    "id": "kirkham-baptist",
+    "name": "Kirkham Baptist / Christian Fellowship",
+    "denomination": "Baptist",
+    "lat": 53.78350,
+    "lng": -2.87680,
+    "image": "assets/kirkham_baptist.jpg",
+    "website": "",
+    "email": "",
+    "phone": ""
+  }
+]

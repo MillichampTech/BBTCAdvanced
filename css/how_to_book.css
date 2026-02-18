@@ -1,0 +1,108 @@
+/* how_to_book.css — page-specific layer (extends hub system, no reinvention) */
+
+/* Narrow steps area */
+.steps-wrap{
+  max-width: 920px;
+  margin: 0 auto;
+}
+
+/* Timeline wrapper */
+.steps-progress-wrap{
+  position: relative;
+}
+
+/* Subtle guide line behind content (won’t slice through cards) */
+.steps-progress-line{
+  position: absolute;
+  left: 50%;
+  top: 14px;
+  bottom: 14px;
+  width: 2px;
+  background: rgba(11,27,74,.10);
+  transform: translateX(-50%);
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* Stack */
+.steps-stack{
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+/* Ensure cards + connectors sit above the guide line */
+.steps-stack .hub-card,
+.step-connector{
+  position: relative;
+  z-index: 1;
+}
+
+/* Cards: readable and distinct from page background */
+.steps-stack .hub-card{
+  background: rgba(255,255,255,.94);
+  border: 1px solid rgba(11,27,74,.10);
+  border-top: 3px solid var(--hub-accent);
+}
+
+/* Step header row */
+.step-head{
+  display: flex;
+  align-items: center;
+  gap: .6rem;
+  margin-bottom: .35rem;
+}
+
+/* Badge base */
+.step-badge{
+  width: 34px;
+  height: 34px;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  background: rgba(255,255,255,.92);
+  color: var(--hub-accent);
+  border: 1px solid rgba(11,27,74,.10);
+  box-shadow: 0 10px 22px rgba(0,0,0,.10);
+}
+
+/* Final badge */
+.step-badge--final{
+  background: var(--hub-accent);
+  color: #fff;
+  border-color: transparent;
+}
+
+/* Connector arrow */
+.step-connector{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: .65;
+  margin: -4px 0;
+}
+
+.step-connector i{
+  font-size: 18px;
+  color: var(--hub-accent);
+  opacity: .75;
+  animation: arrowBounce 2.6s infinite;
+}
+
+@keyframes arrowBounce{
+  0%,100% { transform: translateY(0); opacity:.6; }
+  50% { transform: translateY(3px); opacity:.95; }
+}
+
+/* Dynamic highlight (works with IntersectionObserver) */
+.step-card{
+  transition: transform .25s ease, box-shadow .25s ease, background .25s ease;
+}
+
+.step-card.is-active{
+  transform: translateY(-3px);
+  box-shadow: 0 20px 40px rgba(0,0,0,.14);
+  background: rgba(255,255,255,.98);
+}

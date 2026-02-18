@@ -1,0 +1,313 @@
+.mode-grid {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: .75rem;
+}
+
+@media (max-width: 992px) {
+  .mode-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+@media (max-width: 576px) {
+  .mode-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+.mode-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  border-radius: 18px;
+  padding: 1.35rem 1rem;
+  min-height: 100px;
+  border: 1px solid rgba(255, 255, 255, .18);
+  background: rgba(255, 255, 255, .10);
+  backdrop-filter: blur(10px);
+  cursor: pointer;
+  transition: transform .18s ease, background .18s ease, box-shadow .18s ease, border-color .18s ease;
+}
+
+.mode-card:hover {
+  transform: translateY(-3px);
+  background: rgba(255, 255, 255, .14);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, .12);
+}
+
+.mode-card.is-active {
+  transform: translateY(-4px) scale(1.02);
+  background: linear-gradient(145deg, rgba(255, 255, 255, .32), rgba(255, 255, 255, .18));
+  border-color: rgba(255, 255, 255, .35);
+  box-shadow: 0 22px 55px rgba(0, 0, 0, .18), inset 0 1px 0 rgba(255, 255, 255, .45);
+}
+
+.mode-card.is-active::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 18px;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .40);
+  pointer-events: none;
+}
+
+.mode-ico {
+  font-size: 2.6rem;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: .6rem;
+  margin-bottom: .6rem;
+}
+
+.mode-title { font-weight: 900; margin-top: .35rem; }
+.mode-sub { opacity: .8; font-size: .9rem; margin-top: .1rem; }
+
+.soft-hr { border: 0; height: 1px; background: rgba(0, 0, 0, .10); margin: 1rem 0; }
+
+.link-list a {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: .75rem;
+  padding: .55rem .7rem;
+  border-radius: 14px;
+  text-decoration: none;
+  border: 1px solid rgba(255, 255, 255, .18);
+  background: rgba(255, 255, 255, .10);
+  margin-bottom: .5rem;
+}
+
+.link-list a:hover, .link-list a:focus-visible { background: rgba(255, 255, 255, .16); }
+
+.route-options { display: grid; gap: .5rem; }
+
+.route-btn {
+  width: 100%;
+  text-align: left;
+  border-radius: 14px;
+  padding: .6rem .7rem;
+  border: 1px solid rgba(255, 255, 255, .18);
+  background: rgba(255, 255, 255, .10);
+  cursor: pointer;
+  font-weight: 800;
+}
+
+.route-btn:hover { background: rgba(255, 255, 255, .16); }
+
+.route-btn.is-active {
+  background: rgba(255, 255, 255, .20);
+  outline: 2px solid rgba(255, 255, 255, .18);
+}
+
+.map-head {
+  display: flex;
+  flex-direction: column;
+  gap: .25rem;
+  margin-bottom: .75rem;
+}
+
+.map-canvas {
+  height: 560px;
+  width: 100%;
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+@media (max-width: 992px) {
+  .map-canvas { height: 440px; }
+}
+
+/* Route panel is scrollable, always all steps */
+.route-panel {
+  border-radius: 14px;
+  padding: .85rem;
+  border: 1px solid rgba(255, 255, 255, .18);
+  background: rgba(255, 255, 255, .10);
+  height: 520px;
+  overflow-y: auto;
+}
+
+.route-steps {
+  margin: 0;
+  padding-left: 0;
+  list-style: none;
+  counter-reset: step;
+}
+
+.route-steps li {
+  counter-increment: step;
+  padding: .55rem .6rem;
+  margin-bottom: .35rem;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, .18);
+  background: rgba(255, 255, 255, .08);
+  line-height: 1.25;
+  display: flex;
+  gap: .6rem;
+  align-items: flex-start;
+}
+
+.route-steps li::before {
+  content: counter(step) ".";
+  font-weight: 900;
+  min-width: 1.6rem;
+  opacity: .85;
+}
+
+.taxi-list { display: grid; gap: .5rem; }
+
+.taxi-item {
+  border-radius: 14px;
+  padding: .6rem .7rem;
+  border: 1px solid rgba(255, 255, 255, .18);
+  background: rgba(255, 255, 255, .10);
+  cursor: pointer;
+}
+
+.taxi-item:hover { background: rgba(255, 255, 255, .16); }
+
+.taxi-item.is-active {
+  background: rgba(255, 255, 255, .20);
+  outline: 2px solid rgba(255, 255, 255, .18);
+}
+
+.taxi-item .name { font-weight: 800; }
+.taxi-item .meta { opacity: .8; font-size: .9rem; margin-top: .1rem; }
+
+.taxi-card {
+  border-radius: 16px;
+  padding: .85rem;
+  border: 1px solid rgba(255, 255, 255, .18);
+  background: rgba(255, 255, 255, .10);
+}
+
+.taxi-name { font-weight: 900; font-size: 1.05rem; }
+.taxi-actions { display: flex; gap: .5rem; flex-wrap: wrap; }
+
+#leftTitle { font-weight: 900; }
+
+#routeSummary.route-summary {
+  font-weight: 900;
+  font-size: 1.05rem;
+  line-height: 1.15;
+  opacity: 1;
+}
+
+#routeMeta { font-weight: 700; }
+
+/* Hero */
+.page-hero {
+     user-select: none; 
+
+  position: relative;
+  overflow: hidden;
+  min-height: 190px;
+  background: url('../assets/media/who_we_are/transport.png') center/cover no-repeat;
+  border-radius: 24px;
+}
+
+.page-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg,
+    rgba(255, 255, 255, .62) 0%,
+    rgba(255, 255, 255, .38) 42%,
+    rgba(255, 255, 255, .18) 100%);
+  pointer-events: none;
+}
+
+.page-hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 70% 50%,
+    rgba(0, 0, 0, 0) 35%,
+    rgba(0, 0, 0, .10) 100%);
+  pointer-events: none;
+}
+
+.page-hero__content {
+  position: relative;
+  z-index: 1;
+  max-width: 560px;
+  padding: 1.25rem 1.4rem;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, .18);
+  border: 1px solid rgba(255, 255, 255, .28);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 18px 45px rgba(0, 0, 0, .14), inset 0 1px 0 rgba(255, 255, 255, .30);
+}
+
+.page-hero .eyebrow { opacity: .85; margin-bottom: .35rem !important; }
+.page-hero h1 { line-height: 1.05; letter-spacing: .2px; }
+
+@media (max-width:576px) {
+  .page-hero { min-height: 170px; }
+  .page-hero__content { max-width: 100%; padding: 1.05rem 1.1rem; }
+}
+
+/* Compact route tools */
+/* Route actions: make the small column look intentional */
+.route-tools{
+  display:grid;
+  gap:.5rem;
+  align-content:start;
+  justify-items:stretch;
+  min-width: 140px;
+}
+
+.route-tools .btn{
+  width:100%;
+  white-space:nowrap;
+}
+
+
+/* Disabled-like link button */
+a[aria-disabled="true"] { pointer-events: none; opacity: .55; }
+
+/* Focus visibility */
+.mode-card:focus-visible,
+.route-btn:focus-visible,
+.taxi-item:focus-visible,
+.link-list a:focus-visible,
+.btn:focus-visible {
+  outline: 3px solid rgba(13, 110, 253, .35);
+  outline-offset: 2px;
+}
+
+/* Reduce motion */
+@media (prefers-reduced-motion: reduce) {
+  .mode-card, .route-btn, .taxi-item { transition: none !important; }
+  .mode-card:hover { transform: none !important; }
+  .mode-card.is-active { transform: none !important; }
+}
+
+/* Taxi dock: when taxi block is moved into main row, make it feel native */
+#taxiDock .glass-panel {
+  height: 100%;
+}
+/* Taxi firms as a horizontal row */
+#taxiList{
+  display:flex;
+  gap:.6rem;
+  flex-wrap:nowrap;
+  overflow-x:auto;
+  padding-bottom:.35rem;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+}
+
+#taxiList .taxi-item{
+  flex: 0 0 260px;          /* card width */
+  scroll-snap-align: start;
+}
+
+/* Make sure details sits underneath and spans full width */
+#taxiDetails{
+  width:100%;
+}
+#taxiList::-webkit-scrollbar{ height:8px; }
+#taxiList::-webkit-scrollbar-thumb{ background:rgba(0,0,0,.18); border-radius:999px; }
+#taxiList::-webkit-scrollbar-track{ background:rgba(0,0,0,.06); border-radius:999px; }

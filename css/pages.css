@@ -1,0 +1,669 @@
+/* Page-specific styles (contact, amenities, map, etc.) */
+
+/* CONTACT FORM */
+.contact-form .form-control {
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.18);
+  border-radius: 10px;
+  color: var(--text-color);
+  padding: 0.75rem 1rem;
+  backdrop-filter: blur(16px) saturate(160%);
+  -webkit-backdrop-filter: blur(16px) saturate(160%);
+}
+.contact-form .form-control:focus {
+  outline: none;
+  border-color: var(--shimmer-color);
+  box-shadow: 0 0 8px var(--shimmer-color);
+}
+.contact-form label {
+  font-weight: 600;
+  color: var(--text-color);
+}
+
+#contactForm .form-control:focus {
+  box-shadow: 0 0 0 0.25rem var(--accent-color, rgba(0,123,255,0.25));
+}
+
+#formStatus {
+  font-weight: 600;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.2);
+}
+
+.btn-glass .spinner-border {
+  vertical-align: text-bottom;
+}
+.bg-glass {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(12px) saturate(180%);
+  -webkit-backdrop-filter: blur(12px) saturate(180%);
+  color: var(--text-color);
+}
+
+/* ==============================
+   Modal Glassmorphic Styling
+   ============================== */
+.glass-modal .modal-dialog {
+  max-width: 400px;
+}
+
+.glass-modal-content {
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(18px) saturate(160%);
+  -webkit-backdrop-filter: blur(18px) saturate(160%);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 1.25rem;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  color: var(--text-color);
+  transition: transform 0.25s ease, opacity 0.25s ease;
+}
+
+.glass-modal-content h5 {
+  color: var(--text-color);
+}
+
+.glass-modal-content p {
+  opacity: 0.85;
+}
+/* ==============================
+   Contact Form Validation
+   ============================== */
+.was-validated .form-control:valid {
+  border-color: #28a745;
+  background-image: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" fill="%2328a745" viewBox="0 0 16 16"%3E%3Cpath d="M13.485 1.929a.75.75 0 0 1 1.06 1.06l-8.06 8.061L1.455 6.06a.75.75 0 0 1 1.06-1.06l3.97 3.97 7-7z"/%3E%3C/svg%3E');
+  background-repeat: no-repeat;
+  background-position: right calc(0.375em + 0.1875rem) center;
+  background-size: calc(0.75em + 0.375rem) calc(0.75em + 0.375rem);
+}
+
+.was-validated .form-control:invalid {
+  border-color: #dc3545;
+}
+
+.success-shimmer {
+  font-size: 1.25rem;
+  font-weight: 700;
+  background: linear-gradient(90deg, var(--accent-color), var(--text-color), var(--accent-color));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 200%;
+  animation: shimmerText 3.5s linear infinite;
+}
+
+@keyframes shimmerText {
+  0% { background-position: 200% center; }
+  100% { background-position: -200% center; }
+}
+
+/* Theme-adaptive modal glow */
+.card-glass {
+  background: rgba(255, 255, 255, 0.12);
+  border: 1.5px solid rgba(255, 255, 255, 0.35);
+  border-radius: 1rem;
+  backdrop-filter: blur(10px) saturate(150%);
+  color: var(--text-color);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+[data-theme="dark"] .card-glass {
+  background: rgba(30, 30, 30, 0.3);
+  border-color: rgba(255, 255, 255, 0.2);
+  color: #eaeaea;
+}
+
+[data-theme="light"] .card-glass {
+  background: rgba(255, 255, 255, 0.3);
+  color: #1a1a1a;
+}
+
+/* === Local Amenities Card Enhancements === */
+
+/* Core glassmorphic card styling (already exists, but we’re extending it) */
+.card-glass {
+  background: rgba(255, 255, 255, 0.12);
+  border: 1.5px solid rgba(255, 255, 255, 0.35);
+  border-radius: 1rem;
+  backdrop-filter: blur(10px) saturate(150%);
+  color: var(--text-color);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.4s ease, border-color 0.3s ease;
+}
+
+/* Theme adjustments */
+[data-theme="dark"] .card-glass {
+  background: rgba(30, 30, 30, 0.3);
+  border-color: rgba(255, 255, 255, 0.2);
+  color: #eaeaea;
+}
+[data-theme="light"] .card-glass {
+  background: rgba(255, 255, 255, 0.35);
+  color: #1a1a1a;
+}
+
+/* Remove blue hover effect (override link behavior) */
+/* === Base Glass Card === */
+.card-glass {
+  background: rgba(255, 255, 255, 0.12);
+  border: 1.5px solid rgba(255, 255, 255, 0.35);
+  border-radius: 1rem;
+  backdrop-filter: blur(10px) saturate(150%);
+  color: var(--text-color);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+/* === Dark/Light Theme Adaptation === */
+[data-theme="dark"] .card-glass {
+  background: rgba(30, 30, 30, 0.3);
+  border-color: rgba(255, 255, 255, 0.2);
+  color: #eaeaea;
+}
+[data-theme="light"] .card-glass {
+  background: rgba(255, 255, 255, 0.3);
+  color: #1a1a1a;
+}
+
+/* === Hover effect === */
+.card-glass:hover {
+  transform: translateY(-6px);
+  border-color: var(--accent-color, rgba(255, 255, 255, 0.6));
+  box-shadow: 0 0 20px var(--accent-color, rgba(255, 255, 255, 0.4));
+}
+
+/* === Shimmer === */
+.card-glass::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -120%;
+  width: 120%;
+  height: 100%;
+  background: linear-gradient(120deg, transparent, var(--accent-color, rgba(255,255,255,0.3)), transparent);
+  transform: translateX(0);
+  transition: transform 0.7s ease;
+  opacity: 0;
+  mix-blend-mode: screen;
+}
+.card-glass:hover::before {
+  transform: translateX(120%);
+  opacity: 0.3;
+}
+
+/* === Image styling === */
+.amenity-img {
+  height: 180px;
+  object-fit: cover;
+  border-top-left-radius: 1rem;
+  border-top-right-radius: 1rem;
+}
+
+/* === Card title and icon === */
+.card-title {
+  font-weight: 600;
+  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+.card-title i {
+  font-size: 1.3rem;
+  color: var(--accent-color, #00e0ff);
+}
+
+/* === Text === */
+.card-text {
+  opacity: 0.9;
+}
+
+/* === Hover glow — theme accent === */
+.card-glass:hover .card-title,
+.card-glass:hover .card-title i {
+  color: var(--accent-color, #00e0ff) !important;
+  text-shadow: 0 0 6px var(--accent-color, rgba(0, 224, 255, 0.6));
+}
+
+/* === Clean up phantom text/pseudo content === */
+.card::before,
+.card-img-top::before,
+.amenity-img::before {
+  content: none !important;
+}
+
+/* Kill bootstrap link pseudo-elements */
+.stretched-link::after {
+  content: "" !important;
+  background: none !important;
+}
+
+/* Prevent weird Firefox -moz-alt-content pseudo text */
+.amenity-img:-moz-broken,
+.amenity-img:-moz-loading,
+.amenity-img {
+  font-size: 0 !important;
+}
+.amenity-img::before {
+  content: none !important;
+  display: none !important;
+}
+/* === Fix unwanted link blue === */
+.card-glass,
+.card-glass * {
+  color: inherit !important;
+  text-decoration: none !important;
+}
+
+/* === Card titles & icons use theme text color === */
+.card-title,
+.card-title i {
+  color: var(--text-color) !important;
+  text-shadow: none !important;
+}
+
+/* === Subtle accent glow ONLY on hover === */
+.card-glass:hover .card-title,
+.card-glass:hover .card-title i {
+  color: var(--accent-color, var(--text-color)) !important;
+  text-shadow: 0 0 8px var(--accent-color, rgba(255,255,255,0.4));
+}
+
+/* === Prevent accidental link blue override === */
+.card-glass a,
+.card-glass a:visited,
+.card-glass a:active,
+.card-glass a:hover {
+  color: inherit !important;
+  text-decoration: none !important;
+}
+/* Smooth transitions for all cards */
+#amenities .card-glass {
+  transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease;
+  transform-origin: center center;
+}
+
+/* When the section is hovered, all cards shrink slightly */
+#amenities:hover .card-glass {
+  transform: scale(0.9);
+  opacity: 0.85;
+}
+
+/* But the hovered card grows and comes to the front */
+#amenities .card-glass:hover {
+  transform: scale(1.1);
+  opacity: 1;
+  z-index: 5;
+  border-color: var(--accent-color, rgba(255, 255, 255, 0.6));
+  box-shadow: 0 0 25px var(--accent-color, rgba(255, 255, 255, 0.3));
+}
+/* --- MAP --- */
+/* === MAP CONTAINER === */
+.map-container,
+#map {
+  height: 500px;
+  border-radius: 1rem;
+  overflow: hidden;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.25);
+  transition: filter 0.5s ease, brightness 0.5s ease;
+}
+
+/* === THEMED MAP COLOR FILTERS === */
+/* === THEMED MAP COLOR FILTERS === */
+html[bodydata-theme="light"] .leaflet-tile,
+html[data-theme="spring"] .leaflet-tile,
+html[data-theme="summer"] .leaflet-tile {
+  filter: none !important;
+}
+
+html[data-theme="dark"] .leaflet-tile,
+html[data-theme="autumn"] .leaflet-tile {
+  filter: brightness(0.75) saturate(0.9) contrast(1.05) !important;
+}
+
+html[data-theme="winter"] .leaflet-tile {
+  filter: brightness(0.9) saturate(1.1) hue-rotate(10deg) !important;
+}
+
+html[data-theme="dyspraxia"] .leaflet-tile,
+html[data-theme="dyslexia"] .leaflet-tile {
+  filter: brightness(1.05) sepia(0.2) saturate(1.1) !important;
+}
+
+
+/* === INFO BOXES (Glassmorphic) === */
+#routeInfoBox,
+#attractionInfoBox {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 1rem;
+  color: var(--text-color);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  transition: all 0.4s ease;
+}
+
+[data-theme="dark"] #routeInfoBox,
+[data-theme="autumn"] #routeInfoBox,
+[data-theme="dark"] #attractionInfoBox,
+[data-theme="autumn"] #attractionInfoBox {
+  background: rgba(0, 0, 0, 0.25);
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+/* === BUTTON GRID === */
+#church-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+}
+
+#church-buttons .church-btn {
+  flex: 1 1 150px;
+  min-width: 150px;
+  height: 90px;
+  border-radius: 1rem;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(8px);
+  transition: all 0.25s ease-in-out;
+  color: var(--text-color);
+}
+
+#church-buttons .church-btn:hover {
+  transform: scale(1.05);
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.church-btn.active {
+  background: rgba(40, 167, 69, 0.15);
+  border: 1px solid rgba(40, 167, 69, 0.4);
+  box-shadow: 0 0 12px rgba(40, 167, 69, 0.4);
+  transform: translateY(-2px);
+}
+
+[data-theme="dark"] .church-btn.active,
+[data-theme="autumn"] .church-btn.active {
+  background: rgba(72, 255, 200, 0.15);
+  border: 1px solid rgba(72, 255, 200, 0.4);
+  box-shadow: 0 0 12px rgba(72, 255, 200, 0.4);
+}
+
+/* === ROUTE LIST (Scrollable) === */
+#routeInfoBox ol {
+  max-height: 250px;
+  overflow-y: auto;
+  padding-left: 1.2rem;
+  margin: 0;
+}
+
+#routeInfoBox ol li {
+  margin-bottom: 0.25rem;
+  font-size: 0.85rem;
+  line-height: 1.3;
+}
+
+/* === BACK TO TOP === */
+#backToTopBtn {
+  padding: 0.6rem 1.2rem;
+  border-radius: 1rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+#backToTopBtn:hover {
+  transform: translateY(-3px);
+}
+
+/* === RESPONSIVE MOBILE STYLING === */
+@media (max-width: 991px) {
+  #map-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  #map {
+    order: 1;
+    height: 350px !important;
+  }
+
+  #attractionInfoBox {
+    order: 2;
+    width: 100%;
+  }
+
+  #routeInfoBox {
+    order: 3;
+    width: 100%;
+  }
+
+  #church-buttons .church-btn {
+    flex: 1 1 45%;
+    min-width: 120px;
+  }
+
+  #backToTopBtn {
+    display: inline-block !important;
+  }
+}
+#routeInfoBox,
+#attractionInfoBox {
+  background: rgba(255, 255, 255, 0.18);
+  backdrop-filter: blur(14px) saturate(160%);
+  -webkit-backdrop-filter: blur(14px) saturate(160%);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 1rem;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.12);
+  transition: all 0.4s ease;
+}
+
+/* Dark or autumn theme */
+[data-theme="dark"] #routeInfoBox,
+[data-theme="autumn"] #routeInfoBox,
+[data-theme="dark"] #attractionInfoBox,
+[data-theme="autumn"] #attractionInfoBox {
+  background: rgba(0, 0, 0, 0.35);
+  border-color: rgba(255, 255, 255, 0.15);
+}
+/* ===============================
+   GLASS CONTROL BAR — Centered Above Map
+   Fully Themed with Shimmer
+=============================== */
+
+#map {
+  height: 500px;
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+  margin-bottom: 30px;
+}
+
+#start-controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 15px auto 10px;
+  width: 90%;
+  text-align: center;
+}
+
+/* ======================================
+   ROUTE INFO BOX
+   ====================================== */
+#routeInfoBox {
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: 20px;
+  padding: 15px;
+  backdrop-filter: blur(10px);
+  color: var(--text);
+}
+
+/* ======================================
+   ANIMATION CLASSES
+   ====================================== */
+.fade-box {
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+.fade-box.visible {
+  opacity: 1;
+}
+
+/* If user requested reduced motion, turn animation off */
+@media (prefers-reduced-motion: reduce) {
+  .church-btn, button.church-btn { animation: none !important; transition: none !important; }
+}
+.btn-glass,
+.church-btn,
+.nav-glass-btn,
+#reverseRoute,
+#useMyLocation,
+#useDefaultStart,
+#useCustomStart {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(
+    110deg,
+    rgba(255, 255, 255, 0.05) 0%,
+    rgba(255, 255, 255, 0.2) 20%,
+    rgba(255, 255, 255, 0.05) 40%,
+    rgba(255, 255, 255, 0.2) 60%,
+    rgba(255, 255, 255, 0.05) 100%
+  );
+  background-size: 200% 100%;
+  background-repeat: no-repeat;
+  animation: shimmer 3.5s linear infinite;
+  border: 1px solid var(--glass-border);
+  border-radius: 12px;
+  color: var(--text);
+  padding: 8px 16px;
+  font-weight: 500;
+  cursor: pointer;
+  text-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+#church-buttons .col {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+}
+
+.church-btn {
+  flex: 1 1 100%;
+  min-width: 180px;
+  max-width: 220px;
+  text-align: center;
+  height: 48px;
+  line-height: 1.4;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+html[data-theme="light"] .btn-glass,
+html[data-theme="light"] .church-btn {
+  background: linear-gradient(
+    110deg,
+    rgba(255, 255, 255, 0.4) 0%,
+    rgba(255, 255, 255, 0.8) 25%,
+    rgba(255, 255, 255, 0.4) 50%,
+    rgba(255, 255, 255, 0.8) 75%,
+    rgba(255, 255, 255, 0.4) 100%
+  );
+}
+/* ======================================
+   ROUTE INFO BOX (fixed width)
+   ====================================== */
+#routeInfoBox {
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: 20px;
+  padding: 15px;
+  backdrop-filter: blur(10px);
+  color: var(--text);
+  width: 350px;              /* 👈 fixed width */
+  max-width: 90%;            /* responsive cap for smaller screens */
+  box-sizing: border-box;
+  overflow-y: auto;           /* scroll vertically if content too long */
+  overflow-x: hidden;         /* prevent sideways expansion */
+  white-space: normal;        /* allow proper line wrapping */
+  word-wrap: break-word;      /* handle long URLs or instructions */
+  transition: all 0.3s ease;  /* smooth transition */
+}
+
+#routeInfoBox ol,
+#routeInfoBox ul {
+  padding-left: 1.2em;
+  margin: 0;
+}
+
+#routeInfoBox.visible {
+  opacity: 1;
+}
+.glass-panel a {
+  color: var(--text-color);
+  text-decoration: none;
+}
+
+.glass-panel a i {
+  color: currentColor;
+}
+/*sportsbarn css*/
+.booking-modal .modal-body{
+  max-height: calc(100vh - 220px);
+  overflow-y: auto;
+}
+/* =========================================================
+   HOME PAGE: remove the mystery strip above the hero video
+   (covers padding, margins, and spacer pseudo-elements)
+   ========================================================= */
+
+body.home,
+body.home html {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+body.home header.site-header,
+body.home header.site-header::before,
+body.home header.site-header::after {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+body.home main,
+body.home #main-content {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+}
+
+body.home .hero-video {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+  top: 0 !important;
+}
+
+body.home .hero-video::before,
+body.home .hero-video::after {
+  content: none !important;
+  display: none !important;
+}
+/* Home: keep header from reserving layout space while nav overlays hero */
+body.home header.site-header {
+  position: absolute !important;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: auto !important;
+  z-index: 2000;
+}

@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en" id="html-root">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Activities | BBNW</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Poppins:wght@400;600&family=IBM+Plex+Sans:wght@400;600&family=Merriweather:wght@700&family=Nunito:wght@400;700&family=Lato:wght@400;700&display=swap" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="../css/main.css" />
+
+  <style>
+    /* Page-only styles (unique to Activities) */
+    .act-card{
+      overflow:hidden;
+      border-radius:18px;
+      transition: transform .25s ease, box-shadow .25s ease;
+    }
+    .act-card:hover{ transform: translateY(-5px); }
+
+    .act-media{
+      position:relative;
+      height:200px;
+      overflow:hidden;
+    }
+    .act-media img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      display:block;
+      filter: saturate(1.12) contrast(1.06);
+      transform: scale(1.02);
+    }
+    .act-media::after{
+      content:"";
+      position:absolute;
+      inset:0;
+      background: linear-gradient(to bottom, rgba(0,0,0,0) 45%, rgba(0,0,0,.55));
+      pointer-events:none;
+    }
+
+    .act-badge{
+      position:absolute;
+      left:14px;
+      bottom:14px;
+      padding:.5rem .65rem;
+      border-radius: 14px;
+      color:#fff;
+      font-weight: 900;
+      letter-spacing: -.2px;
+      background: rgba(0,0,0,.28);
+      backdrop-filter: blur(6px);
+      border: 1px solid rgba(255,255,255,.18);
+      display:inline-flex;
+      gap:.5rem;
+      align-items:center;
+      font-size: .95rem;
+    }
+
+    .act-body{ padding:1rem 1rem 1.15rem 1rem; }
+  </style>
+</head>
+
+<body>
+  <div class="theme-overlay" aria-hidden="true"></div>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <header><div id="site-nav"></div></header>
+
+  <main id="main-content" role="main" class="container py-4">
+
+    <section class="mb-4">
+      <div class="glass-panel soft-card p-3 p-lg-4 hub-hero">
+        <div class="d-flex align-items-start justify-content-between flex-wrap gap-3">
+          <div>
+            <p class="eyebrow mb-2">Get involved</p>
+            <h1 class="mb-2">Activities</h1>
+            <p class="lead mb-0">From archery and climbing to outdoor challenge activities — explore what we offer.</p>
+          </div>
+
+          <div class="hub-actions">
+            <a class="btn btn-glass btn-glass--primary" href="../pages/how-to-book.html">Plan a visit</a>
+            <a class="btn btn-glass" href="../pages/contact.html?subject=Activities%20enquiry&from=activities">Ask about availability</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="mb-4">
+      <div class="row g-4">
+
+        <div class="col-12 col-md-6 col-lg-4">
+          <article class="glass-panel soft-card h-100 act-card">
+            <div class="act-media">
+              <img src="../assets/media/activities/archery.jpg" alt="Archery activity at the Centre">
+              <div class="act-badge"><i class="fa-solid fa-bullseye" aria-hidden="true"></i> Archery</div>
+            </div>
+            <div class="act-body">
+              <p class="org-muted">A safe, instructor-led activity that’s always popular with groups.</p>
+              <a class="btn btn-glass btn-glass--primary" href="../pages/archery.html">Archery</a>
+            </div>
+          </article>
+        </div>
+
+        <div class="col-12 col-md-6 col-lg-4">
+          <article class="glass-panel soft-card h-100 act-card">
+            <div class="act-media">
+              <img src="../assets/media/activities/climbing.jpg" alt="Climbing and bouldering activities">
+              <div class="act-badge"><i class="fa-solid fa-mountain" aria-hidden="true"></i> Climbing</div>
+            </div>
+            <div class="act-body">
+              <p class="org-muted">Confidence-building climbing sessions with qualified supervision.</p>
+              <a class="btn btn-glass btn-glass--primary" href="../pages/climbing.html">Climbing</a>
+            </div>
+          </article>
+        </div>
+
+        <div class="col-12 col-md-6 col-lg-4">
+          <article class="glass-panel soft-card h-100 act-card">
+            <div class="act-media">
+              <img src="../assets/media/activities/team-challenge.jpg" alt="Team challenge and outdoor activities">
+              <div class="act-badge"><i class="fa-solid fa-people-group" aria-hidden="true"></i> Team Challenge</div>
+            </div>
+            <div class="act-body">
+              <p class="org-muted">Group challenges designed to build teamwork and leadership.</p>
+              <a class="btn btn-glass btn-glass--primary" href="../pages/team-challenge.html">Team challenge</a>
+            </div>
+          </article>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="mb-4">
+      <div class="hub-strip p-3 p-lg-4">
+        <div class="row g-3 align-items-center">
+          <div class="col-12 col-lg-7">
+            <h2 class="h5 mb-1">Planning a residential?</h2>
+            <p class="org-muted mb-0">Use the links below to book, check accommodation, and plan transport.</p>
+          </div>
+          <div class="col-12 col-lg-5">
+            <div class="d-grid gap-2">
+              <a class="hub-pill" href="../pages/accommodation.html"><span>Accommodation</span><i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+              <a class="hub-pill" href="../pages/how-to-book.html"><span>How to book</span><i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+              <a class="hub-pill" href="../pages/transport.html"><span>Transport</span><i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <div id="site-footer"></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement({ pageLanguage: 'en' }, 'google_translate_element_modal');
+    }
+  </script>
+  <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <script defer src="../theme.js"></script>
+  <script defer src="../components/components.js"></script>
+</body>
+</html>
