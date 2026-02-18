@@ -12,16 +12,15 @@ function basePrefix() {
   const path = window.location.pathname || "/";
   let cleaned = path.replace(/^\//, "");
 
-  // Treat "/" and "/index.html" as root
+  // "/" and "/index.html" should be root
   if (!cleaned || cleaned === "index.html") return "";
 
   let parts = cleaned.split("/").filter(Boolean);
 
-  // ✅ GitHub Pages project site fix:
-  // URL is /REPO/... so ignore the repo segment when calculating depth
+  // ✅ GitHub Pages project sites are /REPO/... -> ignore the REPO segment for depth
   const isGitHubPages = /github\.io$/i.test(window.location.hostname);
   if (isGitHubPages && parts.length > 1) {
-    parts = parts.slice(1); // drop "REPO"
+    parts = parts.slice(1); // drop "BBTCAdvanced" (repo name)
   }
 
   // If path ends with "/" treat as folder index
@@ -29,5 +28,6 @@ function basePrefix() {
 
   return "../".repeat(depth);
 }
+
 
 
