@@ -4,24 +4,23 @@
  * - Replaces {{BASE}} tokens inside injected HTML
  */
 
-function basePrefix() {
-  const path = window.location.pathname || "/";
-  const cleaned = path.replace(/^\//, "");
+function siteRoot() {
+  // e.g. "/BBTCAdvanced/pages/terms.html" -> "/BBTCAdvanced/"
+  const parts = window.location.pathname.split("/").filter(Boolean);
 
-  if (!cleaned || cleaned === "index.html") return "";
+  // If hosted at domain root (no repo), return "/"
+  if (parts.length === 0) return "/";
 
-  let parts = cleaned.split("/").filter(Boolean);
+  // If github pages project site OR you're serving from /BBTCAdvanced/ locally
+  // then the first segment is the project folder
+  const isProjectHost =
+    /github\.io$/i.test(window.location.hostname) ||
+    (parts[0] && parts[0].toLowerCase() === "bbtcadvanced");
 
-  // GitHub Pages project sites are /REPO/... so ignore repo segment for depth
-  const isGitHubPages = /github\.io$/i.test(window.location.hostname);
-  if (isGitHubPages && parts.length > 1) parts = parts.slice(1);
-
-  const depth = path.endsWith("/") ? parts.length : Math.max(parts.length - 1, 0);
-  return "../".repeat(depth);
+  return isProjectHost ? `/${parts[0]}/` : "/";
 }
 
-// ✅ GLOBAL base (so nothing can ever say "base is not defined")
-const BASE = basePrefix();
+const ROOT = siteRoot();
 
 async function inject(selector, url) {
   const host = document.querySelector(selector);
@@ -30,39 +29,22 @@ async function inject(selector, url) {
   try {
     const res = await fetch(url, { cache: "no-cache" });
     if (!res.ok) throw new Error(`${res.status} ${res.statusText}`);
-
     let html = await res.text();
-    html = html.replaceAll("{{BASE}}", BASE);
+
+    // Replace {{BASE}} with ROOT (site root, not relative ../)
+    html = html.replaceAll("{{BASE}}", ROOT);
     host.innerHTML = html;
   } catch (err) {
     console.error(`[components] Failed to load ${url}`, err);
   }
 }
 
-function setActiveNav() {
-  const nav = document.querySelector("#site-nav");
-  if (!nav) return;
-
-  const path = window.location.pathname || "/";
-  const page = path.split("/").filter(Boolean).pop() || "index.html";
-
-  nav.querySelectorAll("a[href]").forEach(a => {
-    const href = a.getAttribute("href") || "";
-    const cleaned = href.replace(BASE, "").split("?")[0].split("#")[0];
-    a.classList.toggle("is-active", cleaned === page);
-  });
-}
-
 document.addEventListener("DOMContentLoaded", async () => {
-  // Helpful debug (remove later if you want)
-  console.log("[components] BASE =", BASE);
+  console.log("[components] ROOT =", ROOT);
 
-  await inject("#site-nav", `${BASE}components/nav.html`);
-  await inject("#site-footer", `${BASE}components/footer.html`);
-
-  setActiveNav();
+  await inject("#site-nav", `${ROOT}components/nav.html`);
+  await inject("#site-footer", `${ROOT}components/footer.html`);
 });
-
 
 
 
